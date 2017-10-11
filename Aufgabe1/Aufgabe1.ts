@@ -91,12 +91,12 @@ function init(): void {
    
     
   
-  /*
+  
     crc2.beginPath();
     crc2.arc(0,600,40,0,2);
     crc2.fillStyle = "#FFFFFF";
     crc2.fill();
     crc2.closePath();
     crc2.stroke();
-    */
+   
 }

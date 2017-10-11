@@ -72,13 +72,11 @@ function init() {
     crc2.moveTo(500, 250);
     crc2.lineTo(500, 400);
     crc2.stroke();
-    /*
-      crc2.beginPath();
-      crc2.arc(0,600,40,0,2);
-      crc2.fillStyle = "#FFFFFF";
-      crc2.fill();
-      crc2.closePath();
-      crc2.stroke();
-      */
+    crc2.beginPath();
+    crc2.arc(0, 600, 40, 0, 2);
+    crc2.fillStyle = "#FFFFFF";
+    crc2.fill();
+    crc2.closePath();
+    crc2.stroke();
 }
 //# sourceMappingURL=Aufgabe1.js.map
