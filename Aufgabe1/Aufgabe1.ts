@@ -11,15 +11,15 @@ function init(): void {
     crc2.fillRect(0, 0, 800, 600);
 
    
-    
+    //Berge//
     crc2.beginPath();
     crc2.moveTo(0,200);
     crc2.lineTo(200,10);
-    crc2.lineTo(400,200);
-     crc2.fillStyle = "#585858";
+    crc2.lineTo(800,600);
+    crc2.fillStyle = "#585858";
     crc2.fill();
-    crc2.closePath();
     crc2.stroke();
+    
     
     crc2.beginPath();
     crc2.moveTo(350,200);
@@ -30,6 +30,7 @@ function init(): void {
     crc2.closePath();
     crc2.stroke();
     
+    //Skilift//
     crc2.beginPath();
     crc2.moveTo(900, 0);
     crc2.lineTo(200, 600);
@@ -90,7 +91,7 @@ function init(): void {
     
    
     
-  
+  /*
   
     crc2.beginPath();
     crc2.arc(0,600,40,0,2);
@@ -98,5 +99,6 @@ function init(): void {
     crc2.fill();
     crc2.closePath();
     crc2.stroke();
+    */
    
 }
