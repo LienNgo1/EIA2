@@ -73,6 +73,12 @@ function ski() {
     crc2.moveTo(500, 250);
     crc2.lineTo(500, 400);
     crc2.stroke();
+    crc2.fillRect(600, 150, 50, 30);
+    crc2.fillStyle = "##0101DF";
+    crc2.stroke();
+    crc2.fillRect(350, 350, 50, 30);
+    crc2.fillStyle = "##0101DF";
+    crc2.stroke();
     /*
     
       crc2.beginPath();
