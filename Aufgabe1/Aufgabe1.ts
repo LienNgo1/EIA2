@@ -11,7 +11,7 @@ function ski(): void {
     crc2.fillRect(0, 0, 800, 600);
 
    
-    //Berge//
+    //Bergee//
     crc2.beginPath();
     crc2.moveTo(0,500);
     crc2.lineTo(200,10);

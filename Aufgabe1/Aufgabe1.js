@@ -6,7 +6,7 @@ function ski() {
     console.log(crc2);
     crc2.fillStyle = "#A9F5F2";
     crc2.fillRect(0, 0, 800, 600);
-    //Berge//
+    //Bergee//
     crc2.beginPath();
     crc2.moveTo(0, 500);
     crc2.lineTo(200, 10);
