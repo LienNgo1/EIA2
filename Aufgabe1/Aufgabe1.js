@@ -1,18 +1,18 @@
-window.addEventListener("load", init);
-function init() {
+window.addEventListener("load", ski);
+function ski() {
     let canvas = document.getElementsByTagName("canvas")[0];
     console.log(canvas);
     let crc2 = canvas.getContext("2d");
     console.log(crc2);
     crc2.fillStyle = "#A9F5F2";
     crc2.fillRect(0, 0, 800, 600);
+    //Berge//
     crc2.beginPath();
     crc2.moveTo(0, 200);
     crc2.lineTo(200, 10);
     crc2.lineTo(400, 200);
     crc2.fillStyle = "#585858";
     crc2.fill();
-    crc2.closePath();
     crc2.stroke();
     crc2.beginPath();
     crc2.moveTo(350, 200);
@@ -22,6 +22,7 @@ function init() {
     crc2.fill();
     crc2.closePath();
     crc2.stroke();
+    //Skilift//
     crc2.beginPath();
     crc2.moveTo(900, 0);
     crc2.lineTo(200, 600);

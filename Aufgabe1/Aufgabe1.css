@@ -1,7 +1,33 @@
 /*mobile first*/
 
 canvas{
-	width:51%;
-	height:60%;
-	weight:80%;
+	width:100%;
+
+}
+
+
+/*Tablet Portrait*/
+
+@media screen and (min-width:35.625em){
+	canvas{
+		width:100%;
+	}
+	
+/* Tablet Landscape*/
+
+@media screen and (min-width:48em){
+	canvas{
+		height:600px;
+		width:800px;
+	}
+	
+	
+	/* Desktop*/
+
+@media screen and (min-width: 64em) {
+	canvas{
+		height:600px;
+		width:800px;
+		}
+	
 }
