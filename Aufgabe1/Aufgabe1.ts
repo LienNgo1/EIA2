@@ -13,18 +13,17 @@ function ski(): void {
    
     //Berge//
     crc2.beginPath();
-    crc2.moveTo(0,200);
+    crc2.moveTo(0,500);
     crc2.lineTo(200,10);
-    crc2.lineTo(400,200);
+    crc2.lineTo(400,600);
     crc2.fillStyle = "#585858";
     crc2.fill();
     crc2.stroke();
     
-    
     crc2.beginPath();
-    crc2.moveTo(350,200);
+    crc2.moveTo(100,600);
     crc2.lineTo(550,10);
-    crc2.lineTo(800,200);
+    crc2.lineTo(800,600);
      crc2.fillStyle = "#585858";
     crc2.fill();
     crc2.closePath();
