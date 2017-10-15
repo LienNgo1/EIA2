@@ -1,3 +1,9 @@
+/*Aufgabe: 0 Start: Git, Github und Pages
+Name: Ngo, Thi Lien
+Matrikel: 256778
+Datum: 09.10.2017
+
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 window.addEventListener("load", ski);
 function ski() {
     let canvas = document.getElementsByTagName("canvas")[0];
