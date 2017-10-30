@@ -4,7 +4,7 @@ Matrikel: 256778
 Datum: 17.10.2017
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
-window.addEventListener("load", skipiste);
+window.addEventListener("load", skipiste); //wenn die Seite geladen ist führt es das Event Skipiste aus
 function skipiste() {
     let canvas = document.getElementsByTagName("canvas")[0];
     console.log(canvas);
@@ -109,7 +109,7 @@ function skipiste() {
     for (let i = 0; i < 4; i++) {
         drawconstantTree(600 + i * 60, 500, "#088A29");
     }
-    //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal)
+    //Funktion Bäume zufällig platzieren 
     function drawmovingTree(_x, _y, _color) {
         crc2.beginPath();
         crc2.moveTo(_x, _y);

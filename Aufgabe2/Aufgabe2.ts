@@ -6,7 +6,7 @@ Datum: 17.10.2017
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
 
-window.addEventListener("load", skipiste);
+window.addEventListener("load", skipiste);//wenn die Seite geladen ist führt es das Event Skipiste aus
 
 function skipiste(): void {
     let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
@@ -134,9 +134,11 @@ function skipiste(): void {
         
         drawconstantTree(600 + i * 60, 500, "#088A29");
 }
+    
+
         
 
-//Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal)
+//Funktion Bäume zufällig platzieren 
     
     function drawmovingTree (_x: number, _y: number, _color: string):void{
         crc2.beginPath();
