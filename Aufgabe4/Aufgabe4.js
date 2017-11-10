@@ -107,12 +107,12 @@ var skiski;
         crc2.fillStyle = "#0101DF";
         crc2.fill();
         crc2.stroke();
-        // -------------------------------------------SCHLEIFEN -------------------------------------------------//
+        // -------------------------------------------SCHLEIFEN --------------------------------------------        
         /*   //Sonne untergehen lassen, da keine Wolken!!
            for (let i: number = 0; i < 1; i++) {
                sunX[i] = 80;
                sunY[i] = 80;
-           }
+    }
            */
         //Schneeflocken fallen lassen
         for (let i = 0; i < 500; i++) {
@@ -135,8 +135,8 @@ var skiski;
             fahrer[i] = {
                 x: 800,
                 y: 100,
-                dx: Math.random() * 4 - 7,
-                dy: Math.random() * 10 + 5,
+                dx: Math.random() * 3 - 7,
+                dy: Math.random() * 3 + 5,
                 color: "hsl(" + Math.random() * 360 + ", 100%, 50%)" //100% sättigung, 50% Helligkeit
             };
         }
@@ -199,7 +199,7 @@ var skiski;
         crc2.fill;
         crc2.stroke();
     }
-    //---------------------------------- FUNKTION ANIMATE-----------------------------------------------//
+    //---------------------------------- FUNKTION ANIMATE-----------------------------------------------    
     function animate() {
         console.log("Timeout");
         crc2.clearRect(0, 0, 800, 600); // hier Hintergrund restaurieren
