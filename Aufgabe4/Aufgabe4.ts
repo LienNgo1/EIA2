@@ -6,7 +6,7 @@ Datum: 08.11.2017
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
 namespace skiski {
-    
+
     //Interface
     interface SkifahrerInfo {
         x: number;
@@ -19,29 +19,29 @@ namespace skiski {
     window.addEventListener("load", skipiste2);
     let crc2: CanvasRenderingContext2D
     let fahrer: SkifahrerInfo[] = [];
-    
+
     let arrayX: number[] = [];
     let arrayY: number[] = [];
-    let sunX : number[] = [];
+    let sunX: number[] = [];
     let sunY: number[] = [];
     let skierX: number[] = [];
     let skierY: number[] = [];
     let image: ImageData; //IMAGEDATA!! Nicht any
-    
 
-   //-----------------------------------------Funktion Canvas---------------------------------------------------
+
+    //-----------------------------------------Funktion Canvas---------------------------------------------------
     function skipiste2(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
-        
+
         crc2 = canvas.getContext("2d");
         console.log(crc2);
-  
-        
+
+
         //Hintergrund
         crc2.fillStyle = "#CEF6F5";
         crc2.fillRect(0, 0, 800, 600);
-       
+
         //Berge zeichnen//
         crc2.beginPath();
         crc2.moveTo(0, 500);
@@ -59,7 +59,7 @@ namespace skiski {
         crc2.fill();
         crc2.closePath();
         crc2.stroke();
-        
+
 
         //Skiberg zeichnen//
         crc2.beginPath();
@@ -70,7 +70,7 @@ namespace skiski {
         crc2.fillStyle = "#FFFFFF";
         crc2.fill();
         crc2.stroke();
-        
+
 
         //Sonne
         crc2.beginPath();
@@ -116,7 +116,7 @@ namespace skiski {
         crc2.closePath();
         crc2.stroke();
 
-        
+
         //Skilift zeichnen//
         crc2.beginPath();
         crc2.moveTo(240, 450);
@@ -139,30 +139,29 @@ namespace skiski {
         crc2.fill();
         crc2.stroke();
 
-// -------------------------------------------SCHLEIFEN -------------------------------------------------//
-        
-     /*   //Sonne untergehen lassen, da keine Wolken!!
-        for (let i: number = 0; i < 1; i++) { 
-            sunX[i] = 80; 
-            sunY[i] = 80;
-        }
-        */
+        // -------------------------------------------SCHLEIFEN --------------------------------------------        
+        /*   //Sonne untergehen lassen, da keine Wolken!!
+           for (let i: number = 0; i < 1; i++) { 
+               sunX[i] = 80; 
+               sunY[i] = 80;
+    }
+           */
        
 
         //Schneeflocken fallen lassen
         for (let i: number = 0; i < 500; i++) { //500 Schneeflocken
             arrayX[i] = 0 + Math.random() * 800; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
             arrayY[i] = 0 + Math.random() * 600;
-       // drawSnowflakes(arrayX[i], arrayY[i], 5, 0, 5 * Math.PI, "#ffffff");
+            // drawSnowflakes(arrayX[i], arrayY[i], 5, 0, 5 * Math.PI, "#ffffff");
         }
 
-        
-         //Mehrere konstante Bäume
+
+        //Mehrere konstante Bäume
         for (let i: number = 0; i < 4; i++) {
 
             drawconstantTree(600 + i * 60, 500, "#088A29");
         }
-        
+
 
         //zufällig bewegende Bäume
         for (let i: number = 0; i < 4; i++) {
@@ -171,30 +170,30 @@ namespace skiski {
 
             drawmovingTree(x, y, "#688A08")
         }
-        
+
         //-------------Skifahrer fahren lassen----------- Schleife ändern und aufs Interface zugreifen
         for (let i: number = 0; i < 10; i++) {
-                //Zugriff auf Interface
+            //Zugriff auf Interface
             fahrer[i] = {
                 x: 800, //Startpunkt
                 y: 100,
-                dx: Math.random() * 4 -7,//random= zahl zw 0 und1 -> Veränderung zw -10 und -7 der mein X-Wert verringert
-                dy: Math.random() * 10 + 5,
+                dx: Math.random() * 3 - 7,//random= zahl zw 0 und1 -> Veränderung zw -10 und -7 der mein X-Wert verringert
+                dy: Math.random() * 3 + 5, //dx ist die Veränderung von x
                 color: "hsl(" + Math.random() * 360 + ", 100%, 50%)"//100% sättigung, 50% Helligkeit
-                }
             }
-        
-        
+        }
+
+
         image = crc2.getImageData(0, 0, 800, 600);
 
         animate();
-  
-}
+
+    }
 
 
     /*------------------------- FUNKTIONEN ---------------------------------*/
-    
-      //Sonne zeichnen
+
+    //Sonne zeichnen
     function drawsun(_x: number, _y: number): void {
         crc2.beginPath();
         crc2.arc(_x, _y, 70, 0, 2 * Math.PI);
@@ -202,7 +201,7 @@ namespace skiski {
         crc2.fill();
         crc2.stroke();
     }
-    
+
     //Funktion mehrere konstante Bäume platzieren 
     function drawconstantTree(_x: number, _y: number, _color: string): void {
         crc2.beginPath();
@@ -227,8 +226,8 @@ namespace skiski {
         crc2.fillStyle = _color;
         crc2.fill();
     }
-    
-    
+
+
     //Schneeflocken zeichnen
     function drawsnowflake(_x: number, _y: number): void {
         crc2.fillStyle = "#FFFFFF";
@@ -236,14 +235,14 @@ namespace skiski {
         crc2.arc(_x, _y, 3, 0, 2 * Math.PI);
         crc2.fill();
     }
-    
-    
+
+
     //Skifahrer zeichnen
     function drawAndMoveSkier(_fahrer: SkifahrerInfo): void {
         //X und Y Werte werden um dx und dy erweitert
         _fahrer.x += _fahrer.dx;
         _fahrer.y += _fahrer.dy;
-        
+
         crc2.beginPath();
         crc2.fillStyle = _fahrer.color; // Farbe oben zugreifen
         crc2.fillRect(_fahrer.x, _fahrer.y, 5, - 40);
@@ -257,24 +256,22 @@ namespace skiski {
         crc2.fill;
         crc2.stroke();
     }
-    
-    
-  
-    
 
- 
 
- //---------------------------------- FUNKTION ANIMATE-----------------------------------------------//
-       
-    
-     function animate(): void {
+
+
+
+
+
+    //---------------------------------- FUNKTION ANIMATE-----------------------------------------------    
+    function animate(): void {
         console.log("Timeout");
         crc2.clearRect(0, 0, 800, 600); // hier Hintergrund restaurieren
         crc2.putImageData(image, 0, 0);
-         
-       
-         
-     //Schneeflocken fallen lassen     
+
+
+
+        //Schneeflocken fallen lassen     
         for (let i: number = 0; i < arrayX.length; i++) {
             if (arrayY[i] > 600) {
                 arrayY[i] = 0;
@@ -282,36 +279,36 @@ namespace skiski {
             arrayY[i] += Math.random(); // andere Bewegungsmuster zu finden
             drawsnowflake(arrayX[i], arrayY[i]);
         }
-         
-         
-      //Skifahrer    
-      for (let i: number = 0; i < fahrer.length; i++) {
-          drawAndMoveSkier (fahrer [i]);
-          if (fahrer[i].y >700){
-               fahrer[i].x = 800;
-               fahrer[i].y = 230;
+
+
+        //Skifahrer    
+        for (let i: number = 0; i < fahrer.length; i++) {
+            drawAndMoveSkier(fahrer[i]);
+            if (fahrer[i].y > 700) {
+                fahrer[i].x = 800;
+                fahrer[i].y = 230;
             }
         }
-         
-         //Sonne bewegen
-         for (let i: number = 0; i < sunX.length; i++) {
+
+        //Sonne bewegen
+        for (let i: number = 0; i < sunX.length; i++) {
             if (sunY[i] > 600) { //
                 sunY[i] = 10;
-               
+
             }
-             //sunY[i] += Math.random();
+            //sunY[i] += Math.random();
             sunY[i] += 1; // immer 1 wird zu Y dazugezählt
             sunX[i] += 3; //immer 3 wird zu X dazugezählt
             drawsun(sunX[i], sunY[i]);
-             
-            
-        
-          }
-         
-       
-         
-         window.setTimeout(animate, 10);
+
+
+
+        }
+
+
+
+        window.setTimeout(animate, 10);
     }
 
 }
-    
+
