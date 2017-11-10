@@ -1,24 +1,22 @@
-/*Aufgabe: Aufgabe: 3 Schneegestöber
+/*Aufgabe 4: Assoziative Skipiste
 Name: Ngo, Thi Lien
 Matrikel: 256778
-Datum: 25.10.2017
+Datum: 08.11.2017
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var skiski;
 (function (skiski) {
     window.addEventListener("load", skipiste2);
     let crc2;
+    let fahrer = [];
     let arrayX = [];
     let arrayY = [];
     let sunX = [];
     let sunY = [];
-    let mountainX = [];
-    let mountainY = [];
     let skierX = [];
     let skierY = [];
-    let image;
-    let Himmelimage; //IMAGEDATA!! Nicht any
-    let Bergeimage;
+    let image; //IMAGEDATA!! Nicht any
+    //-----------------------------------------Funktion Canvas---------------------------------------------------
     function skipiste2() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -27,7 +25,6 @@ var skiski;
         //Hintergrund
         crc2.fillStyle = "#CEF6F5";
         crc2.fillRect(0, 0, 800, 600);
-        //Himmelimage = crc2.getImageData(0, 0, 800, 600);
         //Berge zeichnen//
         crc2.beginPath();
         crc2.moveTo(0, 500);
@@ -53,12 +50,12 @@ var skiski;
         crc2.fillStyle = "#FFFFFF";
         crc2.fill();
         crc2.stroke();
-        //Sonne//
-        //crc2.beginPath();
-        //crc2.arc(73, 73, 70, 0, 2 * Math.PI);
-        //crc2.fillStyle = "#FFFF00";
-        //crc2.fill();
-        //crc2.stroke();
+        //Sonne
+        crc2.beginPath();
+        crc2.arc(73, 73, 70, 0, 2 * Math.PI);
+        crc2.fillStyle = "#FFFF00";
+        crc2.fill();
+        crc2.stroke();
         //Bäume zeichnen//
         crc2.beginPath();
         crc2.moveTo(10, 600);
@@ -110,22 +107,17 @@ var skiski;
         crc2.fillStyle = "#0101DF";
         crc2.fill();
         crc2.stroke();
-        //Bergeimage = crc2.getImageData(0, 0, 800, 600);
         // -------------------------------------------SCHLEIFEN -------------------------------------------------//
-        //Sonne untergehen lassen, da keine Wolken!!
-        for (let i = 0; i < 1; i++) {
-            sunX[i] = 80;
-            sunY[i] = 80;
-        }
+        /*   //Sonne untergehen lassen, da keine Wolken!!
+           for (let i: number = 0; i < 1; i++) {
+               sunX[i] = 80;
+               sunY[i] = 80;
+           }
+           */
         //Schneeflocken fallen lassen
         for (let i = 0; i < 500; i++) {
             arrayX[i] = 0 + Math.random() * 800; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
             arrayY[i] = 0 + Math.random() * 600;
-        }
-        //Skifahrer fahren lassen
-        for (let i = 0; i < 10; i++) {
-            skierX[i] = 700 + Math.random() * 100; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
-            skierY[i] = 200 + Math.random() * 600;
         }
         //Mehrere konstante Bäume
         for (let i = 0; i < 4; i++) {
@@ -137,6 +129,17 @@ var skiski;
             let y = 400 + Math.random() * 100;
             drawmovingTree(x, y, "#688A08");
         }
+        //-------------Skifahrer fahren lassen----------- Schleife ändern und aufs Interface zugreifen
+        for (let i = 0; i < 10; i++) {
+            //Zugriff auf Interface
+            fahrer[i] = {
+                x: 800,
+                y: 100,
+                dx: Math.random() * 4 - 7,
+                dy: Math.random() * 10 + 5,
+                color: "hsl(" + Math.random() * 360 + ", 100%, 50%)" //100% sättigung, 50% Helligkeit
+            };
+        }
         image = crc2.getImageData(0, 0, 800, 600);
         animate();
     }
@@ -147,24 +150,6 @@ var skiski;
         crc2.arc(_x, _y, 70, 0, 2 * Math.PI);
         crc2.fillStyle = "#FFFF00";
         crc2.fill();
-        crc2.stroke();
-    }
-    //Berge zeichnen
-    function drawmountain(_x, _y) {
-        crc2.beginPath();
-        crc2.moveTo(0, 500);
-        crc2.lineTo(200, 10);
-        crc2.lineTo(400, 600);
-        crc2.fillStyle = "#585858";
-        crc2.fill();
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(100, 600);
-        crc2.lineTo(550, 10);
-        crc2.lineTo(800, 600);
-        crc2.fillStyle = "#A4A4A4";
-        crc2.fill();
-        crc2.closePath();
         crc2.stroke();
     }
     //Funktion mehrere konstante Bäume platzieren 
@@ -197,28 +182,44 @@ var skiski;
         crc2.fill();
     }
     //Skifahrer zeichnen
-    function drawSkier(_x, _y) {
+    function drawAndMoveSkier(_fahrer) {
+        //X und Y Werte werden um dx und dy erweitert
+        _fahrer.x += _fahrer.dx;
+        _fahrer.y += _fahrer.dy;
         crc2.beginPath();
-        crc2.fillStyle = "#070B19";
-        crc2.fillRect(_x, _y, 5, -40);
+        crc2.fillStyle = _fahrer.color; // Farbe oben zugreifen
+        crc2.fillRect(_fahrer.x, _fahrer.y, 5, -40);
         crc2.beginPath();
-        crc2.arc(_x + 3, _y - 50, 10, 0, 10 * Math.PI);
-        crc2.fillStyle = "#070B19";
+        crc2.arc(_fahrer.x + 3, _fahrer.y - 50, 10, 0, 10 * Math.PI);
+        crc2.fillStyle = _fahrer.color;
         crc2.fill();
         crc2.stroke();
-        crc2.moveTo(_x + 20, _y - 10);
-        crc2.lineTo(_x - 20, _y + 10);
+        crc2.moveTo(_fahrer.x + 20, _fahrer.y - 10);
+        crc2.lineTo(_fahrer.x - 20, _fahrer.y + 10);
         crc2.fill;
         crc2.stroke();
     }
-    // function drawStaticObj {
-    // alle statischen Bäume, Berge etc, statt in der init function
-    //}
     //---------------------------------- FUNKTION ANIMATE-----------------------------------------------//
     function animate() {
         console.log("Timeout");
         crc2.clearRect(0, 0, 800, 600); // hier Hintergrund restaurieren
-        crc2.putImageData(Himmelimage, 0, 0);
+        crc2.putImageData(image, 0, 0);
+        //Schneeflocken fallen lassen     
+        for (let i = 0; i < arrayX.length; i++) {
+            if (arrayY[i] > 600) {
+                arrayY[i] = 0;
+            }
+            arrayY[i] += Math.random(); // andere Bewegungsmuster zu finden
+            drawsnowflake(arrayX[i], arrayY[i]);
+        }
+        //Skifahrer    
+        for (let i = 0; i < fahrer.length; i++) {
+            drawAndMoveSkier(fahrer[i]);
+            if (fahrer[i].y > 700) {
+                fahrer[i].x = 800;
+                fahrer[i].y = 230;
+            }
+        }
         //Sonne bewegen
         for (let i = 0; i < sunX.length; i++) {
             if (sunY[i] > 600) {
@@ -228,41 +229,8 @@ var skiski;
             sunY[i] += 1; // immer 1 wird zu Y dazugezählt
             sunX[i] += 3; //immer 3 wird zu X dazugezählt
             drawsun(sunX[i], sunY[i]);
-            //Berge malen
-            //drawStaticObj()
-            //for (let i: number = 0; i < mountainX.length; i++) {
-            //  drawmountain(mountainX[i], mountain[i]);
-            //}
-            //Schneeflocken fallen lassen     
-            for (let i = 0; i < arrayX.length; i++) {
-                if (arrayY[i] > 600) {
-                    arrayY[i] = 0;
-                }
-                arrayY[i] += Math.random(); // andere Bewegungsmuster zu finden
-                drawsnowflake(arrayX[i], arrayY[i]);
-            }
-            //Skifahrer    
-            for (let i = 0; i < skierX.length; i++) {
-                skierX[i] -= 2;
-                skierY[i] += 3;
-                drawSkier(skierX[i], skierY[i]);
-                if (skierY[i] > 600) {
-                    skierY[i] = 100; //Startpunkt 100 auf der Y Achse, nachdem er unten angekommen ist 
-                    skierX[i] = 800; //Startpunkt 800 auf der X Achse, nachdem er unten angekommen ist 
-                }
-            }
-            //Sonne bewegen
-            for (let i = 0; i < sunX.length; i++) {
-                if (sunY[i] > 600) {
-                    sunY[i] = 10;
-                }
-                //sunY[i] += Math.random();
-                sunY[i] += 1; // immer 1 wird zu Y dazugezählt
-                sunX[i] += 3; //immer 3 wird zu X dazugezählt
-                drawsun(sunX[i], sunY[i]);
-            }
-            window.setTimeout(animate, 10);
         }
+        window.setTimeout(animate, 10);
     }
 })(skiski || (skiski = {}));
-//# sourceMappingURL=Aufgabe3.js.map
+//# sourceMappingURL=Aufgabe4.js.map
