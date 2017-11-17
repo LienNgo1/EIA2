@@ -1,0 +1,41 @@
+/*Aufgabe 5: OOSkipiste
+Name: Ngo, Thi Lien
+Matrikel: 256778
+Datum: 16.11.2017
+
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
+
+/*mobile first*/
+
+canvas{
+	width:100%;
+
+}
+
+
+/*Tablet Portrait*/
+
+@media screen and (min-width:35.625em){
+	canvas{
+		width:99%;
+	}
+	
+/* Tablet Landscape*/
+
+@media screen and (min-width:48em){
+	canvas{
+		height:600px;
+		width:800px;
+	}
+	
+	
+	/* Desktop*/
+
+@media screen and (min-width: 64em) {
+	canvas{
+		height:600px;
+		width:800px;
+		}
+	
+}

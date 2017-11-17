@@ -8,7 +8,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace skiski {
 
     //Interface
-    interface SkifahrerInfo {
+    interface SkifahrerInfo { //
         x: number;
         y: number;
         dx: number;
@@ -18,14 +18,14 @@ namespace skiski {
 
     window.addEventListener("load", skipiste2);
     let crc2: CanvasRenderingContext2D
-    let fahrer: SkifahrerInfo[] = [];
+    let fahrer: SkifahrerInfo[] = []; //variable, die heisst fahrer, typ: skifahrerinfo interface
 
-    let arrayX: number[] = [];
+    let arrayX: number[] = []; 
     let arrayY: number[] = [];
     let sunX: number[] = [];
     let sunY: number[] = [];
-    let skierX: number[] = [];
-    let skierY: number[] = [];
+   // let skierX: number[] = [];
+    //let skierY: number[] = [];
     let image: ImageData; //IMAGEDATA!! Nicht any
 
 
@@ -174,7 +174,7 @@ namespace skiski {
         //-------------Skifahrer fahren lassen----------- Schleife ändern und aufs Interface zugreifen
         for (let i: number = 0; i < 10; i++) {
             //Zugriff auf Interface
-            fahrer[i] = {
+            fahrer[i] = { //array greift oben zu
                 x: 800, //Startpunkt
                 y: 100,
                 dx: Math.random() * 3 - 7,//random= zahl zw 0 und1 -> Veränderung zw -10 und -7 der mein X-Wert verringert
@@ -238,9 +238,9 @@ namespace skiski {
 
 
     //Skifahrer zeichnen
-    function drawAndMoveSkier(_fahrer: SkifahrerInfo): void {
+    function drawAndMoveSkier(_fahrer: SkifahrerInfo): void { //variable die aufs Interface zugreift 
         //X und Y Werte werden um dx und dy erweitert
-        _fahrer.x += _fahrer.dx;
+        _fahrer.x += _fahrer.dx; //x werte werten um dx werte erweitert die ich definiert hab
         _fahrer.y += _fahrer.dy;
 
         crc2.beginPath();
@@ -284,6 +284,7 @@ namespace skiski {
         //Skifahrer    
         for (let i: number = 0; i < fahrer.length; i++) {
             drawAndMoveSkier(fahrer[i]);
+            
             if (fahrer[i].y > 700) {
                 fahrer[i].x = 800;
                 fahrer[i].y = 230;
@@ -307,7 +308,7 @@ namespace skiski {
 
 
 
-        window.setTimeout(animate, 10);
+        window.setTimeout(animate, 20);
     }
 
 }

@@ -10,7 +10,7 @@ namespace skiski {
     window.addEventListener("load", skipiste2);
     let crc2: CanvasRenderingContext2D
     
-    let arrayX: number[] = [];
+    let arrayX: number[] = [];// array für schnee für den X Wert
     let arrayY: number[] = [];
     let sunX : number[] = [];
     let sunY: number[] = [];
@@ -18,7 +18,7 @@ namespace skiski {
     let mountainY: number[] = [];
     let skierX: number[] = [];
     let skierY: number[] = [];
-    let image: ImageData;
+    let image: ImageData; // Hintergrundbild - Variable die heisst image - vom typ imagedata Hintergrundbild wird gespeichert
     let Himmelimage: ImageData; //IMAGEDATA!! Nicht any
     let Bergeimage: ImageData;
     
@@ -138,14 +138,14 @@ namespace skiski {
 // -------------------------------------------SCHLEIFEN -------------------------------------------------//
         
         //Sonne untergehen lassen, da keine Wolken!!
-        for (let i: number = 0; i < 1; i++) { 
+        for (let i: number = 0; i < 1; i++) {  //
             sunX[i] = 80; 
             sunY[i] = 80;
         }
        
 
         //Schneeflocken fallen lassen
-        for (let i: number = 0; i < 500; i++) { //500 Schneeflocken
+        for (let i: number = 0; i < 500; i++) { //500 Schneeflocken Zählvariable i zählt bis 500 bei jedem Durchgang wirs um 1 erhöht wg. i++
             arrayX[i] = 0 + Math.random() * 800; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
             arrayY[i] = 0 + Math.random() * 600;
        // drawSnowflakes(arrayX[i], arrayY[i], 5, 0, 5 * Math.PI, "#ffffff");
@@ -184,7 +184,7 @@ namespace skiski {
     /*------------------------- FUNKTIONEN ---------------------------------*/
     
       //Sonne zeichnen
-    function drawsun(_x: number, _y: number): void {
+    function drawsun(_x: number, _y: number): void { //parameter, die ich in meier funktion verwenden will 
         crc2.beginPath();
         crc2.arc(_x, _y, 70, 0, 2 * Math.PI);
         crc2.fillStyle = "#FFFF00";
@@ -283,7 +283,7 @@ namespace skiski {
          
       
      //Sonne bewegen
-         for (let i: number = 0; i < sunX.length; i++) {
+         for (let i: number = 0; i < sunX.length; i++) { //was passiert, wenn... + veränderung der x und y werte
             if (sunY[i] > 600) { //
                 sunY[i] = 10;  
             }

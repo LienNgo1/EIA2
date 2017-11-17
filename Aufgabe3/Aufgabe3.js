@@ -8,7 +8,7 @@ var skiski;
 (function (skiski) {
     window.addEventListener("load", skipiste2);
     let crc2;
-    let arrayX = [];
+    let arrayX = []; // array für schnee für den X Wert
     let arrayY = [];
     let sunX = [];
     let sunY = [];
@@ -16,7 +16,7 @@ var skiski;
     let mountainY = [];
     let skierX = [];
     let skierY = [];
-    let image;
+    let image; // Hintergrundbild - Variable die heisst image - vom typ imagedata Hintergrundbild wird gespeichert
     let Himmelimage; //IMAGEDATA!! Nicht any
     let Bergeimage;
     function skipiste2() {
