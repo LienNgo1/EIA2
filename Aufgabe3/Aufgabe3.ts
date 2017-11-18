@@ -10,7 +10,7 @@ namespace skiski {
     window.addEventListener("load", skipiste2);
     let crc2: CanvasRenderingContext2D
     
-    let arrayX: number[] = [];// array für schnee für den X Wert
+    let arrayX: number[] = [];// array für schnee für den X Wert, datentyp: number
     let arrayY: number[] = [];
     let sunX : number[] = [];
     let sunY: number[] = [];
@@ -153,7 +153,7 @@ namespace skiski {
         
         
         //Skifahrer fahren lassen
-        for (let i: number = 0; i < 10; i++) {
+        for (let i: number = 0; i < 10; i++) { //hier wird nur der x und y wert geändert
             skierX[i] = 700 + Math.random() * 100; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
             skierY[i] = 200 + Math.random() * 600;    
         }
@@ -162,7 +162,7 @@ namespace skiski {
          //Mehrere konstante Bäume
         for (let i: number = 0; i < 4; i++) {
 
-            drawconstantTree(600 + i * 60, 500, "#088A29");
+            drawconstantTree(600 + i * 60, 500, "#088A29"); //x-wert startet bei 600, da i=0 und erweitert sich um 60
         }
         
 

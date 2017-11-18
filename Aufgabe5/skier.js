@@ -1,18 +1,21 @@
 var skiski;
 (function (skiski) {
     class skier {
-        constructor(_x, _y, _color) {
+        constructor(_x, _y, _dx, _dy, _color) {
             this.x = _x;
             this.y = _y;
+            this.dx = _dx;
+            this.dy = _dy;
             this.color = _color;
         }
         move() {
             if (this.x > 850) {
                 this.x = 0;
             }
-            this.x += Math.random();
+            this.x += this.dx;
+            this.y += this.dy;
+            // this.color =  "hsl(" + Math.random() * 360 + ", 45%, 65%)";
             this.draw();
-            this.color = "hsl(" + Math.random() * 360 + ", 45%, 65%)";
         }
         draw() {
             skiski.crc2.beginPath();

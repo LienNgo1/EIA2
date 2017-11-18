@@ -14,8 +14,8 @@ namespace skiski {
     let i: number;
     let image: ImageData;
     
-    let skier: skier [] = [];
-    let array: array [] = [];
+    let skierzwei: skier [] = [];
+    let snowflakes: snow [] = [];
     let sun: sun [] = [];
     
     
@@ -124,8 +124,8 @@ namespace skiski {
         // -------------------------------------------SCHLEIFEN --------------------------------------------        
 
         //Schneeflocken fallen lassen
-        for (i = 0; i < 140; i++)  {
-        array[i] = new array (Math.random() * 800, Math.random() * 600);
+        for (i = 0; i < 140; i++) {
+        snowflakes[i] = new snow (Math.random() *800, Math.random()*600);
         }
 
 
@@ -144,7 +144,7 @@ namespace skiski {
 
         //-------------Skifahrer fahren lassen----------- Schleife ändern und aufs Interface zugreifen
             for ( i = 0; i < 5; i++) {
-            skier[i] = new skier (800, 100, Math.random() * 3 - 7, Math.random() * 3 + 5, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+            skierzwei[i] = new skier (800,100, Math.random() * 3 - 10, Math.random()* 3+5, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
              }
    
 
@@ -194,22 +194,25 @@ namespace skiski {
 
 
         //Schneeflocken fallen lassen     
-        for (i = 0; i < array.length; i++) {
-            let s: array = array[i];
+        for (i = 0; i < snow.length; i++) {
+            let s: snow = snowflakes[i];
             s.move();
+            
         }
 
 
         //Skifahrer    
         for (i = 0; i < skier.length; i++) {
-            let s: skier = skier[i];
+            let s: skier = skierzwei[i];
             s.move();
+            
         }
 
         //Sonne bewegen
         for (i = 0; i < sun.length; i++) {
             let s: sun = sun[i];
             s.move();
+   
 
         }
         window.setTimeout(animate, 20);

@@ -9,8 +9,8 @@ var skiski;
     window.addEventListener("load", skipiste2);
     let i;
     let image;
-    let skier = [];
-    let array = [];
+    let skierzwei = [];
+    let snowflakes = [];
     let sun = [];
     //-----------------------------------------Funktion Canvas---------------------------------------------------
     function skipiste2() {
@@ -98,39 +98,27 @@ var skiski;
         skiski.crc2.fill();
         skiski.crc2.stroke();
         // -------------------------------------------SCHLEIFEN --------------------------------------------        
-        /*
-                //Schneeflocken fallen lassen
-                for (i = 0; i < 140; i++)  {
-                array[i] = new array (Math.random() * 800, Math.random() * 600);
-                }
-        
-        
-                //Mehrere konstante Bäume
-                for (let i: number = 0; i < 4; i++) {
-                    drawconstantTree(600 + i * 60, 500, "#088A29");
-                }
-        
-        
-                //zufällig bewegende Bäume
-                for (let i: number = 0; i < 4; i++) {
-                    let x: number = 100 + Math.random() * 600;
-                    let y: number = 400 + Math.random() * 100;
-                    drawmovingTree(x, y, "#688A08")
-                }
-        
-                //-------------Skifahrer fahren lassen----------- Schleife ändern und aufs Interface zugreifen
-                    for ( i = 0; i < 5; i++) {
-                    skier[i] = new skier (800, 100, Math.random() * 3 - 7, Math.random() * 3 + 5, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
-                     }
-           
-        
-                //Bild als Hintergrund speichern!! //
-                image = crc2.getImageData(0, 0, 800, 600);
-        
-                animate();
-        
-            }
-        */
+        //Schneeflocken fallen lassen
+        for (i = 0; i < 140; i++) {
+            snowflakes[i] = new skiski.snow(Math.random() * 800, Math.random() * 600);
+        }
+        //Mehrere konstante Bäume
+        for (let i = 0; i < 4; i++) {
+            drawconstantTree(600 + i * 60, 500, "#088A29");
+        }
+        //zufällig bewegende Bäume
+        for (let i = 0; i < 4; i++) {
+            let x = 100 + Math.random() * 600;
+            let y = 400 + Math.random() * 100;
+            drawmovingTree(x, y, "#688A08");
+        }
+        //-------------Skifahrer fahren lassen----------- Schleife ändern und aufs Interface zugreifen
+        for (i = 0; i < 5; i++) {
+            skierzwei[i] = new skiski.skier(800, 100, Math.random() * 3 - 10, Math.random() * 3 + 5, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
+        }
+        //Bild als Hintergrund speichern!! //
+        image = skiski.crc2.getImageData(0, 0, 800, 600);
+        animate();
     }
     /*------------------------- FUNKTIONEN ---------------------------------*/
     //Funktion mehrere konstante Bäume platzieren 
@@ -161,13 +149,13 @@ var skiski;
         skiski.crc2.clearRect(0, 0, 800, 600); // hier Hintergrund restaurieren
         skiski.crc2.putImageData(image, 0, 0);
         //Schneeflocken fallen lassen     
-        for (i = 0; i < array.length; i++) {
-            let s = array[i];
+        for (i = 0; i < skiski.snow.length; i++) {
+            let s = snowflakes[i];
             s.move();
         }
         //Skifahrer    
-        for (i = 0; i < skier.length; i++) {
-            let s = skier[i];
+        for (i = 0; i < skiski.skier.length; i++) {
+            let s = skierzwei[i];
             s.move();
         }
         //Sonne bewegen

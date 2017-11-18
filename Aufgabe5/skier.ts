@@ -2,11 +2,15 @@ namespace skiski {
     export class skier{
         x: number;
         y: number;
+        dx: number;
+        dy: number;
         color: string;
         
-        constructor(_x: number, _y: number, _color: string){
+        constructor(_x: number, _y: number, _dx: number, _dy: number,_color: string){
             this.x = _x;
             this.y = _y;
+            this.dx = _dx;
+            this.dy = _dy;
             this.color = _color;
             
             }
@@ -17,10 +21,13 @@ namespace skiski {
                 this.x = 0;
             }
 
-            this.x += Math.random();
+            this.x +=  this.dx;
+            this.y +=  this.dy;
+         
 
+          
+           // this.color =  "hsl(" + Math.random() * 360 + ", 45%, 65%)";
             this.draw();
-            this.color =  "hsl(" + Math.random() * 360 + ", 45%, 65%)";
         }
         
         draw(): void{

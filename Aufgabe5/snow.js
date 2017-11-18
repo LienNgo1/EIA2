@@ -1,6 +1,6 @@
 var skiski;
 (function (skiski) {
-    class array {
+    class snow {
         constructor(_x, _y) {
             this.x = _x;
             this.y = _y;
@@ -9,7 +9,7 @@ var skiski;
             if (this.y > 600) {
                 this.y = 0;
             }
-            this.y += Math.random();
+            this.y += Math.random(); //y wird erweitert um random
             this.draw();
         }
         draw() {
@@ -19,6 +19,6 @@ var skiski;
             skiski.crc2.fill();
         }
     }
-    skiski.array = array;
+    skiski.snow = snow;
 })(skiski || (skiski = {}));
-//# sourceMappingURL=array.js.map
+//# sourceMappingURL=snow.js.map

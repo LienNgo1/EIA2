@@ -8,7 +8,7 @@ var skiski;
 (function (skiski) {
     window.addEventListener("load", skipiste2);
     let crc2;
-    let arrayX = []; // array für schnee für den X Wert
+    let arrayX = []; // array für schnee für den X Wert, datentyp: number
     let arrayY = [];
     let sunX = [];
     let sunY = [];
@@ -129,7 +129,7 @@ var skiski;
         }
         //Mehrere konstante Bäume
         for (let i = 0; i < 4; i++) {
-            drawconstantTree(600 + i * 60, 500, "#088A29");
+            drawconstantTree(600 + i * 60, 500, "#088A29"); //x-wert startet bei 600, da i=0 und erweitert sich um 60
         }
         //zufällig bewegende Bäume
         for (let i = 0; i < 4; i++) {

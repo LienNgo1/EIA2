@@ -1,5 +1,5 @@
 namespace skiski {
-    export class array {
+    export class snow {
         x: number;
         y: number;
     
@@ -14,7 +14,7 @@ namespace skiski {
                 this.y = 0;
             }
 
-            this.y += Math.random();
+            this.y += Math.random(); //y wird erweitert um random
 
             this.draw();
         }
