@@ -9,7 +9,7 @@ var skiski;
             this.color = _color;
         }
         move() {
-            if (this.x > 850) {
+            if (this.x > 800) {
                 this.x = 0;
             }
             this.x += this.dx;

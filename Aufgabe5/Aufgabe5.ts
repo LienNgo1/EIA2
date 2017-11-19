@@ -205,15 +205,12 @@ namespace skiski {
         for (i = 0; i < skier.length; i++) {
             let s: skier = skierzwei[i];
             s.move();
-            
         }
 
         //Sonne bewegen
         for (i = 0; i < sun.length; i++) {
             let s: sun = sun[i];
             s.move();
-   
-
         }
         window.setTimeout(animate, 20);
     }
