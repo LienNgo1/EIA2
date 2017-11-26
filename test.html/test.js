@@ -7,7 +7,7 @@ var aufgabe3;
     //    
     //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
     window.addEventListener("load", ski2);
-    let crc2;
+    let crc2, CanvasRenderingContext2D;
     let arrayX = [];
     let arrayY = [];
     let cloudX = [];
@@ -19,7 +19,7 @@ var aufgabe3;
     var image;
     function ski2() {
         let canvas = document.getElementsByTagName("canvas")[0];
-        crc2 = canvas.getContext("2d");
+        crc2. = canvas.getContext("2d");
         for (let i = 0; i < 1; i++) {
             gondelX[i] = 0;
             gondelY[i] = 100;
@@ -123,7 +123,7 @@ var aufgabe3;
 
 namespace L03 {
     window.addEventListener("load", init);
-    let crc2: CanvasRenderingContext2D;
+    let crc2.: CanvasRenderingContext2D;
     let arrayX: number[] = [];
     let arrayY: number[] = [];
 
@@ -132,8 +132,8 @@ namespace L03 {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
 
-        crc2 = canvas.getContext("2d");
-        console.log(crc2);
+        crc2. = canvas.getContext("2d");
+        console.log(crc2.);
 
         console.log("setTimeout");
         animate();

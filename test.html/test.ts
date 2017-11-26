@@ -8,7 +8,7 @@ namespace aufgabe3 {
     //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
     window.addEventListener("load", ski2);
 
-    let crc2: CanvasRenderingContext2D;
+    let crc2.: CanvasRenderingContext2D;
     let arrayX: number[] = [];
     let arrayY: number[] = [];
     let cloudX: number[] = [];
@@ -23,7 +23,7 @@ namespace aufgabe3 {
     function ski2(): void {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
 
-        crc2 = canvas.getContext("2d");
+        crc2. = canvas.getContext("2d");
 
  
 
@@ -160,7 +160,7 @@ namespace aufgabe3 {
 
 namespace L03 {
     window.addEventListener("load", init);
-    let crc2: CanvasRenderingContext2D;
+    let crc2.: CanvasRenderingContext2D;
     let arrayX: number[] = [];
     let arrayY: number[] = [];
 
@@ -169,8 +169,8 @@ namespace L03 {
         let canvas: HTMLCanvasElement = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
 
-        crc2 = canvas.getContext("2d");
-        console.log(crc2);
+        crc2. = canvas.getContext("2d");
+        console.log(crc2.);
 
         console.log("setTimeout");
         animate();
