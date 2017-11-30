@@ -1,11 +1,9 @@
-namespace skiski {
-    export class snow {
-        x: number;
-        y: number;
+namespace Aufgabe6 {
+    export class snow extends MovingObjects{
+       
     
         constructor (_x: number, _y: number) {
-            this.x = _x;
-            this.y = _y;
+            super(_x,_y);
         }
         
         move(): void {

@@ -1,21 +1,20 @@
-var skiski;
-(function (skiski) {
-    class sun {
+var Aufgabe6;
+(function (Aufgabe6) {
+    class sun extends Aufgabe6.MovingObjects {
         constructor(_x, _y) {
-            this.x = _x;
-            this.y = _y;
+            super(_x, _y);
         }
         move() {
             this.draw();
         }
         draw() {
-            skiski.crc2.beginPath();
-            skiski.crc2.arc(73, 73, 70, 0, 2 * Math.PI);
-            skiski.crc2.fillStyle = "#FFFF00";
-            skiski.crc2.fill();
-            skiski.crc2.stroke();
+            Aufgabe6.crc2.beginPath();
+            Aufgabe6.crc2.arc(73, 73, 70, 0, 2 * Math.PI);
+            Aufgabe6.crc2.fillStyle = "#FFFF00";
+            Aufgabe6.crc2.fill();
+            Aufgabe6.crc2.stroke();
         }
     }
-    skiski.sun = sun;
-})(skiski || (skiski = {}));
+    Aufgabe6.sun = sun;
+})(Aufgabe6 || (Aufgabe6 = {}));
 //# sourceMappingURL=sun.js.map

@@ -1,16 +1,14 @@
-namespace skiski    {
+namespace Aufgabe6    {
     
-    export class sun {
-        x: number;
-        y: number;
+    export class sun extends MovingObjects { // Subklasse greift auf die Superklasse
+      
     
         constructor (_x: number, _y: number) {
-            this.x = _x;
-            this.y = _y;
+            super(_x,_y);
+        
         }
      move(): void {
       
-
             this.draw();
             }
       draw(): void{

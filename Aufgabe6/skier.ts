@@ -1,14 +1,12 @@
-namespace skiski {
-    export class Skier{
-        x: number;
-        y: number;
+namespace Aufgabe6 {
+    export class skier extends MovingObjects {
+        
         dx: number;
         dy: number;
         color: string;
         
         constructor(_x: number, _y: number, _dx: number, _dy: number,_color: string){
-            this.x = _x;
-            this.y = _y;
+           super(_x,_y);
             this.dx = _dx;
             this.dy = _dy;
             this.color = _color;

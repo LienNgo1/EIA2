@@ -1,9 +1,8 @@
-var skiski;
-(function (skiski) {
-    class snow {
+var Aufgabe6;
+(function (Aufgabe6) {
+    class snow extends Aufgabe6.MovingObjects {
         constructor(_x, _y) {
-            this.x = _x;
-            this.y = _y;
+            super(_x, _y);
         }
         move() {
             if (this.y > 600) {
@@ -13,12 +12,12 @@ var skiski;
             this.draw();
         }
         draw() {
-            skiski.crc2.fillStyle = "#FFFFFF";
-            skiski.crc2.beginPath();
-            skiski.crc2.arc(this.x, this.y, 3, 0, 2 * Math.PI);
-            skiski.crc2.fill();
+            Aufgabe6.crc2.fillStyle = "#FFFFFF";
+            Aufgabe6.crc2.beginPath();
+            Aufgabe6.crc2.arc(this.x, this.y, 3, 0, 2 * Math.PI);
+            Aufgabe6.crc2.fill();
         }
     }
-    skiski.snow = snow;
-})(skiski || (skiski = {}));
+    Aufgabe6.snow = snow;
+})(Aufgabe6 || (Aufgabe6 = {}));
 //# sourceMappingURL=snow.js.map

@@ -5,21 +5,20 @@ Datum: 16.11.2017
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
-namespace Aufgabe6{
+namespace Aufgabe6 {
 
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     
-    let i: number;
+    let i: number; //Zählvariable i, Datentyp
     let image: ImageData;
     
-    let objects = MovingObjects[] = [];
+    let objects: MovingObjects[] = []; //Array für meine ganzen object: Moving Objects: Datentyp v-SUPERKLASSE
     
-    let nSkiers: number = 5;
-    let nClouds: number = 3;
+    let nSkiers: number = 5; //Variable für die Anzahl5 Skier 
+    let nSun: number = 1; 
     let nSnow: number = 140;
     
-    let tree: Tree [] = [];
     
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
@@ -66,20 +65,24 @@ namespace Aufgabe6{
         crc2.fill();
         crc2.stroke();
 
+        drawconstantTree (10, 20,"#0A2A12");
+         drawconstantTree (600, 600,"#0A2A12");
         
-        //Schleife für Baeume 
-        for (i = 0; i < 10; i++) {
-            tree[i] = new Tree(260 + Math.random() * 600, 400 + Math.random() * 100);
-        }
         
+        
+     
+        //Schleifen
+      
         for (i = 0; i < nSkiers; i++) {
-            let s = new Skier(800, 250, Math.random() * 3 - 10, Math.random() * 3 + 5, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
-            objects.push(s);
+            let s: skier =  new skier (800, 250, Math.random() * 3 - 10, Math.random() * 3 + 5, "hsl(" + Math.random() * 360 + ", 100%, 50%)");//Neues Objekt von typ skier 
+            objects.push(s); //Neue Objekt an neues Objekt array ranhängen
+          
         }
+        
         //Schleife für Schneeflocken
         for (i = 0; i < nSnow; i++) {
-            let s = new Snow(Math.random() * 800, Math.random() * 600);
-            objects.push(s);
+            let s: snow = new snow (Math.random() * 800, Math.random() * 600); //variable s vom typ snow - neue schneeflocke mit den parametern
+            objects.push(s); //jedes neue Schneeflocke wird an das array 
         }
        
     
@@ -87,19 +90,44 @@ namespace Aufgabe6{
         image = crc2.getImageData(0, 0, 800, 600);
         animate();
     }
-    function animate(): void {
+    function animate(): void { // die animate funktion
         crc2.clearRect(0, 0, 800, 600); // Hintergrund restaurieren
         crc2.putImageData(image, 0, 0);
         
-        for (i = 0; i < objects.length; i++) {
-            let s: MovingObjects = objects[i];
+        for (i = 0 ;i< objects.length; i++){ //for schleife für objekte greif auf objecte array auf
+            let s: MovingObjects = objects [i];
             s.move();
-        }
-        //Baeume zeichnen
-        for (i = 0; i < tree.length; i++) {
-            let s: Tree = tree[i];
-            s.draw();
-        }
+            }
+        
         window.setTimeout(animate, 20); // alle 20 ms wird animate aufgerufen
     }
+    
+    
+     //Funktion mehrere konstante Bäume platzieren 
+    function drawconstantTree(_x: number, _y: number, _color: string): void {
+        crc2.beginPath();
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x + 80, _y + 200);
+        crc2.lineTo(_x - 80, _y + 200);
+        crc2.closePath();
+        crc2.stroke();
+        crc2.fillStyle = _color;
+        crc2.fill();
+    }
+
+
+    //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal    
+    function drawmovingTree(_x: number, _y: number, _color: string): void {
+        crc2.beginPath();
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x + 80, _y + 200);
+        crc2.lineTo(_x - 80, _y + 200);
+        crc2.closePath();
+        crc2.stroke();
+        crc2.fillStyle = _color;
+        crc2.fill();
+    }
+
+    
+    //draw tree funktion einfügen
 }

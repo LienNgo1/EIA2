@@ -7,13 +7,12 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var Aufgabe6;
 (function (Aufgabe6) {
     window.addEventListener("load", init);
-    let i;
+    let i; //Zählvariable i, Datentyp
     let image;
-    let objects = Aufgabe6.MovingObjects[] = [];
-    let nSkiers = 5;
-    let nClouds = 3;
+    let objects = []; //Array für meine ganzen object: Moving Objects: Datentyp v-SUPERKLASSE
+    let nSkiers = 5; //Variable für die Anzahl5 Skier 
+    let nSun = 1;
     let nSnow = 140;
-    let tree = [];
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -52,18 +51,17 @@ var Aufgabe6;
         Aufgabe6.crc2.fillStyle = "#FFFFFF";
         Aufgabe6.crc2.fill();
         Aufgabe6.crc2.stroke();
-        //Schleife für Baeume 
-        for (i = 0; i < 10; i++) {
-            tree[i] = new Tree(260 + Math.random() * 600, 400 + Math.random() * 100);
-        }
+        drawconstantTree(10, 20, "#0A2A12");
+        drawconstantTree(600, 600, "#0A2A12");
+        //Schleifen
         for (i = 0; i < nSkiers; i++) {
-            let s = new Skier(800, 250, Math.random() * 3 - 10, Math.random() * 3 + 5, "hsl(" + Math.random() * 360 + ", 100%, 50%)");
-            objects.push(s);
+            let s = new Aufgabe6.skier(800, 250, Math.random() * 3 - 10, Math.random() * 3 + 5, "hsl(" + Math.random() * 360 + ", 100%, 50%)"); //Neues Objekt von typ skier 
+            objects.push(s); //Neue Objekt an neues Objekt array ranhängen
         }
         //Schleife für Schneeflocken
         for (i = 0; i < nSnow; i++) {
-            let s = new Snow(Math.random() * 800, Math.random() * 600);
-            objects.push(s);
+            let s = new Aufgabe6.snow(Math.random() * 800, Math.random() * 600); //variable s vom typ snow - neue schneeflocke mit den parametern
+            objects.push(s); //jedes neue Schneeflocke wird an das array 
         }
         //Bild als Hintergrund speichern
         image = Aufgabe6.crc2.getImageData(0, 0, 800, 600);
@@ -76,12 +74,29 @@ var Aufgabe6;
             let s = objects[i];
             s.move();
         }
-        //Baeume zeichnen
-        for (i = 0; i < tree.length; i++) {
-            let s = tree[i];
-            s.draw();
-        }
         window.setTimeout(animate, 20); // alle 20 ms wird animate aufgerufen
+    }
+    //Funktion mehrere konstante Bäume platzieren 
+    function drawconstantTree(_x, _y, _color) {
+        Aufgabe6.crc2.beginPath();
+        Aufgabe6.crc2.moveTo(_x, _y);
+        Aufgabe6.crc2.lineTo(_x + 80, _y + 200);
+        Aufgabe6.crc2.lineTo(_x - 80, _y + 200);
+        Aufgabe6.crc2.closePath();
+        Aufgabe6.crc2.stroke();
+        Aufgabe6.crc2.fillStyle = _color;
+        Aufgabe6.crc2.fill();
+    }
+    //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal    
+    function drawmovingTree(_x, _y, _color) {
+        Aufgabe6.crc2.beginPath();
+        Aufgabe6.crc2.moveTo(_x, _y);
+        Aufgabe6.crc2.lineTo(_x + 80, _y + 200);
+        Aufgabe6.crc2.lineTo(_x - 80, _y + 200);
+        Aufgabe6.crc2.closePath();
+        Aufgabe6.crc2.stroke();
+        Aufgabe6.crc2.fillStyle = _color;
+        Aufgabe6.crc2.fill();
     }
 })(Aufgabe6 || (Aufgabe6 = {}));
 //# sourceMappingURL=Aufgabe6.js.map
