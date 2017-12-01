@@ -2,7 +2,7 @@ var Aufgabe6;
 (function (Aufgabe6) {
     class skier extends Aufgabe6.MovingObjects {
         constructor(_x, _y, _dx, _dy, _color) {
-            super(_x, _y);
+            super(_x, _y); //super mit den Parametern werden aufgerufen
             this.dx = _dx;
             this.dy = _dy;
             this.color = _color;

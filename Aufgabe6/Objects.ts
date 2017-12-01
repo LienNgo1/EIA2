@@ -1,6 +1,6 @@
 namespace Aufgabe6 {
     
-    export class MovingObjects {
+    export class MovingObjects { //Superklasse+Datentyp: MovingObjects
         x: number;
         y: number;
         
@@ -11,7 +11,6 @@ namespace Aufgabe6 {
         }
         
         draw(): void {}
-        
         move(): void {}
         
     }

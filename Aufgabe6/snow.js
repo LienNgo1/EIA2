@@ -1,6 +1,7 @@
 var Aufgabe6;
 (function (Aufgabe6) {
     class snow extends Aufgabe6.MovingObjects {
+        //extends = Vererbung
         constructor(_x, _y) {
             super(_x, _y);
         }
@@ -9,7 +10,7 @@ var Aufgabe6;
                 this.y = 0;
             }
             this.y += Math.random(); //y wird erweitert um random
-            this.draw();
+            this.draw(); //greift auf das Object wo ich grade bin 
         }
         draw() {
             Aufgabe6.crc2.fillStyle = "#FFFFFF";

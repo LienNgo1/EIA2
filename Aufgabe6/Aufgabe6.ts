@@ -10,15 +10,17 @@ namespace Aufgabe6 {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     
-    let i: number; //Zählvariable i, Datentyp
+    let i: number; //Zählvariable i, Datentyp: number
     let image: ImageData;
     
     let objects: MovingObjects[] = []; //Array für meine ganzen object: Moving Objects: Datentyp v-SUPERKLASSE
     
-    let nSkiers: number = 5; //Variable für die Anzahl5 Skier 
+    let nSkiers: number = 5; //Variable für die Anzahl - 5 Skier 
     let nSun: number = 1; 
-    let nSnow: number = 140;
+    let nSnow: number = 200;
     
+    
+ //-------------------- INIT FUNKTION------------------------- 
     
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
@@ -66,33 +68,35 @@ namespace Aufgabe6 {
         crc2.stroke();
 
         drawconstantTree (10, 20,"#0A2A12");
-         drawconstantTree (600, 600,"#0A2A12");
-        
-        
+        drawmovingTree (600, 600,"#0A2A12");
         
      
-        //Schleifen
+        //.--------Schleifen für Skier--------
       
-        for (i = 0; i < nSkiers; i++) {
+        for (i = 0; i < nSkiers; i++) {  //5Skier - Zählervariable i zählt immer eins dazu
             let s: skier =  new skier (800, 250, Math.random() * 3 - 10, Math.random() * 3 + 5, "hsl(" + Math.random() * 360 + ", 100%, 50%)");//Neues Objekt von typ skier 
             objects.push(s); //Neue Objekt an neues Objekt array ranhängen
           
         }
         
-        //Schleife für Schneeflocken
+        //--------Schleife für Schneeflocken-----
         for (i = 0; i < nSnow; i++) {
             let s: snow = new snow (Math.random() * 800, Math.random() * 600); //variable s vom typ snow - neue schneeflocke mit den parametern
-            objects.push(s); //jedes neue Schneeflocke wird an das array 
+            objects.push(s); //jedes neue Schneeflocke wird an das array rangehängt
         }
        
     
-        //Bild als Hintergrund speichern
+        //-------Bild als Hintergrund speichern---------
         image = crc2.getImageData(0, 0, 800, 600);
         animate();
     }
-    function animate(): void { // die animate funktion
+    
+    
+ //-------------------FUNKTION ANIMATE ----------------------//
+    
+    function animate(): void { 
         crc2.clearRect(0, 0, 800, 600); // Hintergrund restaurieren
-        crc2.putImageData(image, 0, 0);
+        crc2.putImageData(image, 0, 0); 
         
         for (i = 0 ;i< objects.length; i++){ //for schleife für objekte greif auf objecte array auf
             let s: MovingObjects = objects [i];
@@ -129,5 +133,4 @@ namespace Aufgabe6 {
     }
 
     
-    //draw tree funktion einfügen
 }

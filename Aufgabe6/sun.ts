@@ -1,6 +1,7 @@
 namespace Aufgabe6    {
     
-    export class sun extends MovingObjects { // Subklasse greift auf die Superklasse
+    export class sun extends MovingObjects { // Subklasse greift auf die Superklasse //Subklasse (sun) ist automatisch auch eine Instanz der Superklasse (Moving objects)
+                                             //extends = Vererbung
       
     
         constructor (_x: number, _y: number) {

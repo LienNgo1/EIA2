@@ -7,12 +7,13 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var Aufgabe6;
 (function (Aufgabe6) {
     window.addEventListener("load", init);
-    let i; //Zählvariable i, Datentyp
+    let i; //Zählvariable i, Datentyp: number
     let image;
     let objects = []; //Array für meine ganzen object: Moving Objects: Datentyp v-SUPERKLASSE
-    let nSkiers = 5; //Variable für die Anzahl5 Skier 
+    let nSkiers = 5; //Variable für die Anzahl - 5 Skier 
     let nSun = 1;
-    let nSnow = 140;
+    let nSnow = 200;
+    //-------------------- INIT FUNKTION------------------------- 
     function init() {
         let canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -52,21 +53,22 @@ var Aufgabe6;
         Aufgabe6.crc2.fill();
         Aufgabe6.crc2.stroke();
         drawconstantTree(10, 20, "#0A2A12");
-        drawconstantTree(600, 600, "#0A2A12");
-        //Schleifen
+        drawmovingTree(600, 600, "#0A2A12");
+        //.--------Schleifen für Skier--------
         for (i = 0; i < nSkiers; i++) {
             let s = new Aufgabe6.skier(800, 250, Math.random() * 3 - 10, Math.random() * 3 + 5, "hsl(" + Math.random() * 360 + ", 100%, 50%)"); //Neues Objekt von typ skier 
             objects.push(s); //Neue Objekt an neues Objekt array ranhängen
         }
-        //Schleife für Schneeflocken
+        //--------Schleife für Schneeflocken-----
         for (i = 0; i < nSnow; i++) {
             let s = new Aufgabe6.snow(Math.random() * 800, Math.random() * 600); //variable s vom typ snow - neue schneeflocke mit den parametern
-            objects.push(s); //jedes neue Schneeflocke wird an das array 
+            objects.push(s); //jedes neue Schneeflocke wird an das array rangehängt
         }
-        //Bild als Hintergrund speichern
+        //-------Bild als Hintergrund speichern---------
         image = Aufgabe6.crc2.getImageData(0, 0, 800, 600);
         animate();
     }
+    //-------------------FUNKTION ANIMATE ----------------------//
     function animate() {
         Aufgabe6.crc2.clearRect(0, 0, 800, 600); // Hintergrund restaurieren
         Aufgabe6.crc2.putImageData(image, 0, 0);

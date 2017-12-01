@@ -1,12 +1,13 @@
 namespace Aufgabe6 {
-    export class skier extends MovingObjects {
+    export class skier extends MovingObjects {//Subklasse (skier) ist automatisch auch eine Instanz der Superklasse (Moving objects)
+                                             //extends = Vererbung
         
         dx: number;
         dy: number;
         color: string;
         
-        constructor(_x: number, _y: number, _dx: number, _dy: number,_color: string){
-           super(_x,_y);
+        constructor(_x: number, _y: number, _dx: number, _dy: number,_color: string){ //Constructor mit Parametern
+           super(_x,_y);    //super mit den Parametern werden aufgerufen
             this.dx = _dx;
             this.dy = _dy;
             this.color = _color;

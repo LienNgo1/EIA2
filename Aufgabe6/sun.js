@@ -1,6 +1,7 @@
 var Aufgabe6;
 (function (Aufgabe6) {
     class sun extends Aufgabe6.MovingObjects {
+        //extends = Vererbung
         constructor(_x, _y) {
             super(_x, _y);
         }
