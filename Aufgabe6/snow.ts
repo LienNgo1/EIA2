@@ -2,7 +2,7 @@ namespace Aufgabe6 {
     export class snow extends MovingObjects{ //Subklasse (snow) ist automatisch auch eine Instanz der Superklasse (Moving objects)
                                              //extends = Vererbung
     
-        constructor (_x: number, _y: number) {  //constructor greift auf Superklasse,da super
+        constructor (_x: number, _y: number) {  //constructor greift auf Superklasse,da "super"
             super(_x,_y);
         }
         

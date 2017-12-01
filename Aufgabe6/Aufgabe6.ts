@@ -20,6 +20,7 @@ namespace Aufgabe6 {
     let nSnow: number = 200;
     
     
+    
  //-------------------- INIT FUNKTION------------------------- 
     
     function init() {
@@ -80,7 +81,7 @@ namespace Aufgabe6 {
         }
         
         //--------Schleife für Schneeflocken-----
-        for (i = 0; i < nSnow; i++) {
+        for (i = 0; i < nSnow; i++) { //Zählervariable 0 zählt immer eins dazu
             let s: snow = new snow (Math.random() * 800, Math.random() * 600); //variable s vom typ snow - neue schneeflocke mit den parametern
             objects.push(s); //jedes neue Schneeflocke wird an das array rangehängt
         }
@@ -98,7 +99,7 @@ namespace Aufgabe6 {
         crc2.clearRect(0, 0, 800, 600); // Hintergrund restaurieren
         crc2.putImageData(image, 0, 0); 
         
-        for (i = 0 ;i< objects.length; i++){ //for schleife für objekte greif auf objecte array auf
+        for (i = 0 ;i< objects.length; i++){ //for schleife für objekte greif auf "objecte" array
             let s: MovingObjects = objects [i];
             s.move();
             }

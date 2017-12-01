@@ -5,7 +5,7 @@ namespace Aufgabe6 {
         y: number;
         
         constructor (_x: number, _y: number)  {
-            this.x = _x;
+            this.x = _x; //parameter in der Subklasse wird aufgerufen
             this.y = _y;
             
         }

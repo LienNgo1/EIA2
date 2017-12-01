@@ -8,6 +8,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 
 namespace StudiVZ {
+    
     interface StudentData {
         // hier ist noch die richtige Datenstruktur festzulegen
         matrikel: number;
