@@ -4,7 +4,7 @@ namespace Aufgabe6    {
                                              //extends = Vererbung
       
     
-        constructor (_x: number, _y: number) {
+        constructor (_x: number, _y: number) { //constructor wird immer benögtig - mit ihm wird das schlüsselwort eine nue instanz des objects erstellen
             super(_x,_y);
         
         }

@@ -29,10 +29,35 @@ var StudiVZ;
         }
     }
     function saveData(_input) {
-        return "Hier fehlt noch der richtige Code...";
+        let splitted = _input.split(",");
+        let student = {
+            matrikel: parseInt(splitted[0]),
+            lastname: splitted[1],
+            firstname: splitted[2],
+            age: parseInt(splitted[3]),
+            gender: parseInt(splitted[4]) == 0,
+            comment: splitted[5]
+        };
+        students.push(student);
+        let gender;
+        if (parseInt(splitted[4]) == 1) {
+            gender = "weiblich";
+        }
+        else {
+            gender = "männlich";
+        }
+        return "Eingegebene Daten: " + "\nMatrikelnummer: " + student.matrikel + "\nName: " + student.lastname + "\nVorname: " + student.firstname + "\nAlter: " + student.age + "\nGeschlecht: " + student.gender + "\nKommentar: " + student.comment;
     }
     function queryData(_matrikel) {
-        return "Hier fehlt noch der richtige Code...";
+        for (let i = 0; i < students.length; i++) {
+            if (students[i].matrikel == _matrikel) {
+                return "Student: " + "\nMatrikelnummer: " + students[i].matrikel + "\nName: " + students[i].lastname + "\nVorname: " + students[i].firstname + "\nAlter: " + students[i].age + "\nGeschlecht: " + students[i].gender + "\nKommentar: " + students[i].comment;
+            }
+            else {
+                return "Die Matrikelnummer ist nicht gespeichert";
+            }
+        }
+        return;
     }
 })(StudiVZ || (StudiVZ = {}));
 //# sourceMappingURL=Aufgabe7.js.map
