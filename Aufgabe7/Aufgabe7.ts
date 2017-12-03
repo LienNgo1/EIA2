@@ -54,14 +54,14 @@ namespace StudiVZ {
             lastname: splitted[1],
             firstname: splitted[2],
             age: parseInt(splitted[3]),
-            gender: parseInt(splitted[4]) ==0,
+            gender: parseInt(splitted[4]) == 0,
             comment: splitted[5]
         };
 
         students.push(student);
         
         let gender: string;
-        if (parseInt(splitted[4]) == 1) {
+        if (parseInt(splitted[4]) == 0) {
             gender = "weiblich";
         }
             else {
@@ -77,6 +77,7 @@ namespace StudiVZ {
         for (let i: number = 0; i < students.length; i++) {
             
             if (students[i].matrikel == _matrikel) {
+                let gender: string = students[i].gender ? "weiblich" : "männlich";
                 return "Student: " + "\nMatrikelnummer: " + students[i].matrikel + "\nName: " + students[i].lastname + "\nVorname: " + students[i].firstname + "\nAlter: " + students[i].age + "\nGeschlecht: " + students[i].gender + "\nKommentar: " + students[i].comment;
             }
             

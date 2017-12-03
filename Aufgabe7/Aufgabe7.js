@@ -40,7 +40,7 @@ var StudiVZ;
         };
         students.push(student);
         let gender;
-        if (parseInt(splitted[4]) == 1) {
+        if (parseInt(splitted[4]) == 0) {
             gender = "weiblich";
         }
         else {
@@ -51,6 +51,7 @@ var StudiVZ;
     function queryData(_matrikel) {
         for (let i = 0; i < students.length; i++) {
             if (students[i].matrikel == _matrikel) {
+                let gender = students[i].gender ? "weiblich" : "männlich";
                 return "Student: " + "\nMatrikelnummer: " + students[i].matrikel + "\nName: " + students[i].lastname + "\nVorname: " + students[i].firstname + "\nAlter: " + students[i].age + "\nGeschlecht: " + students[i].gender + "\nKommentar: " + students[i].comment;
             }
             else {
