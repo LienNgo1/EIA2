@@ -4,35 +4,33 @@ namespace Aufgabe8 {
     
     function init(): void {
         var Zahl: string = prompt("Bitte gewünschte Anzahl zwischen 10 und 100 angeben"); 
-        var ZahlNumb: number = parseInt(Zahl); //die Funktion ParseInt wandelt einen String in eine Zahl um
         
-        var Breite: string = prompt("Bitte gewünschte Breite angeben");
-        var BreiteNumb: number = parseInt(Breite); 
+        //var ZahlNumb: number = parseInt(Zahl); //die Funktion ParseInt wandelt einen String in eine Zahl um
+   
+        let input: string = prompt("Gib eine Zahl zwischen 10 und 100 ein."); //input Variable ruft prompt auf
+        if (isNaN(parseInt(input)) || parseInt(input) < 10 || parseInt(input) > 100) { //Prüft ob die Eingabe richtig ist
+            alert("Deine Eingabe ist falsch.");
+            init(); //Rekursion
+        } 
         
-        var Höhe: string = prompt("Bitte gewünschte Höhe angeben");
-        var HöheNumb: number = parseInt(Höhe); 
-        
-        if (ZahlNumb >= 10 && ZahlNumb <= 100) { //Prüft ob die Zahl zwischen 10 und 100 ist
-            for (var i: number = 0; i < ZahlNumb; i++) {
-                drawRect(Math.random() * 800, Math.random() * 600, "hsl(" + Math.random() * 360 + ", 100%, 50%)", BreiteNumb, HöheNumb); //x,y und farbe an die Zeichenfunktion übergeben
+        else { //wenn Zahl zwischen 10 und 100 dann for schleife
+            for (let i: number = 0; i < parseInt(input); i++) { 
+                drawRect(Math.random() * window.innerWidth - 40, Math.random() * window.innerHeight - 40, Math.random() * 360);
             }
-        } else {
-            window.alert("Die Eingabe ist falsch"); //Warnung bei falscher Eingabe und neu laden der Funktion
-            init();
+        }
 
-      }
-}
-    
+    }
     
  //Funktion Kästchen Zeichnen
-    function drawRect (_x: number, _y: number, _color: string, _width: number, _height: number): void {
+    function drawRect (_x: number, _y: number, _color: number): void {
 
         let div: HTMLDivElement = document.createElement("div"); //div erstellen
-        div.style.width = _width.toString(); //Returns a String of an object
-        div.style.height = _height.toString();
-        div.style.marginLeft = _x.toString(); //_x in einen String umwandeln, da h.style nur strings entgegen nehmen kann
-        div.style.marginTop = _y.toString();
-        div.style.backgroundColor = _color; //zufällige Farbe
+        
+        div.style.width = "40px"; //Returns a String of an object
+        div.style.height = "40px";
+        div.style.marginLeft = _x + "px"; //_x in einen String umwandeln, da h.style nur strings entgegen nehmen kann
+        div.style.marginTop = _y + "px";
+        div.style.backgroundColor = "hsl(" + _color + ", 100%, 50%)"; //zufällige Farbe
         document.body.appendChild(div); //html ELement in den Code einfügen lassen
     }
 }
