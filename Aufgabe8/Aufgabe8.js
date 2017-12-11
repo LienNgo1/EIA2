@@ -2,7 +2,7 @@ var Aufgabe8;
 (function (Aufgabe8) {
     window.addEventListener("load", init);
     function init() {
-        var Zahl = prompt("Bitte gewünschte Anzahl zwischen 10 und 100 angeben");
+        //var Zahl: string = prompt("Bitte gewünschte Anzahl zwischen 10 und 100 angeben"); 
         //var ZahlNumb: number = parseInt(Zahl); //die Funktion ParseInt wandelt einen String in eine Zahl um
         let input = prompt("Gib eine Zahl zwischen 10 und 100 ein."); //input Variable ruft prompt auf
         if (isNaN(parseInt(input)) || parseInt(input) < 10 || parseInt(input) > 100) {

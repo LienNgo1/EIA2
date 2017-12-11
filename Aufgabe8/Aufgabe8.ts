@@ -3,7 +3,7 @@ namespace Aufgabe8 {
 
     
     function init(): void {
-        var Zahl: string = prompt("Bitte gewünschte Anzahl zwischen 10 und 100 angeben"); 
+        //var Zahl: string = prompt("Bitte gewünschte Anzahl zwischen 10 und 100 angeben"); 
         
         //var ZahlNumb: number = parseInt(Zahl); //die Funktion ParseInt wandelt einen String in eine Zahl um
    
