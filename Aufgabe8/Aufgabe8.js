@@ -1,3 +1,11 @@
+/* Aufgabe 8: RandomBoxes
+Name: Ngo, Thi Lien
+Matrikel: 256778
+Datum: 8.12.2017
+
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
+*/
 var Aufgabe8;
 (function (Aufgabe8) {
     window.addEventListener("load", init);
@@ -14,6 +22,18 @@ var Aufgabe8;
                 drawRect(Math.random() * window.innerWidth - 40, Math.random() * window.innerHeight - 40, Math.random() * 360);
             }
         }
+    }
+    function click(_event) {
+        console.log("Hallo");
+        console.log(_event);
+        let div = document.getElementsByTagName("h1")[0];
+        div.addEventListener("click", click);
+        div.addEventListener("click", click);
+    }
+    function handleMouseOverH1(_event) {
+        console.log(_event.target);
+        let h1 = _event.target;
+        h1.style.color = "#ff0000";
     }
     //Funktion Kästchen Zeichnen
     function drawRect(_x, _y, _color) {
