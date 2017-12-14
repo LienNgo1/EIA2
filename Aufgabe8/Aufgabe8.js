@@ -23,18 +23,6 @@ var Aufgabe8;
             }
         }
     }
-    function click(_event) {
-        console.log("Hallo");
-        console.log(_event);
-        let div = document.getElementsByTagName("h1")[0];
-        div.addEventListener("click", click);
-        div.addEventListener("click", click);
-    }
-    function handleMouseOverH1(_event) {
-        console.log(_event.target);
-        let h1 = _event.target;
-        h1.style.color = "#ff0000";
-    }
     //Funktion Kästchen Zeichnen
     function drawRect(_x, _y, _color) {
         let div = document.createElement("div"); //div erstellen

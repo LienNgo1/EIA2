@@ -32,21 +32,6 @@ namespace Aufgabe8 {
     }
     
     
-      function click(_event: Event): void {
-        console.log("Hallo");
-        console.log(_event);
-
-        let div: HTMLHeadingElement = document.getElementsByTagName("h1")[0];
-        div.addEventListener("click", click);
-        div.addEventListener("click", click);
-    }
-
-    function handleMouseOverH1(_event: MouseEvent): void {
-        console.log(_event.target);
-        let h1: HTMLHeadingElement = <HTMLHeadingElement>_event.target;
-        h1.style.color = "#ff0000";
-}
-    
  //Funktion Kästchen Zeichnen
     function drawRect (_x: number, _y: number, _color: number): void {
 
