@@ -73,7 +73,8 @@ let currentLetter: string;
             
             for (let i: number = 0; i < divlist.length; i++) {
                 if (currentLetter != divlist[i].id) {
-                divlist[i].style.backgroundColor = "blue";
+                divlist[i].style.backgroundColor = "red";
+                    
     
                     }
                 }

@@ -54,7 +54,7 @@ var Aufgabe9;
         let divlist = document.getElementsByClassName("letters");
         for (let i = 0; i < divlist.length; i++) {
             if (currentLetter != divlist[i].id) {
-                divlist[i].style.backgroundColor = "blue";
+                divlist[i].style.backgroundColor = "red";
             }
         }
     }
