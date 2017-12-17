@@ -11,6 +11,7 @@ var Aufgabe9;
     window.addEventListener("load", init);
     //Globale Variable anlegen. -wie kann ich die versch. Div's vergleichen?
     let currentLetter;
+    document.addEventListener("keydown", tastaturEingabe);
     function init() {
         let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "Z"];
         let anzahl = alphabet.length;
@@ -23,12 +24,12 @@ var Aufgabe9;
     }
     //handle click wird immmer aufgerufen, wenn mans anklickt 
     //Event.target gibt dir das objekt zurück - liefert div zurück
-    //Funktion Kästchen Zeichnen
+    //---------Funktion Kästchen (um Buchstaben) Zeichnen--------
     function drawRect(_alphabet) {
         let div = document.createElement("div"); //div erstellen
         div.style.width = "40px"; //Returns a String of an object
         div.style.height = "40px";
-        div.style.backgroundColor = "red";
+        div.style.backgroundColor = "lightgrey";
         div.innerText = _alphabet; // 
         div.style.marginLeft = "2px";
         div.style.marginTop = "2px"; //
@@ -37,6 +38,7 @@ var Aufgabe9;
         div.addEventListener("click", handleClick);
         document.body.appendChild(div); //html ELement in den Code einfügen lassen - hängt div an body dran - wird gezeichnet
     }
+    //------ Funktion große Box zeichnen----
     function drawKasten() {
         let letter = document.createElement("div");
         letter.style.width = "800px"; //Returns a String of an object
@@ -47,36 +49,19 @@ var Aufgabe9;
         letter.addEventListener("click", putLetter);
         document.body.appendChild(letter);
     }
+    //----- Funktion: Farbe ändert sich durch einen Klick
     function handleClick(_event) {
         let click = _event.target;
-        click.style.backgroundColor = "blue";
+        click.style.backgroundColor = "lightblue";
         currentLetter = click.id;
         let divlist = document.getElementsByClassName("letters");
         for (let i = 0; i < divlist.length; i++) {
             if (currentLetter != divlist[i].id) {
-                divlist[i].style.backgroundColor = "red";
+                divlist[i].style.backgroundColor = "lightgrey";
             }
         }
     }
-    /*function handleClick(_event: MouseEvent): void{
-        let click: HTMLDivElement = <HTMLDivElement>_event.target;
-        click.style.backgroundColor = "black";
-        //property vom click verändert = blacl´k
-        currentletter = click.id;
-        
-        let divlist: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>> document.getElementsByClassName("letters");
-        
-        // divlist ist von type nodelist of htmldiv element - hinter dem doppelpunkt: datentyp
-        // nodelistof ... wie ien array ... kann viele versch. datentyp speichern
-        //get element by clas name...
-        
-        for(let i: number = 0; i<divlist.length; i++)<{
-         if(currentLetter != divlist[i].idy    //wenn der Buchstabe "currentletter" nicht gleich divlist ist der angeklickt ist
-            divlist[i].style.backgroundColor = "blue"; //dann wird der Buchstabe wieder blau
-       }
-    }
-    
-    */
+    //---------Funktion: Buchstaben werden in den Brief gesetzt
     function putLetter(_event) {
         let box = document.createElement("div");
         box.style.width = "30px";
@@ -91,7 +76,127 @@ var Aufgabe9;
         box.style.left = _event.pageX + "px";
         box.style.top = _event.pageY + "px";
         document.body.appendChild(box);
+        box.addEventListener("click", deleteLetter);
         let clicking = _event.target;
+    }
+    //Funktion:Buchstaben mit Tastaturklick auswählen
+    function tastaturEingabe(event) {
+        if (event.key == "a" || event.key == "A") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "b" || event.key == "B") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "c" || event.key == "C") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "d" || event.key == "D") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "e" || event.key == "E") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "f" || event.key == "F") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "g" || event.key == "G") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "h" || event.key == "H") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "i" || event.key == "I") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "j" || event.key == "J") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "k" || event.key == "K") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "l" || event.key == "L") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "m" || event.key == "M") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "n" || event.key == "N") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "o" || event.key == "O") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "p" || event.key == "P") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "q" || event.key == "Q") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "r" || event.key == "R") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "s" || event.key == "S") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "t" || event.key == "T") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "u" || event.key == "U") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "v" || event.key == "V") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "w" || event.key == "W") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "x" || event.key == "X") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "y" || event.key == "Y") {
+            currentLetter = event.key;
+            putLetter;
+        }
+        else if (event.key == "z" || event.key == "Z") {
+            currentLetter = event.key;
+            putLetter;
+        }
+    }
+    //------ Funktion: Alt Taste gedrückt halten (1) 
+    function handleAlt(_event) {
+        if (_event.keyCode == 18) {
+            deleteLetter;
+        }
+    }
+    //------- Funkton: Buchstaben entfernen (2)
+    function deleteLetter(_event) {
+        let _delete = _event.target;
+        document.addEventListener("keypressed", handleAlt);
+        document.body.removeChild(_delete);
     }
 })(Aufgabe9 || (Aufgabe9 = {}));
 //# sourceMappingURL=Aufgabe9.js.map
