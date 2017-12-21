@@ -1,7 +1,7 @@
 /* Aufgabe : Erpresserbrief
 Name: Ngo, Thi Lien
 Matrikel: 256778
-Datum: 13.12.2017
+Datum: 13.12.2017.
 
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
