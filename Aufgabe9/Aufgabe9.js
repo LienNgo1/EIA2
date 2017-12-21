@@ -26,22 +26,22 @@ var Aufgabe9;
     //Event.target gibt dir das objekt zurück - liefert div zurück
     //---------Funktion Kästchen (um Buchstaben) Zeichnen--------
     function drawRect(_alphabet) {
-        let div = document.createElement("div"); //div erstellen
-        div.style.width = "40px"; //Returns a String of an object
+        let div = document.createElement("div");
+        div.style.width = "40px";
         div.style.height = "40px";
         div.style.backgroundColor = "lightgrey";
-        div.innerText = _alphabet; // 
+        div.innerText = _alphabet;
         div.style.marginLeft = "2px";
-        div.style.marginTop = "2px"; //
+        div.style.marginTop = "2px";
         div.id = _alphabet;
         div.className = "letters";
         div.addEventListener("click", handleClick);
-        document.body.appendChild(div); //html ELement in den Code einfügen lassen - hängt div an body dran - wird gezeichnet
+        document.body.appendChild(div);
     }
     //------ Funktion große Box zeichnen----
     function drawKasten() {
         let letter = document.createElement("div");
-        letter.style.width = "800px"; //Returns a String of an object
+        //Returns a String of an object
         letter.style.height = "300px";
         letter.style.backgroundColor = "grey";
         letter.style.marginLeft = "2px";
@@ -186,7 +186,7 @@ var Aufgabe9;
             putLetter;
         }
     }
-    //------ Funktion: Alt Taste gedrückt halten (1) 
+    //------ Funktion: Alt Taste gedrückt halten (1)   
     function handleAlt(_event) {
         if (_event.keyCode == 18) {
             deleteLetter;
@@ -194,9 +194,13 @@ var Aufgabe9;
     }
     //------- Funkton: Buchstaben entfernen (2)
     function deleteLetter(_event) {
-        let _delete = _event.target;
-        document.addEventListener("keypressed", handleAlt);
-        document.body.removeChild(_delete);
+        if (_event.altKey == false) {
+            return;
+        }
+        if (_event.altKey == true) {
+            let _delete = _event.target;
+            document.body.removeChild(_delete);
+        }
     }
 })(Aufgabe9 || (Aufgabe9 = {}));
 //# sourceMappingURL=Aufgabe9.js.map

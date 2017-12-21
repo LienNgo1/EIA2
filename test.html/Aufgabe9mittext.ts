@@ -18,13 +18,13 @@ namespace Aufgabe9 {
 
    function init(): void{ 
        
-       let alphabet: string [] = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","Y","Z"] 
+       let alphabet: string [] = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","Y","Z"] //variable alphabat vom typ stringarray - buchstaben sind im array drin
        let anzahl: number = alphabet.length;
        
       
-       if (anzahl == alphabet.length){ 
+       if (anzahl == alphabet.length){ //== wenn zwei werte gleich sind
            for (let i: number = 0; i < alphabet.length; i++){
-               drawRect(alphabet[i]); 
+               drawRect(alphabet[i]); //parameter _alphabet - funktionsaufruf drawrect mit dem parameter (ABC...) i + 
            }
         }
        drawKasten();
@@ -37,26 +37,28 @@ namespace Aufgabe9 {
  //---------Funktion Kästchen (um Buchstaben) Zeichnen--------
     function drawRect (_alphabet: string): void {
 
-        let div: HTMLDivElement = document.createElement("div"); 
+        let div: HTMLDivElement = document.createElement("div"); //div erstellen - variable div type HTMLDivElement - = -> Zuweisungsapperator // Variable bekommt wert zugewiesen- soll ein div element creieren
+      
 
-        div.style.width = "40px"; 
+        div.style.width = "40px"; //Returns a String of an object
         div.style.height = "40px";
         div.style.backgroundColor = "lightgrey";
-        div.innerText = _alphabet; 
+        div.innerText = _alphabet; //hinter jedem buchstaben soll ein div creiert werden 
         div.style.marginLeft = "2px";
-        div.style.marginTop = "2px"; 
+        div.style.marginTop = "2px"; //
         div.id = _alphabet;
-        div.className = "letters"; 
+        div.className = "letters"; //
         
         div.addEventListener("click", handleClick);
-        document.body.appendChild(div); 
+        document.body.appendChild(div); //html ELement in den Code einfügen lassen - hängt div an body dran - wird gezeichnet
     }
     
     
   //------ Funktion große Box zeichnen----
     function drawKasten(): void {
             let letter: HTMLDivElement = document.createElement("div");
-        //Returns a String of an object
+        
+            letter.style.width = "800px"; //Returns a String of an object
             letter.style.height = "300px";
             letter.style.backgroundColor = "grey";
             letter.style.marginLeft = "2px";
@@ -69,19 +71,19 @@ namespace Aufgabe9 {
     
     
  //----- Funktion: Farbe ändert sich durch einen Klick
-    function handleClick(_event: MouseEvent): void { 
-            let click: HTMLDivElement = <HTMLDivElement>_event.target; 
+    function handleClick(_event: MouseEvent): void { //wird ausgeführt wenn was geklickt wird
+            let click: HTMLDivElement = <HTMLDivElement>_event.target; //div element creieirt, target = was angeklickt wird
             click.style.backgroundColor = "lightblue";
             
-            currentLetter  = click.id; 
+            currentLetter  = click.id; //der div der angeklickt wurde davon wird die id gespeichert - Buchstaben den ich angeklickt hab
              
             let divlist: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>> document.getElementsByClassName("letters");
-        
+        //div wird wert zugewiesen - jedes div wird in divlist gespeichert 
             
-            for (let i: number = 0; i < divlist.length; i++) { 
-                if (currentLetter != divlist[i].id) { 
+            for (let i: number = 0; i < divlist.length; i++) { //i soll solange laufen bis alle buchstaben durch sind 
+                if (currentLetter != divlist[i].id) { //prüft bei jedem div ob das der current letter ist - prüft jeden buchstaben - -!= -- ungleich
                 divlist[i].style.backgroundColor = "lightgrey";
-                   
+                    //wenns currentletter nicht mit der div id einstimmt = farbe lightgrey
     
                 }
             }
@@ -118,11 +120,11 @@ namespace Aufgabe9 {
     
     
     //Funktion:Buchstaben mit Tastaturklick auswählen
-    function tastaturEingabe(event: KeyboardEvent): void { 
+    function tastaturEingabe(event: KeyboardEvent): void { //wenn keyboard event einklickt - wenn ich was anklicke
         
-        if (event.key == "a" || event.key == "A") {  
-            currentLetter = event.key; 
-            putLetter; 
+        if (event.key == "a" || event.key == "A") {  //prüf ob klein oder gorß a angeklickt wurde dann speichern als currentletter
+            currentLetter = event.key; //eventkey- wenn event passiert-- a angeklickt
+            putLetter; //führt putletter aus
         }
         
         else if (event.key == "b" || event.key == "B") {
@@ -255,7 +257,7 @@ namespace Aufgabe9 {
 
     
     
-    //------ Funktion: Alt Taste gedrückt halten (1)   
+    //------ Funktion: Alt Taste gedrückt halten (1)   //alt taste gedürckt
     function handleAlt (_event: KeyboardEvent): void {
         if(_event.keyCode ==18) { //18 keycode für alttaste
             deleteLetter;
@@ -265,14 +267,14 @@ namespace Aufgabe9 {
     //------- Funkton: Buchstaben entfernen (2)
     function deleteLetter(_event:MouseEvent): void {
         
-     if (_event.altKey == false){ 
+     if (_event.altKey == false){ // wenn alt taste nicht gedrückt ist (false) dann aus der funktion raus- passiert nichts
          return}
         
     if (_event.altKey == true)  {
       
-        let _delete: HTMLDivElement = <HTMLDivElement> _event.target; 
+        let _delete: HTMLDivElement = <HTMLDivElement> _event.target; //variable _delete typ:html.... wenn div element soll event target sein- div element angeklickt, dann soll remove child
   
-        document.body.removeChild(_delete); 
+        document.body.removeChild(_delete); //div mit buchstaben soll gelöscht werden... das angeklickte soll gelöscht werdern
         }
   
 
