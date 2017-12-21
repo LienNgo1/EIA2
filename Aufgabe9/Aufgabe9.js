@@ -41,7 +41,7 @@ var Aufgabe9;
     //------ Funktion große Box zeichnen----
     function drawKasten() {
         let letter = document.createElement("div");
-        //Returns a String of an object
+        letter.style.width = "800px";
         letter.style.height = "300px";
         letter.style.backgroundColor = "grey";
         letter.style.marginLeft = "2px";

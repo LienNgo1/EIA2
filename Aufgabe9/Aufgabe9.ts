@@ -38,8 +38,9 @@ namespace Aufgabe9 {
     function drawRect (_alphabet: string): void {
 
         let div: HTMLDivElement = document.createElement("div"); 
+      
 
-        div.style.width = "40px"; 
+        div.style.width = "40px";
         div.style.height = "40px";
         div.style.backgroundColor = "lightgrey";
         div.innerText = _alphabet; 
@@ -56,7 +57,8 @@ namespace Aufgabe9 {
   //------ Funktion große Box zeichnen----
     function drawKasten(): void {
             let letter: HTMLDivElement = document.createElement("div");
-        //Returns a String of an object
+        
+            letter.style.width = "800px"; 
             letter.style.height = "300px";
             letter.style.backgroundColor = "grey";
             letter.style.marginLeft = "2px";
@@ -82,7 +84,6 @@ namespace Aufgabe9 {
                 if (currentLetter != divlist[i].id) { 
                 divlist[i].style.backgroundColor = "lightgrey";
                    
-    
                 }
             }
      }
