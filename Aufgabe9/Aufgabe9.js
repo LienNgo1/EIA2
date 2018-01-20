@@ -11,7 +11,7 @@ var Aufgabe9;
     window.addEventListener("load", init);
     //Globale Variable anlegen. -wie kann ich die versch. Div's vergleichen?
     let currentLetter;
-    document.addEventListener("keydown", tastaturEingabe);
+    //  document.addEventListener ("keydown", tastaturEingabe);
     function init() {
         let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "X", "Y", "Z"];
         let anzahl = alphabet.length;

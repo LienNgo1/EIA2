@@ -13,7 +13,7 @@ namespace Aufgabe9 {
  //Globale Variable anlegen. -wie kann ich die versch. Div's vergleichen?
     let currentLetter: string;    
 
-    document.addEventListener ("keydown", tastaturEingabe);
+  //  document.addEventListener ("keydown", tastaturEingabe);
     
 
    function init(): void{ 
@@ -115,7 +115,7 @@ namespace Aufgabe9 {
                
         }
     
-    
+   
     
     
     //Funktion:Buchstaben mit Tastaturklick auswählen
@@ -254,6 +254,7 @@ namespace Aufgabe9 {
 
     }
 
+    
     
     
     //------ Funktion: Alt Taste gedrückt halten (1)   
