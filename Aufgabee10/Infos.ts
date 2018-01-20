@@ -8,6 +8,7 @@ namespace Aufgabe10 {
         name: string;
         price: number;
     }
+    
 
     export let angebot: Angebot[] = [
         { kind: "Baumart", name: "Fichte", price: 0 },
