@@ -7,45 +7,44 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var Aufgabe10;
 (function (Aufgabe10) {
     window.addEventListener("load", init);
-    let name; //variable Name vom typ htmlinputelement... 
+    let name;
     let strasse;
     let hNr;
     let ort;
     let plz;
     let mail;
     let label;
-    let Baum = []; //die variable cartbaum vom typ stringarray --name + preis von baumklein etc. in cartBaum speichern
+    let Baum = []; //die variable baum vom typ stringarray --name + preis von baumklein etc. in Baum speichern
     let Halterung = ["keine Halterung gewaehlt", "0"];
-    let Lichterkette = []; //name + preis von Kerzen in kerz speichern
+    let Lichterkette = []; //name + preis von Lichterkette in Lichterkette speichern
     let Schmuck = [];
     let Lieferung = ["keine Lieferoption gewaehlt", "0"];
     // ----------------- FUNKTION INIT----------------------------
     //------------------------------------------------------------
     function init() {
-        initBaum(); //initalisiert die ganzen Daten für die Baumarten - funktionsaufruf
+        initBaum();
         initHalterung();
         initLichterkette();
         initSchmuck();
         initDaten();
         //-Lieferoptionen--
-        let lieferopt = document.getElementById("lieferoptionen"); // getElementById = programm sucht im html die id lieferelement - 
+        let lieferopt = document.getElementById("lieferoptionen");
         for (let i = 0; i < Aufgabe10.angebot.length; i++) {
             if (Aufgabe10.angebot[i].kind == "Lieferung") {
-                let radioB2 = document.createElement("input"); //variable radioB2 typ htmlinputelement
-                radioB2.type = "radio"; //soll ein radiobutton sein - greift später auf die Daten zu wenn ich den warenkorb generiere
-                radioB2.name = "radioGroupLieferoptionen";
-                radioB2.value = "radio2." + i; //läuft ganzes angebot ab bis lieferung findet ...i.20 ....
-                radioB2.id = "radio2." + i;
-                lieferopt.appendChild(radioB2);
-                let label3 = document.createElement("label"); //element danamisch gemacht
-                label3.id = "label3." + i; //label zB Standardlieferung
-                label3.htmlFor = radioB2.id;
-                label3.innerText = Aufgabe10.angebot[i].name;
-                lieferopt.appendChild(label3);
+                let radio = document.createElement("input");
+                radio.type = "radio";
+                radio.name = "radioLieferoptionen";
+                radio.value = "radio" + i;
+                radio.id = "radio" + i;
+                lieferopt.appendChild(radio);
+                let labellieferoptionen = document.createElement("label");
+                labellieferoptionen.id = "lieferoptionen." + i;
+                labellieferoptionen.innerText = Aufgabe10.angebot[i].name;
+                lieferopt.appendChild(labellieferoptionen);
             }
         }
         //-Button:--
-        let button = document.getElementById("button"); //element danamisch gemacht
+        let button = document.getElementById("button");
         let submit = document.createElement("button");
         submit.name = "Button";
         submit.type = "button";
@@ -58,10 +57,10 @@ var Aufgabe10;
     //--------------- FUNKTION BAUM-DYNAMISCHER CODE -------------
     function initBaum() {
         //Baumart:
-        let baumart = document.getElementById("baumart"); //an die stelle wo die id im html steht
-        let selectBaum = document.createElement("select"); //
-        selectBaum.name = "SelectBaumart"; //create das element das heisst select
-        selectBaum.id = "selectBaumart"; //ich geb der id den namen select baumart
+        let baumart = document.getElementById("baumart");
+        let selectBaum = document.createElement("select");
+        selectBaum.name = "SelectBaumart";
+        selectBaum.id = "selectBaumart";
         baumart.appendChild(selectBaum);
         for (let i = 0; i < Aufgabe10.angebot.length; i++) {
             if (Aufgabe10.angebot[i].kind == "Baumart") {
@@ -100,7 +99,7 @@ var Aufgabe10;
         Lichterkette.appendChild(selectBox2);
         for (let i = 0; i < Aufgabe10.angebot.length; i++) {
             if (Aufgabe10.angebot[i].kind == "Beleuchtung") {
-                var opt2 = document.createElement("option"); //alle beleuchtungsarten werden als optionen gespeichert bekommen eine id --optionen werden an selektbox drangehöngt
+                var opt2 = document.createElement("option");
                 opt2.innerText = Aufgabe10.angebot[i].name;
                 opt2.id = "option2." + i;
                 selectBox2.appendChild(opt2);
@@ -109,14 +108,14 @@ var Aufgabe10;
     }
     //-------------------SCHMUCK DYNAMISCH------------------------------------
     function initSchmuck() {
-        let schmuckartikel = document.getElementById("schmuckartikel"); //var schmuckartikel soll an die stelle wo im htm die id schmuckartiekel steht
+        let schmuckartikel = document.getElementById("schmuckartikel");
         for (let i = 0; i < Aufgabe10.angebot.length; i++) {
             if (Aufgabe10.angebot[i].kind == "Schmuck") {
-                let checkB = document.createElement("input"); // dann mach ne variable checkB vom typ HTMLInput Element = soll ein inputelement kreieren-- mache checkbox für zb Kugel rot
-                checkB.type = "checkbox"; //soll vom typ checkbox sein
-                checkB.name = "CheckboxSchmuckartikel"; //name soll .. sein
-                checkB.value = "check"; //Wert soll check sein
-                checkB.id = "check" + i; // könnte check 15 sein... id= check 15 
+                let checkB = document.createElement("input");
+                checkB.type = "checkbox";
+                checkB.name = "CheckboxSchmuckartikel";
+                checkB.value = "check" + i;
+                checkB.id = "check" + i;
                 schmuckartikel.appendChild(checkB);
                 let label2 = document.createElement("label"); // 
                 label2.id = "label2." + i;
@@ -139,7 +138,7 @@ var Aufgabe10;
     }
     //----------------------FUNKTION DATEN -------------------------------------
     function initDaten() {
-        let daten = document.getElementById("daten"); //var daten typ html... da wo die id = daten steht 
+        let daten = document.getElementById("daten");
         name = document.createElement("input");
         name.type = "text";
         name.name = "DatenName";
@@ -180,7 +179,7 @@ var Aufgabe10;
         mail.name = "DatenMail";
         mail.placeholder = "E-Mail";
         mail.required = true;
-        daten.appendChild(mail); //alle infos generier ich in die variable daten
+        daten.appendChild(mail);
     }
     //----------------------FUNKTION HANDLE MOUSE DOWN---------------------------------------
     function handleMouseDown(_event) {

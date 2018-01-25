@@ -11,7 +11,7 @@ namespace Aufgabe10 {
     window.addEventListener("load", init);  
 
 
-    let name: HTMLInputElement; //variable Name vom typ htmlinputelement... 
+    let name: HTMLInputElement; 
     let strasse: HTMLInputElement; 
     let hNr: HTMLInputElement;
     let ort: HTMLInputElement;
@@ -21,9 +21,9 @@ namespace Aufgabe10 {
        
     let label: HTMLLabelElement;
 
-    let Baum: string [] =[] //die variable cartbaum vom typ stringarray --name + preis von baumklein etc. in cartBaum speichern
+    let Baum: string [] =[] //die variable baum vom typ stringarray --name + preis von baumklein etc. in Baum speichern
     let Halterung: string[] = ["keine Halterung gewaehlt", "0"]; 
-    let Lichterkette: string[] = []; //name + preis von Kerzen in kerz speichern
+    let Lichterkette: string[] = []; //name + preis von Lichterkette in Lichterkette speichern
     let Schmuck: string[][] = [];
     let Lieferung: string[] = ["keine Lieferoption gewaehlt", "0"];
     
@@ -37,7 +37,7 @@ namespace Aufgabe10 {
     
     function init(): void {
         
-        initBaum(); //initalisiert die ganzen Daten für die Baumarten - funktionsaufruf
+        initBaum();
         initHalterung();
         initLichterkette();
         initSchmuck();
@@ -46,26 +46,25 @@ namespace Aufgabe10 {
         
   //-Lieferoptionen--
         
-        let lieferopt: HTMLDivElement = <HTMLDivElement>document.getElementById("lieferoptionen"); // getElementById = programm sucht im html die id lieferelement - 
-        for (let i: number = 0; i < angebot.length; i++) { //i< = ABBRUCHKRITERIUM, LAUFZEITKRITERIUM 
-            if (angebot[i].kind == "Lieferung") { // 
-                let radioB2: HTMLInputElement = document.createElement("input"); //variable radioB2 typ htmlinputelement
-                radioB2.type = "radio"; //soll ein radiobutton sein - greift später auf die Daten zu wenn ich den warenkorb generiere
-                radioB2.name = "radioGroupLieferoptionen"; 
-                radioB2.value = "radio2." + i; //läuft ganzes angebot ab bis lieferung findet ...i.20 ....
-                radioB2.id = "radio2." + i;
-                lieferopt.appendChild(radioB2);
+        let lieferopt: HTMLDivElement = <HTMLDivElement>document.getElementById("lieferoptionen"); 
+        for (let i: number = 0; i < angebot.length; i++) {  
+            if (angebot[i].kind == "Lieferung") { 
+                let radio: HTMLInputElement = document.createElement("input"); 
+                radio.type = "radio"; 
+                radio.name = "radioLieferoptionen"; 
+                radio.value = "radio" + i; 
+                radio.id = "radio" + i;
+                lieferopt.appendChild(radio);
 
-                let label3: HTMLLabelElement = document.createElement("label"); //element danamisch gemacht
-                label3.id = "label3." + i; //label zB Standardlieferung
-                label3.htmlFor = radioB2.id; 
-                label3.innerText = angebot[i].name;
-                lieferopt.appendChild(label3);
+                let labellieferoptionen: HTMLLabelElement = document.createElement("label"); 
+                labellieferoptionen.id = "lieferoptionen." + i; 
+                labellieferoptionen.innerText = angebot[i].name;
+                lieferopt.appendChild(labellieferoptionen);
             }
         }
 
     //-Button:--
-        let button: HTMLDivElement = <HTMLDivElement>document.getElementById("button"); //element danamisch gemacht
+        let button: HTMLDivElement = <HTMLDivElement>document.getElementById("button"); 
         let submit: HTMLButtonElement = document.createElement("button");
         submit.name = "Button";
         submit.type = "button";
@@ -87,14 +86,14 @@ namespace Aufgabe10 {
     function initBaum(): void {
         
         //Baumart:
-        let baumart: HTMLDivElement = <HTMLDivElement>document.getElementById("baumart"); //an die stelle wo die id im html steht
-        let selectBaum: HTMLSelectElement = document.createElement("select"); //
-        selectBaum.name = "SelectBaumart"; //create das element das heisst select
-        selectBaum.id = "selectBaumart"; //ich geb der id den namen select baumart
+        let baumart: HTMLDivElement = <HTMLDivElement>document.getElementById("baumart"); 
+        let selectBaum: HTMLSelectElement = document.createElement("select"); 
+        selectBaum.name = "SelectBaumart"; 
+        selectBaum.id = "selectBaumart"; 
         baumart.appendChild(selectBaum);
         
-        for (let i: number = 0; i < angebot.length; i++) { //geht das Angebot durch
-            if (angebot[i].kind == "Baumart") { //wenn 
+        for (let i: number = 0; i < angebot.length; i++) { 
+            if (angebot[i].kind == "Baumart") { 
                 let opt: HTMLElement = document.createElement("option");
                 opt.innerText = angebot[i].name;
                 opt.id = "option" + i;
@@ -139,8 +138,8 @@ namespace Aufgabe10 {
          
         for (let i: number = 0; i < angebot.length; i++) {
 
-            if (angebot[i].kind == "Beleuchtung") { //Alle beleuchtungsarten werden
-                var opt2: HTMLElement = document.createElement("option"); //alle beleuchtungsarten werden als optionen gespeichert bekommen eine id --optionen werden an selektbox drangehöngt
+            if (angebot[i].kind == "Beleuchtung") { 
+                var opt2: HTMLElement = document.createElement("option"); 
                 opt2.innerText = angebot[i].name;
                 opt2.id = "option2." + i; 
                 selectBox2.appendChild(opt2);
@@ -153,15 +152,15 @@ namespace Aufgabe10 {
     
     function initSchmuck(): void {
         
-        let schmuckartikel: HTMLDivElement = <HTMLDivElement>document.getElementById("schmuckartikel"); //var schmuckartikel soll an die stelle wo im htm die id schmuckartiekel steht
+        let schmuckartikel: HTMLDivElement = <HTMLDivElement>document.getElementById("schmuckartikel"); 
         for (let i: number = 0; i < angebot.length; i++) {
             
-            if (angebot[i].kind == "Schmuck") { //wenn die art von angebot "schmuck" ist 
-                let checkB: HTMLInputElement = document.createElement("input"); // dann mach ne variable checkB vom typ HTMLInput Element = soll ein inputelement kreieren-- mache checkbox für zb Kugel rot
-                checkB.type = "checkbox"; //soll vom typ checkbox sein
-                checkB.name = "CheckboxSchmuckartikel"; //name soll .. sein
-                checkB.value = "check"; //Wert soll check sein
-                checkB.id = "check" + i; // könnte check 15 sein... id= check 15 
+            if (angebot[i].kind == "Schmuck") {  
+                let checkB: HTMLInputElement = document.createElement("input"); 
+                checkB.type = "checkbox"; 
+                checkB.name = "CheckboxSchmuckartikel"; 
+                checkB.value = "check" +i; 
+                checkB.id = "check" + i; 
                 schmuckartikel.appendChild(checkB);
             
 
@@ -193,7 +192,7 @@ namespace Aufgabe10 {
     
     function initDaten(): void {
 
-        let daten: HTMLDivElement = <HTMLDivElement>document.getElementById("daten"); //var daten typ html... da wo die id = daten steht 
+        let daten: HTMLDivElement = <HTMLDivElement>document.getElementById("daten");  
         name = document.createElement("input"); 
         name.type = "text"; 
         name.name = "DatenName";
@@ -239,7 +238,7 @@ namespace Aufgabe10 {
         mail.name = "DatenMail";
         mail.placeholder = "E-Mail";
         mail.required = true;
-        daten.appendChild(mail); //alle infos generier ich in die variable daten
+        daten.appendChild(mail);  
     }
     
     
