@@ -17,6 +17,7 @@ namespace Aufgabe10 {
     let ort: HTMLInputElement;
     let plz: HTMLInputElement;
     let mail: HTMLInputElement;
+    
        
     let label: HTMLLabelElement;
 
