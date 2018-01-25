@@ -7,6 +7,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var Aufgabe10;
 (function (Aufgabe10) {
     window.addEventListener("load", init);
+    //   window.addEventListener("change", createWarenkorb); 
     let name; //variable Name vom typ htmlinputelement... 
     let strasse;
     let hNr;
@@ -14,11 +15,11 @@ var Aufgabe10;
     let plz;
     let mail;
     let label;
-    let Baum = []; //die variable cartbaum vom typ stringarray --name + preis von baumklein etc. in cartBaum speichern
-    let Halterung = ["keine Halterung gewaehlt", "0"];
-    let Lichterkette = [Aufgabe10.lichterkette[0][0], "" + Aufgabe10.lichterkette[0][1]]; //name + preis von Kerzen in kerz speichern
-    let Schmuck = [];
-    let Lieferung = ["keine Lieferoption gewaehlt", "0"];
+    let cartBaum = []; //die variable cartbaum vom typ stringarray --name + preis von baumklein etc. in cartBaum speichern
+    let cartHalterung = ["keine Halterung gewaehlt", "0"];
+    let cartLichterkette = [Aufgabe10.lichterkette[0][0], "" + Aufgabe10.lichterkette[0][1]]; //name + preis von Kerzen in kerz speichern
+    let cartSchmuck = [];
+    let cartLiefern = ["keine Lieferoption gewaehlt", "0"];
     // ----------------- FUNKTION INIT----------------------------
     //------------------------------------------------------------
     function init() {
@@ -182,6 +183,71 @@ var Aufgabe10;
         mail.required = true;
         daten.appendChild(mail); //alle infos generier ich in die variable daten
     }
+    /*
+     //--------------- FUNKTION WARENKORB----------------------
+     function createWarenkorb(_event: Event): void {
+         let target: HTMLInputElement = <HTMLInputElement>_event.target; //Target sind alle input elemente
+         let stepper: HTMLInputElement[] = [];
+         let checkBoxes: HTMLInputElement[] = [];
+         let gesamtpreis: number = 0;
+ 
+         for (let i: number = 0; i < angebot.length; i++) { //Angebot nach Schmuck durchsuchen
+             if (angebot[i].kind == "Schmuck") {
+                 stepper[i] = <HTMLInputElement>document.getElementById("stepper" + i); //jedes Element, das als ID stepper hat wird in let stepper gespeichert
+                 checkBoxes[i] = <HTMLInputElement>document.getElementById("check" + i); //jedes Element, das als ID check hat wird in let checkboxes gespeichert
+             }
+             if (target.value == angebot[i].name && target.id == "selectBaumart") {//wenn target value mit einem name in angebot übereinstimmt und die id des targets selectbaumart ist
+                 cartBaum[0] = angebot[i].name; //dann speichere jetzt an erster stelle in cartBaum den name des Artikels
+                 cartBaum[1] = "" + angebot[i].price; //an zweiter stelle den preis des artikels
+             }
+             if (target.id == "radio" + i) {
+                 cartHalterung[0] = angebot[i].name;
+                 cartHalterung[1] = "" + angebot[i].price;
+ 
+             }
+             if (target.id == "radio2." + i) {
+                 cartLiefern[0] = angebot[i].name;
+                 cartLiefern[1] = "" + angebot[i].price;
+ 
+             }
+ 
+             if (target.value == angebot[i].name && target.id == "selectBeleuchtung") {
+                 cartLichterkette[0] = angebot[i].name;
+                 cartLichterkette[1] = "" + angebot[i].price;
+ 
+             }
+ 
+             if (target.id == "check" + i || target.id == "stepper" + i) {//wenn die target id check i oder stepper i heisst
+                 cartSchmuck[i] = [angebot[i].name, "" + (angebot[i].price * parseInt(stepper[i].value))]; //dann speicher in cartSchmuck den name des artikels und den preis (Wert des steppers in zahl umwandeln)
+             }
+         }
+         
+         let korb: HTMLDivElement = <HTMLDivElement>document.getElementById("korb");
+         korb.style.width = "25%";
+         korb.style.height = "100%";
+         korb.style.backgroundColor = "#0d640b";
+         korb.style.color = "white";
+         
+         korb.innerHTML = "<div class='warenkorb'>Warenkorb</div><hr>";
+         korb.innerHTML += "" + cartBaum[0] + " " + cartBaum[1] + " Euro <br>"; //Name + Preis des Artikels sind in cartBaum drin
+         korb.innerHTML += "Weihnachtsbaumhalterung: " + cartHalterung[0] + " " + cartHalterung[1] + " Euro <br>";
+         korb.innerHTML += "" + cartLichterkette[0] + " " + cartLichterkette[1] + "Euro <br>";
+         korb.innerHTML += " " + cartLiefern[0] + " " + cartLiefern[1] + " Euro <br>";
+ 
+         gesamtpreis = parseFloat(cartBaum[1]) + parseFloat(cartHalterung[1]) + parseFloat(cartLiefern[1]); //parseFloat convertiert string in Zahl: Preise als Zahlen umkodieren
+         for (let i: number = 0; i < stepper.length; i++) { //alle Stepper durchgehen
+             if (checkBoxes[i] != null && checkBoxes[i].checked == true) { //wenn checkboxen angeklickt
+               
+                 gesamtpreis += parseFloat(cartSchmuck[i][1]); // dann rechne zum gesamtpreis den preis des Schmuckobjekts als zahl dazu
+                
+                 korb.innerHTML += "" + cartSchmuck[i][0] + " " + cartSchmuck[i][1] + " Euro <br>"; //erweitere den warenkorb durch name und preis des schmuckobjekts das angeklickt wurde
+             }
+         }
+         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + " Euro";
+     }
+ 
+     
+ */
     //----------------------FUNKTION HANDLE MOUSE DOWN---------------------------------------
     function handleMouseDown(_event) {
         let review = document.createElement("div");
@@ -198,4 +264,4 @@ var Aufgabe10;
         }
     }
 })(Aufgabe10 || (Aufgabe10 = {}));
-//# sourceMappingURL=Aufgabe10.js.map
+//# sourceMappingURL=Aufgabe10komplett.js.map
