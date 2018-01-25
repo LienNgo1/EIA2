@@ -2,16 +2,13 @@
 Name: Ngo, Thi Lien
 Matrikel: 256778
 Datum: 21.12.2017
-
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-
-
 */
 
 namespace Aufgabe10 {
     
     
-    window.addEventListener("load", init); 
+    window.addEventListener("load", init);  
     window.addEventListener("change", createWarenkorb); 
 
     let name: HTMLInputElement; //?????????
@@ -23,12 +20,14 @@ namespace Aufgabe10 {
        
     let label: HTMLLabelElement;
 
-    let cartBaum: string[] = [baumArt[0][0], "" + baumArt[0][1]]; //name + preis von baumklein etc. in cartBaum speichern
+    let cartBaum: string[] = [baumart[0][0], "" + baumart[0][1]]; //name + preis von baumklein etc. in cartBaum speichern
     let cartHalterung: string[] = ["keine Halterung gewaehlt", "0"]; 
-    let cartLichterkette: string[] = [kerz[0][0], "" + kerz[0][1]]; //name + preis von Kerzen in kerz speichern
+    let cartLichterkette: string[] = [lichterkette[0][0], "" + lichterkette[0][1]]; //name + preis von Kerzen in kerz speichern
     let cartSchmuck: string[][] = [];
     let cartLiefern: string[] = ["keine Lieferoption gewaehlt", "0"];
 
+    
+    
     
   // ----------------- FUNKTION INIT----------------------------
     function init(): void {
@@ -222,7 +221,6 @@ namespace Aufgabe10 {
     
     
     //--------------- FUNKTION WARENKORB----------------------
-
     function createWarenkorb(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target; //Target sind alle input elemente
         let stepper: HTMLInputElement[] = [];

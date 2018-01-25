@@ -1,4 +1,3 @@
-
 namespace Aufgabe10 {
     
     
@@ -8,7 +7,6 @@ namespace Aufgabe10 {
         name: string;
         price: number;
     }
-    
 
     export let angebot: Angebot[] = [
         { kind: "Baumart", name: "Fichte", price: 0 },
@@ -40,17 +38,17 @@ namespace Aufgabe10 {
         { kind: "Lieferung", name: "Morning Express Lieferung", price: 9 }
     ];
 
-    export let baumArt: string[][] = []; //speichert temp: speichert name + preis der bäume
-    export let kerz: string[][] = []; //speichert temp: speichert name + preis der kerzen
+    export let baumart: string[][] = []; //speichert temp: speichert name + preis der bäume
+    export let lichterkette: string[][] = []; //speichert temp: speichert name + preis der kerzen
     for (let i: number = 0; i < angebot.length; i++) {
         if (angebot[i].kind == "Baumart") {
             let temp: any = [angebot[i].name, angebot[i].price];
-            baumArt.push(temp);
+            baumart.push(temp);
         }
 
         if (angebot[i].kind == "Beleuchtung") {
             let temp: any = [angebot[i].name, angebot[i].price];
-            kerz.push(temp);
+            lichterkette.push(temp);
         }
     }
 }

@@ -24,16 +24,16 @@ var Aufgabe10;
         { kind: "Lieferung", name: "Standard Lieferung", price: 4 },
         { kind: "Lieferung", name: "Morning Express Lieferung", price: 9 }
     ];
-    Aufgabe10.baumArt = []; //speichert temp: speichert name + preis der bäume
-    Aufgabe10.kerz = []; //speichert temp: speichert name + preis der kerzen
+    Aufgabe10.baumart = []; //speichert temp: speichert name + preis der bäume
+    Aufgabe10.lichterkette = []; //speichert temp: speichert name + preis der kerzen
     for (let i = 0; i < Aufgabe10.angebot.length; i++) {
         if (Aufgabe10.angebot[i].kind == "Baumart") {
             let temp = [Aufgabe10.angebot[i].name, Aufgabe10.angebot[i].price];
-            Aufgabe10.baumArt.push(temp);
+            Aufgabe10.baumart.push(temp);
         }
         if (Aufgabe10.angebot[i].kind == "Beleuchtung") {
             let temp = [Aufgabe10.angebot[i].name, Aufgabe10.angebot[i].price];
-            Aufgabe10.kerz.push(temp);
+            Aufgabe10.lichterkette.push(temp);
         }
     }
 })(Aufgabe10 || (Aufgabe10 = {}));

@@ -2,10 +2,7 @@
 Name: Ngo, Thi Lien
 Matrikel: 256778
 Datum: 21.12.2017
-
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-
-
 */
 var Aufgabe10;
 (function (Aufgabe10) {
@@ -18,9 +15,9 @@ var Aufgabe10;
     let plz;
     let mail;
     let label;
-    let cartBaum = [Aufgabe10.baumArt[0][0], "" + Aufgabe10.baumArt[0][1]]; //name + preis von baumklein etc. in cartBaum speichern
+    let cartBaum = [Aufgabe10.baumart[0][0], "" + Aufgabe10.baumart[0][1]]; //name + preis von baumklein etc. in cartBaum speichern
     let cartHalterung = ["keine Halterung gewaehlt", "0"];
-    let cartLichterkette = [Aufgabe10.kerz[0][0], "" + Aufgabe10.kerz[0][1]]; //name + preis von Kerzen in kerz speichern
+    let cartLichterkette = [Aufgabe10.lichterkette[0][0], "" + Aufgabe10.lichterkette[0][1]]; //name + preis von Kerzen in kerz speichern
     let cartSchmuck = [];
     let cartLiefern = ["keine Lieferoption gewaehlt", "0"];
     // ----------------- FUNKTION INIT----------------------------
