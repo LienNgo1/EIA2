@@ -11,7 +11,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 body {
 	float: left;
 	color: black;
-	font-size: 0.8em;
+	font-size: 1em;
 	width: 100%;
 	margin-left: 20%;
 }
