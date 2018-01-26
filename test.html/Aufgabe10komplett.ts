@@ -22,7 +22,7 @@ namespace Aufgabe10 {
 
     let cartBaum: string [] =[] //die variable cartbaum vom typ stringarray --name + preis von baumklein etc. in cartBaum speichern
     let cartHalterung: string[] = ["keine Halterung gewaehlt", "0"]; 
-    let cartLichterkette: string[] = [Lichterkette[0][0], "" + Lichterkette[0][1]]; //name + preis von Kerzen in kerz speichern
+    let cartLichterkette: string[] = [lichterkette[0][0], "" + lichterkette[0][1]]; //name + preis von Kerzen in kerz speichern
     let cartSchmuck: string[][] = [];
     let cartLiefern: string[] = ["keine Lieferoption gewaehlt", "0"];
     
