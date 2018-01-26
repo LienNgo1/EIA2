@@ -17,7 +17,7 @@ var Aufgabe10;
     let label;
     let cartBaum = []; //die variable cartbaum vom typ stringarray --name + preis von baumklein etc. in cartBaum speichern
     let cartHalterung = ["keine Halterung gewaehlt", "0"];
-    let cartLichterkette = [lichterkette[0][0], "" + lichterkette[0][1]]; //name + preis von Kerzen in kerz speichern
+    let cartLichterkette = [Lichterkette[0][0], "" + Lichterkette[0][1]]; //name + preis von Kerzen in kerz speichern
     let cartSchmuck = [];
     let cartLiefern = ["keine Lieferoption gewaehlt", "0"];
     // ----------------- FUNKTION INIT----------------------------

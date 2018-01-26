@@ -246,5 +246,6 @@ var Aufgabe10;
             document.body.appendChild(review);
         }
     }
+    createWarenkorb(new Event());
 })(Aufgabe10 || (Aufgabe10 = {}));
 //# sourceMappingURL=Aufgabe10.js.map
