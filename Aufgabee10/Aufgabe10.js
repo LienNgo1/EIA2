@@ -14,11 +14,11 @@ var Aufgabe10;
     let plz;
     let mail;
     let label;
-    let cartBaum = []; //die variable cartbaum vom typ stringarray --name + preis von baumklein etc. in cartBaum speichern
-    let cartHalterung = ["keine Halterung gewaehlt", "0"];
-    let cartLichterkette = []; //name + preis von Kerzen in kerz speichern
-    let cartSchmuck = [];
-    let cartLiefern = ["keine Lieferoption gewaehlt", "0"];
+    let Baum = []; //die variable baum vom typ stringarray --name + preis von baumklein etc. in Baum speichern
+    let Halterung = ["keine Halterung gewaehlt", "0"];
+    let Lichterkette = []; //name + preis von Lichterkette in Lichterkette speichern
+    let Schmuck = [];
+    let Lieferung = ["keine Lieferoption gewaehlt", "0"];
     // ----------------- FUNKTION INIT----------------------------
     //------------------------------------------------------------
     function init() {
@@ -180,56 +180,6 @@ var Aufgabe10;
         mail.placeholder = "E-Mail";
         mail.required = true;
         daten.appendChild(mail);
-    }
-    //--------------- FUNKTION WARENKORB----------------------
-    function createWarenkorb(_event) {
-        let target = _event.target; //Target sind alle input elemente
-        let stepper = [];
-        let checkBoxes = [];
-        let gesamtpreis = 0;
-        for (let i = 0; i < Aufgabe10.angebot.length; i++) {
-            if (Aufgabe10.angebot[i].kind == "Schmuck") {
-                stepper[i] = document.getElementById("stepper" + i); //jedes Element, das als ID stepper hat wird in let stepper gespeichert
-                checkBoxes[i] = document.getElementById("check" + i); //jedes Element, das als ID check hat wird in let checkboxes gespeichert   
-            }
-            if (target.value == Aufgabe10.angebot[i].name && target.id == "selectBaumart") {
-                cartBaum[0] = Aufgabe10.angebot[i].name; //dann speichere jetzt an erster stelle in cartBaum den name des Artikels
-                cartBaum[1] = "" + Aufgabe10.angebot[i].price; //an zweiter stelle den preis des artikels
-            }
-            if (target.id == "radio" + i) {
-                cartHalterung[0] = Aufgabe10.angebot[i].name;
-                cartHalterung[1] = "" + Aufgabe10.angebot[i].price;
-            }
-            if (target.id == "radio2." + i) {
-                cartLiefern[0] = Aufgabe10.angebot[i].name;
-                cartLiefern[1] = "" + Aufgabe10.angebot[i].price;
-            }
-            if (target.value == Aufgabe10.angebot[i].name && target.id == "selectBeleuchtung") {
-                cartLichterkette[0] = Aufgabe10.angebot[i].name;
-                cartLichterkette[1] = "" + Aufgabe10.angebot[i].price;
-            }
-            if (target.id == "check" + i || target.id == "stepper" + i) {
-                cartSchmuck[i] = [Aufgabe10.angebot[i].name, "" + (Aufgabe10.angebot[i].price * parseInt(stepper[i].value))]; //dann speicher in cartSchmuck den name des artikels und den preis (Wert des steppers in zahl umwandeln)
-            }
-        }
-        let korb = document.getElementById("korb");
-        korb.style.width = "25%";
-        korb.style.height = "100%";
-        korb.style.backgroundColor = "#0d640b";
-        korb.style.color = "white";
-        korb.innerHTML = "<div class='warenkorb'>Warenkorb</div><hr>";
-        korb.innerHTML += "" + cartBaum[0] + " " + cartBaum[1] + " Euro <br>"; //Name + Preis des Artikels sind in cartBaum drin
-        korb.innerHTML += "Weihnachtsbaumhalterung: " + cartHalterung[0] + " " + cartHalterung[1] + " Euro <br>";
-        korb.innerHTML += "" + cartLichterkette[0] + " " + cartLichterkette[1] + "Euro <br>";
-        korb.innerHTML += " " + cartLiefern[0] + " " + cartLiefern[1] + " Euro <br>";
-        gesamtpreis = parseFloat(cartBaum[1]) + parseFloat(cartHalterung[1]) + parseFloat(cartLiefern[1]); //parseFloat convertiert string in Zahl: Preise als Zahlen umkodieren
-        for (let i = 0; i < stepper.length; i++) {
-            if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
-                gesamtpreis += parseFloat(cartSchmuck[i][1]); // dann rechne zum gesamtpreis den preis des Schmuckobjekts als zahl dazu
-                korb.innerHTML += "" + cartSchmuck[i][0] + " " + cartSchmuck[i][1] + " Euro <br>"; //erweitere den warenkorb durch name und preis des schmuckobjekts das angeklickt wurde
-            }
-        }
-        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + " Euro";
     }
     //----------------------FUNKTION HANDLE MOUSE DOWN---------------------------------------
     function handleMouseDown(_event) {
