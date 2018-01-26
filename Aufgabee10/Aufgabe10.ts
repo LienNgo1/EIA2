@@ -9,7 +9,7 @@ namespace Aufgabe10 {
     
     
     window.addEventListener("load", init);  
-    window.addEventListener("change", createWarenkorb); 
+  //  window.addEventListener("change", createWarenkorb); 
 
     let name: HTMLInputElement; 
     let strasse: HTMLInputElement;
@@ -219,7 +219,7 @@ namespace Aufgabe10 {
         daten.appendChild(mail);
     }
     
-    
+/*    
     //--------------- FUNKTION WARENKORB----------------------
     function createWarenkorb(_event: Event): void {
         let target: HTMLInputElement = <HTMLInputElement>_event.target; //Target sind alle input elemente
@@ -281,7 +281,7 @@ namespace Aufgabe10 {
         }
         korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + " Euro";
     }
-
+*/
 
     function handleMouseDown(_event: MouseEvent): void { //bei submit button
         let review: HTMLDivElement = document.createElement("div");
@@ -300,4 +300,5 @@ namespace Aufgabe10 {
             document.body.appendChild(review);
         }
     }
-}
+    
+}    
