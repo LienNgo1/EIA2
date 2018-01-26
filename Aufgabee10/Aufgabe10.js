@@ -7,45 +7,45 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var Aufgabe10;
 (function (Aufgabe10) {
     window.addEventListener("load", init);
-    let name; //variable Name vom typ htmlinputelement... 
+    window.addEventListener("change", createWarenkorb);
+    let name; //?????????
     let strasse;
     let hNr;
     let ort;
     let plz;
     let mail;
     let label;
-    let Baum = []; //die variable cartbaum vom typ stringarray --name + preis von baumklein etc. in cartBaum speichern
-    let Halterung = ["keine Halterung gewaehlt", "0"];
-    let Lichterkette = [Aufgabe10.lichterkette[0][0], "" + Aufgabe10.lichterkette[0][1]]; //name + preis von Kerzen in kerz speichern
-    let Schmuck = [];
-    let Lieferung = ["keine Lieferoption gewaehlt", "0"];
+    let cartBaum = [Aufgabe10.baumart[0][0], "" + Aufgabe10.baumart[0][1]]; //name + preis von baumklein etc. in cartBaum speichern
+    let cartHalterung = ["keine Halterung gewaehlt", "0"];
+    let cartLichterkette = [Aufgabe10.lichterkette[0][0], "" + Aufgabe10.lichterkette[0][1]]; //name + preis von Kerzen in kerz speichern
+    let cartSchmuck = [];
+    let cartLiefern = ["keine Lieferoption gewaehlt", "0"];
     // ----------------- FUNKTION INIT----------------------------
-    //------------------------------------------------------------
     function init() {
-        initBaum(); //initalisiert die ganzen Daten für die Baumarten - funktionsaufruf
+        initBaum();
         initHalterung();
         initLichterkette();
         initSchmuck();
         initDaten();
-        //-Lieferoptionen--
-        let lieferopt = document.getElementById("lieferoptionen"); // getElementById = programm sucht im html die id lieferelement - 
+        //--------------Lieferoptionen------------------
+        let lieferopt = document.getElementById("lieferoptionen");
         for (let i = 0; i < Aufgabe10.angebot.length; i++) {
             if (Aufgabe10.angebot[i].kind == "Lieferung") {
-                let radioB2 = document.createElement("input"); //variable radioB2 typ htmlinputelement
-                radioB2.type = "radio"; //soll ein radiobutton sein - greift später auf die Daten zu wenn ich den warenkorb generiere
+                let radioB2 = document.createElement("input");
+                radioB2.type = "radio";
                 radioB2.name = "radioGroupLieferoptionen";
-                radioB2.value = "radio2." + i; //läuft ganzes angebot ab bis lieferung findet ...i.20 ....
+                radioB2.value = "radio2." + i;
                 radioB2.id = "radio2." + i;
                 lieferopt.appendChild(radioB2);
-                let label3 = document.createElement("label"); //element danamisch gemacht
-                label3.id = "label3." + i; //label zB Standardlieferung
+                let label3 = document.createElement("label");
+                label3.id = "label3." + i;
                 label3.htmlFor = radioB2.id;
                 label3.innerText = Aufgabe10.angebot[i].name;
                 lieferopt.appendChild(label3);
             }
         }
-        //-Button:--
-        let button = document.getElementById("button"); //element danamisch gemacht
+        //Button:
+        let button = document.getElementById("button");
         let submit = document.createElement("button");
         submit.name = "Button";
         submit.type = "button";
@@ -53,15 +53,13 @@ var Aufgabe10;
         submit.addEventListener("mousedown", handleMouseDown);
         button.appendChild(submit);
     }
-    //--------------------------------------------------------------  
-    //--------------------------------------------------------------  
-    //--------------- FUNKTION BAUM-DYNAMISCHER CODE -------------
+    //--------------- FUNKTION BAUM- CODE -------------
     function initBaum() {
         //Baumart:
-        let baumart = document.getElementById("baumart"); //an die stelle wo die id im html steht
-        let selectBaum = document.createElement("select"); //
-        selectBaum.name = "SelectBaumart"; //create das element das heisst select
-        selectBaum.id = "selectBaumart"; //ich geb der id den namen select baumart
+        let baumart = document.getElementById("baumart");
+        let selectBaum = document.createElement("select");
+        selectBaum.name = "SelectBaumart";
+        selectBaum.id = "selectBaumart";
         baumart.appendChild(selectBaum);
         for (let i = 0; i < Aufgabe10.angebot.length; i++) {
             if (Aufgabe10.angebot[i].kind == "Baumart") {
@@ -72,8 +70,8 @@ var Aufgabe10;
             }
         }
     }
-    //---------------------HALTERUNG DYNAMISCH ------------------------------
     function initHalterung() {
+        //Halterung:
         let halterung = document.getElementById("halterung");
         for (let i = 0; i < Aufgabe10.angebot.length; i++) {
             if (Aufgabe10.angebot[i].kind == "Halterung") {
@@ -91,38 +89,37 @@ var Aufgabe10;
             }
         }
     }
-    //-------------------LICHTERKETTE DYNAMISCH-------------------------
     function initLichterkette() {
         let Lichterkette = document.getElementById("Lichterkette");
         let selectBox2 = document.createElement("select");
-        selectBox2.name = "SelectBeleuchtung"; //selektbox wird in html angehängt
+        selectBox2.name = "SelectBeleuchtung";
         selectBox2.id = "selectBeleuchtung";
         Lichterkette.appendChild(selectBox2);
         for (let i = 0; i < Aufgabe10.angebot.length; i++) {
             if (Aufgabe10.angebot[i].kind == "Beleuchtung") {
-                var opt2 = document.createElement("option"); //alle beleuchtungsarten werden als optionen gespeichert bekommen eine id --optionen werden an selektbox drangehöngt
+                var opt2 = document.createElement("option");
                 opt2.innerText = Aufgabe10.angebot[i].name;
                 opt2.id = "option2." + i;
                 selectBox2.appendChild(opt2);
             }
         }
     }
-    //-------------------SCHMUCK DYNAMISCH------------------------------------
     function initSchmuck() {
-        let schmuckartikel = document.getElementById("schmuckartikel"); //var schmuckartikel soll an die stelle wo im htm die id schmuckartiekel steht
+        //Schmuckartikel:
+        let schmuckartikel = document.getElementById("schmuckartikel");
         for (let i = 0; i < Aufgabe10.angebot.length; i++) {
             if (Aufgabe10.angebot[i].kind == "Schmuck") {
-                let checkB = document.createElement("input"); // dann mach ne variable checkB vom typ HTMLInput Element = soll ein inputelement kreieren-- mache checkbox für zb Kugel rot
-                checkB.type = "checkbox"; //soll vom typ checkbox sein
-                checkB.name = "CheckboxSchmuckartikel"; //name soll .. sein
-                checkB.value = "check"; //Wert soll check sein
-                checkB.id = "check" + i; // könnte check 15 sein... id= check 15 
+                let checkB = document.createElement("input");
+                checkB.type = "checkbox";
+                checkB.name = "CheckboxSchmuckartikel";
+                checkB.value = "check";
+                checkB.id = "check" + i;
                 schmuckartikel.appendChild(checkB);
-                let label2 = document.createElement("label"); // 
+                let label2 = document.createElement("label");
                 label2.id = "label2." + i;
                 label2.htmlFor = checkB.id;
                 label2.innerText = Aufgabe10.angebot[i].name;
-                schmuckartikel.appendChild(label2); //
+                schmuckartikel.appendChild(label2);
                 let stepper = document.createElement("input");
                 stepper.type = "number";
                 stepper.name = "StepperSchmuckartikel" + i;
@@ -132,20 +129,19 @@ var Aufgabe10;
                 stepper.max = "10";
                 stepper.step = "1";
                 schmuckartikel.appendChild(stepper);
-                let br = document.createElement("br"); //break elemnt
+                let br = document.createElement("br");
                 schmuckartikel.appendChild(br);
             }
         }
     }
-    //----------------------FUNKTION DATEN -------------------------------------
     function initDaten() {
-        let daten = document.getElementById("daten"); //var daten typ html... da wo die id = daten steht 
+        let daten = document.getElementById("daten");
         name = document.createElement("input");
         name.type = "text";
         name.name = "DatenName";
         name.placeholder = "Name";
         name.pattern = "[a-zA-Z]{1,}";
-        name.required = true; //checked ob alle namen eingegeben wurden .. kunde gibt nichts ein... fehlermeldung
+        name.required = true;
         daten.appendChild(name);
         strasse = document.createElement("input");
         strasse.type = "text";
@@ -180,9 +176,58 @@ var Aufgabe10;
         mail.name = "DatenMail";
         mail.placeholder = "E-Mail";
         mail.required = true;
-        daten.appendChild(mail); //alle infos generier ich in die variable daten
+        daten.appendChild(mail);
     }
-    //----------------------FUNKTION HANDLE MOUSE DOWN---------------------------------------
+    //--------------- FUNKTION WARENKORB----------------------
+    function createWarenkorb(_event) {
+        let target = _event.target; //Target sind alle input elemente
+        let stepper = [];
+        let checkBoxes = [];
+        let gesamtpreis = 0;
+        for (let i = 0; i < Aufgabe10.angebot.length; i++) {
+            if (Aufgabe10.angebot[i].kind == "Schmuck") {
+                stepper[i] = document.getElementById("stepper" + i); //jedes Element, das als ID stepper hat wird in let stepper gespeichert
+                checkBoxes[i] = document.getElementById("check" + i); //jedes Element, das als ID check hat wird in let checkboxes gespeichert   
+            }
+            if (target.value == Aufgabe10.angebot[i].name && target.id == "selectBaumart") {
+                cartBaum[0] = Aufgabe10.angebot[i].name; //dann speichere jetzt an erster stelle in cartBaum den name des Artikels
+                cartBaum[1] = "" + Aufgabe10.angebot[i].price; //an zweiter stelle den preis des artikels
+            }
+            if (target.id == "radio" + i) {
+                cartHalterung[0] = Aufgabe10.angebot[i].name;
+                cartHalterung[1] = "" + Aufgabe10.angebot[i].price;
+            }
+            if (target.id == "radio2." + i) {
+                cartLiefern[0] = Aufgabe10.angebot[i].name;
+                cartLiefern[1] = "" + Aufgabe10.angebot[i].price;
+            }
+            if (target.value == Aufgabe10.angebot[i].name && target.id == "selectBeleuchtung") {
+                cartLichterkette[0] = Aufgabe10.angebot[i].name;
+                cartLichterkette[1] = "" + Aufgabe10.angebot[i].price;
+            }
+            if (target.id == "check" + i || target.id == "stepper" + i) {
+                cartSchmuck[i] = [Aufgabe10.angebot[i].name, "" + (Aufgabe10.angebot[i].price * parseInt(stepper[i].value))]; //dann speicher in cartSchmuck den name des artikels und den preis (Wert des steppers in zahl umwandeln)
+            }
+        }
+        let korb = document.getElementById("korb");
+        korb.style.width = "25%";
+        korb.style.height = "100%";
+        korb.style.backgroundColor = "#0d640b";
+        korb.style.color = "white";
+        korb.innerHTML = "<div class='warenkorb'>Warenkorb</div><hr>";
+        korb.innerHTML += "" + cartBaum[0] + " " + cartBaum[1] + " Euro <br>"; //Name + Preis des Artikels sind in cartBaum drin
+        korb.innerHTML += "Weihnachtsbaumhalterung: " + cartHalterung[0] + " " + cartHalterung[1] + " Euro <br>";
+        korb.innerHTML += "" + cartLichterkette[0] + " " + cartLichterkette[1] + "Euro <br>";
+        korb.innerHTML += " " + cartLiefern[0] + " " + cartLiefern[1] + " Euro <br>";
+        gesamtpreis = parseFloat(cartBaum[1]) + parseFloat(cartHalterung[1]) + parseFloat(cartLiefern[1]); //parseFloat convertiert string in Zahl: Preise als Zahlen umkodieren
+        for (let i = 0; i < stepper.length; i++) {
+            if (checkBoxes[i] != null && checkBoxes[i].checked == true) {
+                gesamtpreis += parseFloat(cartSchmuck[i][1]); // dann rechne zum gesamtpreis den preis des Schmuckobjekts als zahl dazu
+                korb.innerHTML += "" + cartSchmuck[i][0] + " " + cartSchmuck[i][1] + " Euro <br>"; //erweitere den warenkorb durch name und preis des schmuckobjekts das angeklickt wurde
+            }
+        }
+        korb.innerHTML += "<hr> Gesamtpreis: " + Math.round(gesamtpreis * 100) / 100 + " Euro";
+    }
     function handleMouseDown(_event) {
         let review = document.createElement("div");
         review.style.paddingBottom = "0.5em";

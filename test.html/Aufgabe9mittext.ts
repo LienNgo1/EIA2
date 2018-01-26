@@ -8,24 +8,21 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 
 
-namespace Aufgabe9 { //Speichersektion, Lager für Daten - Lager beinhaltet variablen, arrays 
-//globalen namespace: überall zugänglich, localer Namespace: von bestimmten Teilen des Programms zugänglich
-    
-    window.addEventListener("load", init); //wenn Fenster geladen ist führt es die funktion "init" aus
+namespace Aufgabe9 {
+    window.addEventListener("load", init);
  //Globale Variable anlegen. -wie kann ich die versch. Div's vergleichen?
-    let currentLetter: string;    //variable anlegen vom typ string - kann später von überall drauf zugreifen
+    let currentLetter: string;    
 
-    document.addEventListener ("keydown", tastaturEingabe); //Ohr wartet darauf, dass ich eine Taste drücke - KEydown: Event - tastaturEingabe: eventhandler am Dokument -> hört auf das event "keydown"
-    
+    document.addEventListener ("keydown", tastaturEingabe);
     
 
-   function init(): void{  //
+   function init(): void{ 
        
        let alphabet: string [] = ["A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","X","Y","Z"] //variable alphabat vom typ stringarray - buchstaben sind im array drin
-       let anzahl: number = alphabet.length; //Länge des Arrays wird als Zahl in die Variable anzahl gespeichert
+       let anzahl: number = alphabet.length;
        
       
-      // if (anzahl == alphabet.length){ //== wenn zwei werte gleich sind
+       if (anzahl == alphabet.length){ //== wenn zwei werte gleich sind
            for (let i: number = 0; i < alphabet.length; i++){
                drawRect(alphabet[i]); //parameter _alphabet - funktionsaufruf drawrect mit dem parameter (ABC...) i + 
            }
@@ -38,7 +35,7 @@ namespace Aufgabe9 { //Speichersektion, Lager für Daten - Lager beinhaltet vari
     
     
  //---------Funktion Kästchen (um Buchstaben) Zeichnen--------
-    function drawRect (_alphabet: string): void { // alphabet: parameter vom typ string, void:rückgabewert
+    function drawRect (_alphabet: string): void {
 
         let div: HTMLDivElement = document.createElement("div"); //div erstellen - variable div type HTMLDivElement - = -> Zuweisungsapperator // Variable bekommt wert zugewiesen- soll ein div element creieren
       
@@ -46,13 +43,13 @@ namespace Aufgabe9 { //Speichersektion, Lager für Daten - Lager beinhaltet vari
         div.style.width = "40px"; //Returns a String of an object
         div.style.height = "40px";
         div.style.backgroundColor = "lightgrey";
-        div.innerText = _alphabet; //hinter jedem buchstaben soll ein div creiert werden - zB b div = id: b
+        div.innerText = _alphabet; //hinter jedem buchstaben soll ein div creiert werden 
         div.style.marginLeft = "2px";
         div.style.marginTop = "2px"; //
         div.id = _alphabet;
         div.className = "letters"; //
         
-        div.addEventListener("click", handleClick); //sobald es angeklickt wird, wird handleclick ausgeführt
+        div.addEventListener("click", handleClick);
         document.body.appendChild(div); //html ELement in den Code einfügen lassen - hängt div an body dran - wird gezeichnet
     }
     
@@ -67,29 +64,26 @@ namespace Aufgabe9 { //Speichersektion, Lager für Daten - Lager beinhaltet vari
             letter.style.marginLeft = "2px";
             letter.style.marginTop = "2px"; //
            
-            letter.addEventListener("click", putLetter); //in m
+            letter.addEventListener("click", putLetter);
             document.body.appendChild(letter);
         }
     
     
     
  //----- Funktion: Farbe ändert sich durch einen Klick
-    function handleClick(_event: MouseEvent): void { //wird ausgeführt wenn was geklickt wird -- () = parameter!!!!!  
-            let click: HTMLDivElement = <HTMLDivElement>_event.target; //variable heisst clickt vom typ htmldivelement soll event target sein. soll klickbar sein-> div element creiert, target = was angeklickt wird
-            //event:keydown// target - knoten der vom elememt angesprochen wird... darauf hört ob es angeklickt wurde
+    function handleClick(_event: MouseEvent): void { //wird ausgeführt wenn was geklickt wird
+            let click: HTMLDivElement = <HTMLDivElement>_event.target; //div element creieirt, target = was angeklickt wird
             click.style.backgroundColor = "lightblue";
             
             currentLetter  = click.id; //der div der angeklickt wurde davon wird die id gespeichert - Buchstaben den ich angeklickt hab
-            //jeder Buchstabe hat bei der erstellung eine ID erhalten - wenn ich K anklicke dann wird das in currentletter gespeiert und currentletter speichert die ID von K
-         
+             
             let divlist: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>> document.getElementsByClassName("letters");
-        //div wird wert zugewiesen - jedes div wird in divlist gespeichert - in die Liste werden die ganzen Buchstaben gespeichert. Letters= array von Buchstaben
+        //div wird wert zugewiesen - jedes div wird in divlist gespeichert 
             
             for (let i: number = 0; i < divlist.length; i++) { //i soll solange laufen bis alle buchstaben durch sind 
                 if (currentLetter != divlist[i].id) { //prüft bei jedem div ob das der current letter ist - prüft jeden buchstaben - -!= -- ungleich
                 divlist[i].style.backgroundColor = "lightgrey";
-                    //wenns currentletter nicht mit der div id einstimmt = farbe lightgrey 
-                    //wenn zwei angeklickt werden wird das 1 angeklickte wieder grau
+                    //wenns currentletter nicht mit der div id einstimmt = farbe lightgrey
     
                 }
             }
@@ -104,21 +98,21 @@ namespace Aufgabe9 { //Speichersektion, Lager für Daten - Lager beinhaltet vari
             box.style.width = "30px";
             box.style.height = "30px";
             box.style.backgroundColor = "blue";
-            box.innerText = currentLetter; 
+            box.innerText = currentLetter;
             box.style.marginLeft = "3px";
             box.style.marginTop = "3px";
             box.id = currentLetter;
             box.className = "letters";
             box.style.position = "absolute";
-            box.style.left = _event.pageX + "px"; //da wo der curser gerade ist + X 
+            box.style.left = _event.pageX + "px";
             box.style.top = _event.pageY + "px";
             
             
             document.body.appendChild(box);
-            box.addEventListener("click", deleteLetter); 
+            box.addEventListener("click", deleteLetter);
 
             
-           // let clicking: HTMLDivElement = <HTMLDivElement>_event.target;  
+            let clicking: HTMLDivElement = <HTMLDivElement>_event.target;  
                
         }
     
@@ -134,7 +128,7 @@ namespace Aufgabe9 { //Speichersektion, Lager für Daten - Lager beinhaltet vari
         }
         
         else if (event.key == "b" || event.key == "B") {
-            currentLetter = event.key;  //currentletter wird zum event key...das was ich klicke ist mein event key
+            currentLetter = event.key;
             putLetter;
         }
         
@@ -285,8 +279,7 @@ namespace Aufgabe9 { //Speichersektion, Lager für Daten - Lager beinhaltet vari
   
 
 }
-    //== bedeutet =
-//= zuweisung
+    
     
 }
 
