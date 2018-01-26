@@ -1,4 +1,4 @@
-/* Aufgabe 10: Weihnachtsbaumkonfigurator
+ /* Aufgabe 10: Weihnachtsbaumkonfigurator
 Name: Ngo, Thi Lien
 Matrikel: 256778
 Datum: 21.12.2017
