@@ -8,7 +8,7 @@ var Aufgabe10;
 (function (Aufgabe10) {
     window.addEventListener("load", init);
     window.addEventListener("change", createWarenkorb);
-    let name; //?????????
+    let name;
     let strasse;
     let hNr;
     let ort;

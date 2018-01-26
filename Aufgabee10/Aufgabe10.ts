@@ -11,7 +11,7 @@ namespace Aufgabe10 {
     window.addEventListener("load", init);  
     window.addEventListener("change", createWarenkorb); 
 
-    let name: HTMLInputElement; //?????????
+    let name: HTMLInputElement; 
     let strasse: HTMLInputElement;
     let hNr: HTMLInputElement;
     let ort: HTMLInputElement;
