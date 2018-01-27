@@ -1,7 +1,7 @@
 
 
 
-namespace Aufgabe11 {
+namespace Aufgabe111 {
 
 export interface Daten {
     element: string;

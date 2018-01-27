@@ -1,42 +1,56 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>SendData</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" href="SendDate.css" type="text/css" media="screen"/>
-<!--  -->
+<title>Aufgabe 111</title>
+<script src="InfoSendDate" type="text/javascript" charset="utf-8"></script>
 <script src="SendDate.js" type="text/javascript" charset="utf-8"></script>
-<!--  -->
+
+<link rel="stylesheet" href="SendDate.css" type="text/css" media="screen" />
 </head>
 <body>
-	<!--  - ->
-	<form action="SendData.html" method="get">
-	<!-- 
-	<form action="http://localhost:8100" method="get">
-	 -->
+
 	<form action="https://ngothili.herokuapp.com/" method="get">
-	<!--  -->
-		<fieldset id="radio">
-			<legend> Choose color with radio buttons </legend>
-			<input type="radio" name="color" value="red" id="red" />
-			<label for="red">Red</label>
-			<input type="radio" name="color" value="green" id="green"/>
-			<label for="green">Green</label>
-			<input type="radio" name="color" value="blue" id="blue"/>
-			<label for="blue">Blue</label>
-		</fieldset>
-		
-		<input type="text" name="text" value="type here"/>
 	
-		<button type="submit">Submit</button>
-	</form>
-	<!--  - ->
-	<fieldset id="div">
-		<legend> Pick color with divs </legend>
-		<div></div>
-		<div></div>
-		<div></div>
+	<h1>GESTALTE DEINEN INDIVIDUELLEN WEIHNACHTSBAUM </h1>
+	
+	<fieldset>
+	<legend>Wähle einen Baumart</legend>
+	<div id="baumart"></div>
 	</fieldset>
-	<!--  -->
+
+	<fieldset>
+	<legend>Wähle eine Halterung</legend>
+	<div id="halterung"></div>
+	</fieldset>
+
+	<fieldset>
+	<legend>Wähle deinen Schmuckset</legend>
+<div id="schmuckset"></div>
+	</fieldset>
+
+	<fieldset>
+	<legend>Wähle deine Lichterkette</legend>
+	<div id="lichterketten"></div>
+	</fieldset>
+
+	<fieldset>
+	<legend>Wähle eine Lieferoption</legend>
+	<div id="lieferoption"></div>
+	</fieldset>
+
+	<fieldset>
+	<legend>Gebe deine Persönlichen Daten ein</legend>
+	<div id="persdaten"></div>
+	</fieldset>
+
+
+	<div id="prufenbutton"></div>
+
+	<div id="korbid"></div>
+	</form>
 </body>
 </html>

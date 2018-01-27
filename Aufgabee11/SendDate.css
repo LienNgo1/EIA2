@@ -1,22 +1,52 @@
-* {
-	display: block;
-	vertical-align: top
+
+
+body {
+	
+	color: white;
+	font-size: 1em;
+	width: 100%;
+	margin-left: 20%;
 }
 
-head {
-	display: none;
+
+h1 {
+	font-size: 1.5em;
+	color: #063500;
+	margin-top: 2%;
+	margin-left:-10%;
 }
 
-div {
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-}
-
-input[type="radio"], input[type="checkbox"], label {
-	display: inline;
+legend {
+	font-size: 1em;
+	color:black;
 }
 
 fieldset {
-	width: 300px;
+	color: #000000;
+	background-color:white;
+	display: flex;
+	width: 20%;
+	margin-top: 1em;
+}
+
+button {
+	background-color: #002502;
+	color: white;
+    padding: 0.5em;
+    text-align: center;
+    display: inline-block;
+    margin: 0.5em;
+    
+}
+
+#korb {
+	right: 0.5em;
+	top: 0.5em;
+	padding: 1em;
+	
+}
+
+.warenkorb {
+	font-size: 2em;
+	text-align: center;
 }

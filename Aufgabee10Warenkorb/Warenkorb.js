@@ -1,33 +1,39 @@
+/* Aufgabe 10: Weihnachtsbaumkonfigurator
+Name: Ngo, Thi Lien
+Matrikel: 256778
+Datum: 21.12.2017
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
 var Aufgabe11;
 (function (Aufgabe11) {
-    window.addEventListener("load", init); // Wenn Fenster geöffnet wird soll die Funktion init aufgerufen werden
-    let label; //variable wird erstellt vom Typ HTMLLabelElement
+    window.addEventListener("load", init);
+    let label;
     //AuswahlBoxen
-    let baumart = document.createElement("select"); //Variable Baumart vom Typ HTMLSelectElement soll ein Element "select" kreieren - zum auswählen
+    let baumart = document.createElement("select");
     let halterungtyp = document.createElement("select");
     let lieferopttyp = document.createElement("select");
     var korb = document.createElement("div");
     //Persöhnliche Daten
-    let persName = document.createElement("input"); //Variable perName vom Typ HTMLInputElement soll ein Element "input" kreieren
+    let persName = document.createElement("input");
     let persVorname = document.createElement("input");
     let persMail = document.createElement("input");
     let persAdresse = document.createElement("input");
     let persPlz = document.createElement("input");
     //Button
-    let prufen = document.createElement("div"); //Variable prufern vom Typ HTMLDivElement soll ein "div" Element kreieren 
-    var gesamtpreis = 0; //Variable gesamtpreis vom Typ number soll 0 sein
+    let prufen = document.createElement("div");
+    var gesamtpreis = 0;
     var gesamtpreisVar = document.createElement("input");
-    gesamtpreisVar.style.display = "none"; // Nichts erscheinen???????
+    gesamtpreisVar.style.display = "none";
     //------------------------------------------------FUNKTION INIT------------------------------------------------------------------------   
     function init() {
         //Warenkorb Definieren und Anhängen
-        let h2 = document.createElement("h2"); //Variable h2 vom Typ HTMLHeadingElement soll ein Element "h2" kreieren
-        h2.innerText = "Warenkorb"; // Der Text in dem h2 soll sein "Warenkorb"  xxxxxxxxxxxxxx Woher weiß er dass das ein Div ist?? 
+        let h2 = document.createElement("h2");
+        h2.innerText = "Warenkorb";
         h2.style.position = "absolute";
         h2.style.right = "390px";
         h2.style.top = "0px";
         h2.style.zIndex = "99";
-        document.getElementById("korbid").appendChild(h2); //xxxxxxxxxxxxxxxxxxxxdie h2 soll im html an die "korbid" drangehängt werden
+        document.getElementById("korbid").appendChild(h2); //h2 soll im html an die "korbid" drangehängt werden
         korb.style.display = "inline-block";
         korb.style.position = "absolute";
         korb.style.right = "10px";
@@ -37,41 +43,41 @@ var Aufgabe11;
         korb.style.backgroundColor = "#063500";
         korb.style.paddingTop = "40px";
         korb.style.paddingLeft = "10px";
-        document.getElementById("korbid").appendChild(korb); //xxxxxxxxxxxxxxxxxDas Element "korb" soll an die "korbid" im html drangehängt werden
+        document.getElementById("korbid").appendChild(korb); //Das Element "korb" soll an die "korbid" im html drangehängt werden
         //--------------Baum Definieren und Anhängen        
-        baumart.addEventListener("change", AuswahlAuslesen); //baumart bekommt ein Ohr - Wartet bist es augewählt wird
+        baumart.addEventListener("change", AuswahlAuslesen);
         document.getElementById("baumart").appendChild(baumart); //da wo die ID "baumart" im html ist soll es drangehöngt werden
         for (let i = 0; i < Aufgabe11.baumdaten.length; i++) {
-            let option = document.createElement("option"); //Variable option vom Datentyp HTMLOptionElement soll ein Element "Option" kreieren
-            option.innerText = Aufgabe11.baumdaten[i].name; //xxxxxxxxxxxxxdieses Element soll einen Text haben - die schleife geht baumdaten durch und setzt die namen ein
-            baumart.id = Aufgabe11.baumdaten[i].element; //xxxxxxxxxxxxxxxxSchleife suct nach baumdaten und vergibt ID und zählt immer ins hoch (zB. baumdaten 5) bzw ID Des Elements zuweisen, siehe infoWarenkorb.ts
-            baumart.appendChild(option); //baumart an html Datei dranhängen
+            let option = document.createElement("option");
+            option.innerText = Aufgabe11.baumdaten[i].name;
+            baumart.id = Aufgabe11.baumdaten[i].element;
+            baumart.appendChild(option);
         }
         //-----------------Halterungen-----------         
-        let halterung = document.getElementById("halterung");
+        let halterung = document.getElementById("halterung"); //?????????
         for (let i = 0; i < Aufgabe11.halterungdaten.length; i++) {
             if (Aufgabe11.halterungdaten[i].element == "halterung") {
-                var radioB = document.createElement("input"); // dann soll es ein input Element kreieren
-                radioB.type = "radio"; // ein Typ für den Radio Button 
+                var radioB = document.createElement("input");
+                radioB.type = "radio";
                 radioB.name = "radioGroupHalterung";
-                radioB.value = "radio" + i; //Einen Wert für den Radio Button zB. radio 4
-                radioB.id = "radio" + i; //Die ID soll nach dem value benannt sein 
-                halterung.appendChild(radioB); //Radiobutton soll im html drangehängt werden
-                //Label für jede Halterung hinzufügen xxxxxxxxxxxxxxxxx
-                label = document.createElement("label"); //label soll sein xxxxxxxxxxxxx
-                label.id = "label" + i; //ID wird vergeben - 
-                label.htmlFor = radioB.id; //xxxxxxxxxxxx
+                radioB.value = "radio" + i;
+                radioB.id = "radio" + i;
+                halterung.appendChild(radioB);
+                //Label für jede Halterung hinzufügen 
+                label = document.createElement("label");
+                label.id = "label" + i;
+                label.htmlFor = radioB.id;
                 label.innerText = Aufgabe11.halterungdaten[i].name;
-                halterung.appendChild(label); //xxxxxxxxxxxxxx
+                halterung.appendChild(label);
             }
         }
         //------------------Schmuckset       
         for (let i = 0; i < Aufgabe11.schmucksetdaten.length; i++) {
-            let schmucksettyp = document.createElement("input"); // Variable Schmucksettyp vom Typ HTMLInputElement soll ein "input"Element kreieren
-            schmucksettyp.type = "checkbox"; //Macht es zur Checkbox
+            let schmucksettyp = document.createElement("input");
+            schmucksettyp.type = "checkbox";
             schmucksettyp.id = Aufgabe11.schmucksetdaten[i].element;
             schmucksettyp.addEventListener("change", function () {
-                schmucksetAuslesen(schmucksettyp, "1"); //Werte übergeben; in schmucksettyp ist alles enthalten
+                schmucksetAuslesen(schmucksettyp, "1");
             });
             document.getElementById("schmuckset").appendChild(schmucksettyp);
             //Labels hinzufügen
@@ -86,7 +92,7 @@ var Aufgabe11;
             schmucksetanz.value = "1";
             schmucksetanz.style.marginRight = "1.5em";
             schmucksetanz.addEventListener("change", function () {
-                schmucksettyp.checked = true; //Chekbox Anhaken wenn wert geändert wird
+                schmucksettyp.checked = true;
                 schmucksetAuslesen(schmucksettyp, schmucksetanz.value);
             });
             document.getElementById("schmuckset").appendChild(schmucksetanz);
@@ -201,15 +207,15 @@ var Aufgabe11;
             }
         }
     }
-    //------------ ZU WARENKORB XXXXXXXXXXXXXXXXXXXXXXXXXX
+    //------------ 
     function AuswahlAuslesen() {
-        var baumname = baumart.value; //baumart.value == ausgewälter Wert im DropDown
+        var baumname = baumart.value;
         if (baumname != "") {
             baumart.name = "Baumtyp";
             ZuWarenkorb(Aufgabe11.baumdaten, true, baumname); //true --> element ist ausgewÃ¤hlt
         }
         else {
-            ZuWarenkorb(Aufgabe11.baumdaten, false, baumname); //false --> Element wurde abgewÃ¤hlt
+            ZuWarenkorb(Aufgabe11.baumdaten, false, baumname);
         }
         var halterungname = halterungtyp.value; //
         if (halterungname != "") {
