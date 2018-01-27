@@ -31,9 +31,6 @@ namespace Aufgabe11 {
  //---------------------------FUNKTION INIT------------------------------------------------   
     function init(): void {
         
-        
-        
-        
         //Warenkorb Definieren und AnhÃ¤ngen
         let h2: HTMLHeadingElement = document.createElement("h2");
         h2.innerText = "Warenkorb";
@@ -68,17 +65,27 @@ namespace Aufgabe11 {
 
 
         //Halterungen Selektor          
-        halterungtyp.addEventListener("change", AuswahlAuslesen);
-        document.getElementById("halterung").appendChild(halterungtyp);
-        
-
+        let halterung: HTMLDivElement = <HTMLDivElement>document.getElementById("halterung");
         for (let i: number = 0; i < halterungdaten.length; i++) {
-            let option: HTMLOptionElement = document.createElement("option");
-            option.innerText = halterungdaten[i].name;
-            halterungtyp.id = halterungdaten[i].element; //Typ bzw ID Des Elements zuweisen, siehe Daten.ts
-            halterungtyp.appendChild(option);
-        }
+            if (halterungdaten[i].element == "halterung") {
+                var radioB: HTMLInputElement = document.createElement("input");
+                radioB.type = "radio";
+                radioB.name = "radioGroupHalterung";
+                radioB.value = "radio" + i;
+                radioB.id = "radio" + i;
+                halterung.appendChild(radioB);
+                
+                
+                //Label für jede Halterung hinzufügen
+                label = document.createElement("label");
+                label.id = "label" + i;
+                label.htmlFor = radioB.id;
+                label.innerText = halterungdaten[i].name;
+                halterung.appendChild(label);
+            }
+}
 
+        
         
        
        //Schmuckset Selektor       
@@ -159,7 +166,7 @@ namespace Aufgabe11 {
         }
 
 
-//PersÃ¶nliche Daten Eingeben
+//Persönliche Daten Eingeben
         persName.type = "text";
         persName.name = "Name";
         persName.placeholder = "Name";
@@ -332,6 +339,7 @@ namespace Aufgabe11 {
 
         //Gesamtpreis wieder hinzufÃ¼gen
         gesamtpreis = gesamtpreis + preisElement;
+        
         var pGesamt: HTMLParagraphElement = document.createElement("p");
         pGesamt.id = "gesamtpreisid";
         pGesamt.innerText = "Gesamtpreis =  " + gesamtpreis + "€";

@@ -48,13 +48,22 @@ var Aufgabe11;
             baumart.appendChild(option);
         }
         //Halterungen Selektor          
-        halterungtyp.addEventListener("change", AuswahlAuslesen);
-        document.getElementById("halterung").appendChild(halterungtyp);
+        let halterung = document.getElementById("halterung");
         for (let i = 0; i < Aufgabe11.halterungdaten.length; i++) {
-            let option = document.createElement("option");
-            option.innerText = Aufgabe11.halterungdaten[i].name;
-            halterungtyp.id = Aufgabe11.halterungdaten[i].element; //Typ bzw ID Des Elements zuweisen, siehe Daten.ts
-            halterungtyp.appendChild(option);
+            if (Aufgabe11.halterungdaten[i].element == "halterung") {
+                var radioB = document.createElement("input");
+                radioB.type = "radio";
+                radioB.name = "radioGroupHalterung";
+                radioB.value = "radio" + i;
+                radioB.id = "radio" + i;
+                halterung.appendChild(radioB);
+                //Label für jede Halterung hinzufügen
+                label = document.createElement("label");
+                label.id = "label" + i;
+                label.htmlFor = radioB.id;
+                label.innerText = Aufgabe11.halterungdaten[i].name;
+                halterung.appendChild(label);
+            }
         }
         //Schmuckset Selektor       
         for (let i = 0; i < Aufgabe11.schmucksetdaten.length; i++) {
@@ -119,7 +128,7 @@ var Aufgabe11;
             lieferopttyp.id = Aufgabe11.lieferoptionen[i].element;
             lieferopttyp.appendChild(option);
         }
-        //PersÃ¶nliche Daten Eingeben
+        //Persönliche Daten Eingeben
         persName.type = "text";
         persName.name = "Name";
         persName.placeholder = "Name";

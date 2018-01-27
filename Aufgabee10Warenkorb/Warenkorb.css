@@ -5,13 +5,15 @@ body {
 	color: white;
 	font-size: 1em;
 	width: 100%;
-	margin-left: 10%;
+	margin-left: 20%;
 }
 
 
 h1 {
-	font-size: 1em;
+	font-size: 1.5em;
 	color: #063500;
+	margin-top: 2%;
+	margin-left:-10%;
 }
 
 legend {
@@ -20,7 +22,8 @@ legend {
 }
 
 fieldset {
-	color: green;
+	color: #000000;
+	background-color:white;
 	display: flex;
 	width: 20%;
 	margin-top: 1em;
@@ -37,7 +40,6 @@ button {
 }
 
 #korb {
-	
 	right: 0.5em;
 	top: 0.5em;
 	padding: 1em;
