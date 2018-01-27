@@ -48,7 +48,7 @@ export let lichterkettendaten: Daten[] = [
     {element: "lieferant", name: "DHL Premium", preis: 5},
     {element: "lieferant", name: "Hermes", preis: 0},
     { element: "Lieferung", name: "Standard Lieferung", preis: 4 },
-        { element: "Lieferung", name: "Morning Express Lieferung", preis: 9 }
+    { element: "Lieferung", name: "Morning Express Lieferung", preis: 9 }
 ];
        
 }
