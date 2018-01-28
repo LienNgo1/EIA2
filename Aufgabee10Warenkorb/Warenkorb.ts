@@ -127,12 +127,12 @@ namespace Aufgabe11 {
 
 
 
-        //---------------------Kerzen        
+        //---------------------Lichterkette        
         for (let i: number = 0; i < lichterkettendaten.length; i++) {
             let lichterkettentyp: HTMLInputElement = document.createElement("input");
             lichterkettentyp.type = "checkbox";
             lichterkettentyp.id = lichterkettendaten[i].element;
-            lichterkettentyp.name = "Kerzentyp: " + lichterkettendaten[i].name;
+            lichterkettentyp.name = "lichterkettentyp: " + lichterkettendaten[i].name;
             lichterkettentyp.addEventListener("change", function(): void { 
                 lichterkettenAuslesen(lichterkettentyp, "1");
             });
@@ -140,9 +140,9 @@ namespace Aufgabe11 {
             document.getElementById("lichterketten").appendChild(lichterkettentyp);
 
             //---------------Label hinzufügen
-            let kerzelabel: HTMLLabelElement = document.createElement("label");
-            kerzelabel.innerText = lichterkettendaten[i].name;
-            document.getElementById("lichterketten").appendChild(kerzelabel);
+            let lichterkettenlabel: HTMLLabelElement = document.createElement("label");
+            lichterkettenlabel.innerText = lichterkettendaten[i].name;
+            document.getElementById("lichterketten").appendChild(lichterkettenlabel);
 
             //-------------Anzahl
             let lichterkettenanz: HTMLInputElement = document.createElement("input");

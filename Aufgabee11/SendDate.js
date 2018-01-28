@@ -26,14 +26,14 @@ var Aufgabe111;
     gesamtpreisVar.style.display = "none"; // Nichts erscheinen???????
     //------------------------------------------------FUNKTION INIT------------------------------------------------------------------------   
     function init() {
-        //Warenkorb Definieren und Anhängen
+        //Warenkorb Überschrift erstellen und dranhängen
         let h2 = document.createElement("h2"); //Variable h2 vom Typ HTMLHeadingElement soll ein Element "h2" kreieren
         h2.innerText = "Warenkorb"; // Der Text in dem h2 soll sein "Warenkorb"  xxxxxxxxxxxxxx Woher weiß er dass das ein Div ist?? 
         h2.style.position = "absolute";
         h2.style.right = "390px";
         h2.style.top = "0px";
         h2.style.zIndex = "99";
-        document.getElementById("korbid").appendChild(h2); //xxxxxxxxxxxxxxxxxxxxdie h2 soll im html an die "korbid" drangehängt werden
+        document.getElementById("korbid").appendChild(h2); //die h2 soll im html an die "korbid" drangehängt werden
         korb.style.display = "inline-block";
         korb.style.position = "absolute";
         korb.style.right = "10px";
@@ -43,10 +43,10 @@ var Aufgabe111;
         korb.style.backgroundColor = "#063500";
         korb.style.paddingTop = "40px";
         korb.style.paddingLeft = "10px";
-        document.getElementById("korbid").appendChild(korb); //xxxxxxxxxxxxxxxxxDas Element "korb" soll an die "korbid" im html drangehängt werden
-        //--------------Baum Definieren und Anhängen        
-        baumart.addEventListener("change", AuswahlAuslesen); //baumart bekommt ein Ohr - Wartet bist es augewählt wird
-        document.getElementById("baumart").appendChild(baumart); //da wo die ID "baumart" im html ist soll es drangehöngt werden
+        document.getElementById("korbid").appendChild(korb); //Das Element "korb" soll an die "korbid" im html drangehängt werden
+        //--------------Baum Definieren und Anhängen xxxxxxxxxxxxxxxxxxxxx       
+        baumart.addEventListener("change", AuswahlAuslesen); //xxxxxxxxxxxbaumart bekommt ein Ohr - Wartet bist es augewählt wird
+        document.getElementById("baumart").appendChild(baumart); //xxxxxxxxxxxda wo die ID "baumart" im html ist soll es drangehöngt werden
         for (let i = 0; i < Aufgabe111.baumdaten.length; i++) {
             let option = document.createElement("option"); //Variable option vom Datentyp HTMLOptionElement soll ein Element "Option" kreieren
             option.innerText = Aufgabe111.baumdaten[i].name; //xxxxxxxxxxxxxdieses Element soll einen Text haben - die schleife geht baumdaten durch und setzt die namen ein
@@ -54,7 +54,7 @@ var Aufgabe111;
             baumart.appendChild(option); //baumart an html Datei dranhängen
         }
         //-----------------Halterungen-----------         
-        let halterung = document.getElementById("halterung");
+        let halterung = document.getElementById("halterung"); //xxxxxxxxxxxxxxxxxxxx
         for (let i = 0; i < Aufgabe111.halterungdaten.length; i++) {
             if (Aufgabe111.halterungdaten[i].element == "halterung") {
                 var radioB = document.createElement("input"); // dann soll es ein input Element kreieren
@@ -97,12 +97,12 @@ var Aufgabe111;
             });
             document.getElementById("schmuckset").appendChild(schmucksetanz);
         }
-        //---------------------Kerzen        
+        //---------------------Lichterketten        
         for (let i = 0; i < Aufgabe111.lichterkettendaten.length; i++) {
             let lichterkettentyp = document.createElement("input");
             lichterkettentyp.type = "checkbox";
             lichterkettentyp.id = Aufgabe111.lichterkettendaten[i].element;
-            lichterkettentyp.name = "Kerzentyp: " + Aufgabe111.lichterkettendaten[i].name;
+            lichterkettentyp.name = "lichterkettentyp: " + Aufgabe111.lichterkettendaten[i].name;
             lichterkettentyp.addEventListener("change", function () {
                 lichterkettenAuslesen(lichterkettentyp, "1");
             });

@@ -37,14 +37,14 @@ namespace Aufgabe111 {
  //------------------------------------------------FUNKTION INIT------------------------------------------------------------------------   
     function init(): void {
         
-        //Warenkorb Definieren und Anhängen
+        //Warenkorb Überschrift erstellen und dranhängen
         let h2: HTMLHeadingElement = document.createElement("h2"); //Variable h2 vom Typ HTMLHeadingElement soll ein Element "h2" kreieren
         h2.innerText = "Warenkorb"; // Der Text in dem h2 soll sein "Warenkorb"  xxxxxxxxxxxxxx Woher weiß er dass das ein Div ist?? 
         h2.style.position = "absolute";
         h2.style.right = "390px";
         h2.style.top = "0px";
         h2.style.zIndex = "99";       
-        document.getElementById("korbid").appendChild(h2); //xxxxxxxxxxxxxxxxxxxxdie h2 soll im html an die "korbid" drangehängt werden
+        document.getElementById("korbid").appendChild(h2); //die h2 soll im html an die "korbid" drangehängt werden
         
         korb.style.display = "inline-block";
         korb.style.position = "absolute";
@@ -55,12 +55,12 @@ namespace Aufgabe111 {
         korb.style.backgroundColor = "#063500";
         korb.style.paddingTop = "40px";
         korb.style.paddingLeft = "10px";
-        document.getElementById("korbid").appendChild(korb); //xxxxxxxxxxxxxxxxxDas Element "korb" soll an die "korbid" im html drangehängt werden
+        document.getElementById("korbid").appendChild(korb); //Das Element "korb" soll an die "korbid" im html drangehängt werden
         
 
-        //--------------Baum Definieren und Anhängen        
-        baumart.addEventListener("change", AuswahlAuslesen); //baumart bekommt ein Ohr - Wartet bist es augewählt wird
-        document.getElementById("baumart").appendChild(baumart); //da wo die ID "baumart" im html ist soll es drangehöngt werden
+        //--------------Baum Definieren und Anhängen xxxxxxxxxxxxxxxxxxxxx       
+        baumart.addEventListener("change", AuswahlAuslesen); //xxxxxxxxxxxbaumart bekommt ein Ohr - Wartet bist es augewählt wird
+        document.getElementById("baumart").appendChild(baumart); //xxxxxxxxxxxda wo die ID "baumart" im html ist soll es drangehöngt werden
         
         for (let i: number = 0; i < baumdaten.length; i++) { //For Schleife: Zählervariable i vom Typ number soll 0 sein und die baumdaten.length durchgehen i++ wird immer eins hochgezählt bist baumdaten.length durch ist ist dann tzd kleiner als baumdaten.length
             let option: HTMLOptionElement = document.createElement("option"); //Variable option vom Datentyp HTMLOptionElement soll ein Element "Option" kreieren
@@ -72,7 +72,7 @@ namespace Aufgabe111 {
 
 
         //-----------------Halterungen-----------         
-        let halterung: HTMLDivElement = <HTMLDivElement>document.getElementById("halterung");
+        let halterung: HTMLDivElement = <HTMLDivElement>document.getElementById("halterung"); //xxxxxxxxxxxxxxxxxxxx
         for (let i: number = 0; i < halterungdaten.length; i++) { //For Schleife: Zählervariable vom typ number soll 0 sein, Es wird immer ein hochgezählt und geht dabei solange wie die halterungsdaten.length ist
             if (halterungdaten[i].element == "halterung") { //wenn halterungdaten gleich halterung sind
                 var radioB: HTMLInputElement = document.createElement("input"); // dann soll es ein input Element kreieren
@@ -127,12 +127,12 @@ namespace Aufgabe111 {
 
 
 
-        //---------------------Kerzen        
+        //---------------------Lichterketten        
         for (let i: number = 0; i < lichterkettendaten.length; i++) {
             let lichterkettentyp: HTMLInputElement = document.createElement("input");
             lichterkettentyp.type = "checkbox";
             lichterkettentyp.id = lichterkettendaten[i].element;
-            lichterkettentyp.name = "Kerzentyp: " + lichterkettendaten[i].name;
+            lichterkettentyp.name = "lichterkettentyp: " + lichterkettendaten[i].name;
             lichterkettentyp.addEventListener("change", function(): void { //Anonyme Funktion erforderlich um Parameter zu ï¿½bergeben
                 lichterkettenAuslesen(lichterkettentyp, "1");
             });

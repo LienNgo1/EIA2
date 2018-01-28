@@ -97,20 +97,20 @@ var Aufgabe11;
             });
             document.getElementById("schmuckset").appendChild(schmucksetanz);
         }
-        //---------------------Kerzen        
+        //---------------------Lichterkette        
         for (let i = 0; i < Aufgabe11.lichterkettendaten.length; i++) {
             let lichterkettentyp = document.createElement("input");
             lichterkettentyp.type = "checkbox";
             lichterkettentyp.id = Aufgabe11.lichterkettendaten[i].element;
-            lichterkettentyp.name = "Kerzentyp: " + Aufgabe11.lichterkettendaten[i].name;
+            lichterkettentyp.name = "lichterkettentyp: " + Aufgabe11.lichterkettendaten[i].name;
             lichterkettentyp.addEventListener("change", function () {
                 lichterkettenAuslesen(lichterkettentyp, "1");
             });
             document.getElementById("lichterketten").appendChild(lichterkettentyp);
             //---------------Label hinzufügen
-            let kerzelabel = document.createElement("label");
-            kerzelabel.innerText = Aufgabe11.lichterkettendaten[i].name;
-            document.getElementById("lichterketten").appendChild(kerzelabel);
+            let lichterkettenlabel = document.createElement("label");
+            lichterkettenlabel.innerText = Aufgabe11.lichterkettendaten[i].name;
+            document.getElementById("lichterketten").appendChild(lichterkettenlabel);
             //-------------Anzahl
             let lichterkettenanz = document.createElement("input");
             lichterkettenanz.type = "number";
