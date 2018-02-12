@@ -31,7 +31,7 @@ namespace Aufgabe111 {
     var gesamtpreis: number = 0; //Variable gesamtpreis vom Typ number soll 0 sein
     var gesamtpreisVar: HTMLInputElement = document.createElement("input");
       
-    gesamtpreisVar.style.display = "none"; // Nichts erscheinen???????
+    gesamtpreisVar.style.display = "none"; 
     
     
     
@@ -59,7 +59,7 @@ namespace Aufgabe111 {
         document.getElementById("korbid").appendChild(korb); //Das Element "korb" soll an die "korbid" im html drangehängt werden
         
 
-        //--------------Baum Definieren und Anhängen xxxxxxxxxxxxxxxxxxxxx       
+        //--------------Baum Definieren und Anhängen      
         baumart.addEventListener("change", AuswahlAuslesen); //xxxxxxxxxxxbaumart bekommt ein Ohr - Wartet bist es augewählt wird - Change: Typ vom Eventlistener - wenn sich was ändert - Drop down was änder dann wird der event listener ausgelöst
         document.getElementById("baumart").appendChild(baumart); //xxxxxxxxxxxda wo die ID "baumart" im html ist soll es drangehöngt werden
         
@@ -84,7 +84,7 @@ namespace Aufgabe111 {
                 halterung.appendChild(radioB); //Radiobutton soll im html drangehängt werden
                 
                 
-                //Label für jede Halterung hinzufügen xxxxxxxxxxxxxxxxx
+                //Label für jede Halterung hinzufügen
                 label = document.createElement("label"); //label soll sein xxxxxxxxxxxxx
                 label.id = "label" + i; //ID wird vergeben - 
                 label.htmlFor = radioB.id; //xxxxxxxxxxxx
@@ -275,7 +275,7 @@ namespace Aufgabe111 {
     
     
     
-    //------------ ZU WARENKORB XXXXXXXXXXXXXXXXXXXXXXXXXX
+    //------------
 
     function AuswahlAuslesen(): void { //
         var baumname: string = baumart.value; //baumname string soll value om baumname ssein--baumart.value == ausgewälter Wert im DropDown - 
@@ -304,7 +304,7 @@ namespace Aufgabe111 {
     }
 
     
-    //---------------Wird von DropDown genutzt
+    //--------------
     function ZuWarenkorb(daten: Daten[], ischeckt: boolean, elementname: string): void {  //boolean: treu oder false, 
 
         for (let i: number = 0; i < daten.length; i++) { // 
@@ -338,6 +338,7 @@ namespace Aufgabe111 {
         }
 
         if (selected) { //wenn was von links ausgezwählt wurde dann gibts ein p nur anzahl verändert... geht hier rein bzw. wenn was zum ersten mal ausgewählt haben
+            
             var p: HTMLParagraphElement = document.createElement("p");//.-.. es entsteht ein p Element erzeugt
             p.id = elementId; //die id von der roten kerze wird auch die rotekerze id wir übergeben dem p die id rote kerze
             p.innerText = value + "  = " + preisElement + "€"; // value :zB Elementname kerze = Preiselemt (Preis*Anzahl) Der ausgerechnete Preis soll erscheinen Gesamtpreis + Preiselement
