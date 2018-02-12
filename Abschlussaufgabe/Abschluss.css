@@ -1,0 +1,98 @@
+/*Aufgabe: Abschlussaufgabe
+Name: Ngo, Thi Lien
+Matrikel: 256778
+Datum: 08.02.2018
+
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
+
+/*mobile first*/
+
+/*canvas{
+	width:100%;
+
+} */
+
+
+#Blub1 {
+	position: absolute;
+	top: 38vw;
+	left: 0vw;
+	width: 3vw;
+	height: 5vw;
+}
+
+#Blub2 {
+	position: absolute;
+	top: 32.5vw;
+	left: 4.5vw;
+	width: 6vw;
+	height: 6vw;
+}
+
+#Blub3 {
+	position: absolute;
+	top: 35.5vw;
+	left: 19vw;
+	width: 5vw;
+	height: 5vw;
+}
+
+#Blub4 {
+	position: absolute;
+	top: 33vw;
+	left: 34vw;
+	width: 3vw;
+	height: 3vw;
+}
+
+#Blub5 {
+	position: absolute;
+	top: 27.5vw;
+	left: 36.5vw;
+	height: 1.5vw;
+	width: 1.5vw;
+}
+
+#Blub6 {
+	position: absolute;
+	top: 37.5vw;
+	left: 30vw;
+	width: 5vw;
+	height: 5vw;
+}
+
+
+
+
+
+/*Tablet Portrait*/
+
+/* @media screen and (min-width:35.625em){
+	canvas{
+		width:99%;
+	}
+	
+/* Tablet Landscape*/
+
+/*@media screen and (min-width:48em){
+	canvas{
+		height:600px;
+		width:800px;
+	}
+	
+	
+	/* Desktop*/
+
+/* @media screen and (min-width: 64em) {
+	canvas{
+		height:600px;
+		width:800px;
+		}
+	
+} */
+
+
+
+
+
