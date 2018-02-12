@@ -6,27 +6,29 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 */
 
 
-namespace Aufgabe11 {
+namespace Aufgabe11 { //
     window.addEventListener("load", init); 
     
     let label: HTMLLabelElement; 
     
-    //AuswahlBoxen
+    //AuswahlBoxen //festgelegt was für auswahlmöglichkeiten es gibt -selektelemente 
     let baumart: HTMLSelectElement = document.createElement("select");  
     let halterungtyp: HTMLSelectElement = document.createElement("select");
     let lieferopttyp: HTMLSelectElement = document.createElement("select");
-    var korb: HTMLDivElement = document.createElement("div");
+    
+    
+    var korb: HTMLDivElement = document.createElement("div"); //
 
     //Persöhnliche Daten
-    let persName: HTMLInputElement = document.createElement("input"); 
+    let persName: HTMLInputElement = document.createElement("input"); //
     let persVorname: HTMLInputElement = document.createElement("input");
     let persMail: HTMLInputElement = document.createElement("input");
     let persAdresse: HTMLInputElement = document.createElement("input");
-    let persPlz: HTMLInputElement = document.createElement("input");
+    let persPlz: HTMLInputElement = document.createElement("input"); //
 
-    //Button
+    //Divelement für ausgabetext
     let prufen: HTMLDivElement = document.createElement("div"); 
-    var gesamtpreis: number = 0; 
+    var gesamtpreis: number = 0; //global- gesamterstmal null
     var gesamtpreisVar: HTMLInputElement = document.createElement("input");
       
     gesamtpreisVar.style.display = "none"; 
@@ -37,13 +39,13 @@ namespace Aufgabe11 {
     function init(): void {
         
         //Warenkorb Definieren und Anhängen
-        let h2: HTMLHeadingElement = document.createElement("h2"); 
+        let h2: HTMLHeadingElement = document.createElement("h2");  //Heading Elemtn überschrift
         h2.innerText = "Warenkorb"; 
-        h2.style.position = "absolute";
+        h2.style.position = "absolute"; //
         h2.style.right = "390px";
         h2.style.top = "0px";
         h2.style.zIndex = "99";       
-        document.getElementById("korbid").appendChild(h2); //h2 soll im html an die "korbid" drangehängt werden
+        document.getElementById("korbid").appendChild(h2); //appendChild h2 soll im html an die "korbid" drangehängt werden 
         
         korb.style.display = "inline-block";
         korb.style.position = "absolute";
@@ -58,14 +60,14 @@ namespace Aufgabe11 {
         
 
         //--------------Baum Definieren und Anhängen        
-        baumart.addEventListener("change", AuswahlAuslesen); 
-        document.getElementById("baumart").appendChild(baumart); //da wo die ID "baumart" im html ist soll es drangehöngt werden
+        baumart.addEventListener("change", AuswahlAuslesen); //wenn sich was beim baumtyp ändert dann wird funktion auwahl auslesen gestartet
+        document.getElementById("baumart").appendChild(baumart); //selekt element erscheint wird im html angezeigt--da wo die ID "baumart" im html ist soll es drangehöngt werden
         
-        for (let i: number = 0; i < baumdaten.length; i++) { 
-            let option: HTMLOptionElement = document.createElement("option"); 
-            option.innerText = baumdaten[i].name; 
-            baumart.id = baumdaten[i].element; 
-            baumart.appendChild(option);  
+        for (let i: number = 0; i < baumdaten.length; i++) { //geht alle baumdaten durch 
+            let option: HTMLOptionElement = document.createElement("option"); //wir machen optionelemente - 
+            option.innerText = baumdaten[i].name; //namen werden drangehängt
+            baumart.id = baumdaten[i].element; //baumart bekommt eine id - in dem fall alle gleich
+            baumart.appendChild(option);  //optionen werden im html drangehängt
         }
 
 
@@ -96,31 +98,31 @@ namespace Aufgabe11 {
         
        
        //------------------Schmuckset       
-        for (let i: number = 0; i < schmucksetdaten.length; i++) { 
-            let schmucksettyp: HTMLInputElement = document.createElement("input"); 
+        for (let i: number = 0; i < schmucksetdaten.length; i++) {  //geht durch alle schmuckdaten durch
+            let schmucksettyp: HTMLInputElement = document.createElement("input"); //
             schmucksettyp.type = "checkbox"; 
-            schmucksettyp.id = schmucksetdaten[i].element; 
-            schmucksettyp.addEventListener("change", function(): void { 
-            schmucksetAuslesen(schmucksettyp, "1"); 
+            schmucksettyp.id = schmucksetdaten[i].element; //Schmuckdaten bekommen verschiedene id
+            schmucksettyp.addEventListener("change", function(): void { //wir machen am schmucktyp ein eventlistener 
+            schmucksetAuslesen(schmucksettyp, "0"); //wenn change passiert soll schmucksetauslesen ausgelöst - 
             });
                            
-            document.getElementById("schmuckset").appendChild(schmucksettyp);
+            document.getElementById("schmuckset").appendChild(schmucksettyp); 
 
             //Labels hinzufügen
-            let schmucksetlabel: HTMLLabelElement = document.createElement("label");
+            let schmucksetlabel: HTMLLabelElement = document.createElement("label"); //geht schmuckdaten durch und gibt ihm einen namen
             schmucksetlabel.innerText = schmucksetdaten[i].name;
-            document.getElementById("schmuckset").appendChild(schmucksetlabel);
+            document.getElementById("schmuckset").appendChild(schmucksetlabel); //Schmuckset "Rot mit Muster" wird in der id am html angehängt
 
             //Anzahl Selektor
-            let schmucksetanz: HTMLInputElement = document.createElement("input");
-            schmucksetanz.type = "number"; //Macht es zum NummerHochZählFeld
-            schmucksetanz.step = "1";
+            let schmucksetanz: HTMLInputElement = document.createElement("input"); //Selektor gemacht im input 
+            schmucksetanz.type = "number"; //Macht es zum Stepper
+            schmucksetanz.step = "1"; 
             schmucksetanz.min = "0";
-            schmucksetanz.value = "1";
+            schmucksetanz.value = "0"; 
             schmucksetanz.style.marginRight = "1.5em";
-            schmucksetanz.addEventListener("change", function(): void { 
+            schmucksetanz.addEventListener("change", function(): void { //wenn wir mim stepper hochgehn wird change ausgelöst 
             schmucksettyp.checked = true; 
-            schmucksetAuslesen(schmucksettyp, schmucksetanz.value);
+            schmucksetAuslesen(schmucksettyp, schmucksetanz.value); //Schmucksetauslesen wird aktiviert - value ändert sich
             });
             document.getElementById("schmuckset").appendChild(schmucksetanz);
 }
@@ -128,7 +130,7 @@ namespace Aufgabe11 {
 
 
         //---------------------Lichterkette        
-        for (let i: number = 0; i < lichterkettendaten.length; i++) {
+        for (let i: number = 0; i < lichterkettendaten.length; i++) { 
             let lichterkettentyp: HTMLInputElement = document.createElement("input");
             lichterkettentyp.type = "checkbox";
             lichterkettentyp.id = lichterkettendaten[i].element;
@@ -174,7 +176,7 @@ namespace Aufgabe11 {
 
 
         //-----------------Persönliche Daten Eingeben
-        persName.type = "text"; //Element persName soll vom Typ "text" sein
+        persName.type = "text"; //Element persName soll vom Typ "text" sein 
         persName.name = "Name";
         persName.placeholder = "Name";
         persName.required = true;
@@ -274,7 +276,7 @@ namespace Aufgabe11 {
     
     
     
-    //------------ 
+    //--------------------XXXXXXXXXXXXXXXXXXXXXXXXX
 
     function AuswahlAuslesen(): void {
         var baumname: string = baumart.value; 
@@ -337,7 +339,7 @@ namespace Aufgabe11 {
         }
 
         if (selected) { //wenn nur anzahl verändert... geht hier rein bzw. wenn was zum ersten mal ausgewählt haben
-            var p: HTMLParagraphElement = document.createElement("p");
+            var p: HTMLParagraphElement = document.createElement("p"); // HIER WIRD P ERSTELLT
             p.id = elementId;
             p.innerText = value + "  = " + preisElement + "€";
             korb.appendChild(p);

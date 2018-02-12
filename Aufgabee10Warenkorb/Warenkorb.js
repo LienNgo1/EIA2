@@ -8,32 +8,32 @@ var Aufgabe11;
 (function (Aufgabe11) {
     window.addEventListener("load", init);
     let label;
-    //AuswahlBoxen
+    //AuswahlBoxen //festgelegt was für auswahlmöglichkeiten es gibt -selektelemente 
     let baumart = document.createElement("select");
     let halterungtyp = document.createElement("select");
     let lieferopttyp = document.createElement("select");
-    var korb = document.createElement("div");
+    var korb = document.createElement("div"); //
     //Persöhnliche Daten
-    let persName = document.createElement("input");
+    let persName = document.createElement("input"); //
     let persVorname = document.createElement("input");
     let persMail = document.createElement("input");
     let persAdresse = document.createElement("input");
-    let persPlz = document.createElement("input");
-    //Button
+    let persPlz = document.createElement("input"); //
+    //Divelement für ausgabetext
     let prufen = document.createElement("div");
-    var gesamtpreis = 0;
+    var gesamtpreis = 0; //global- gesamterstmal null
     var gesamtpreisVar = document.createElement("input");
     gesamtpreisVar.style.display = "none";
     //------------------------------------------------FUNKTION INIT------------------------------------------------------------------------   
     function init() {
         //Warenkorb Definieren und Anhängen
-        let h2 = document.createElement("h2");
+        let h2 = document.createElement("h2"); //Heading Elemtn überschrift
         h2.innerText = "Warenkorb";
-        h2.style.position = "absolute";
+        h2.style.position = "absolute"; //
         h2.style.right = "390px";
         h2.style.top = "0px";
         h2.style.zIndex = "99";
-        document.getElementById("korbid").appendChild(h2); //h2 soll im html an die "korbid" drangehängt werden
+        document.getElementById("korbid").appendChild(h2); //appendChild h2 soll im html an die "korbid" drangehängt werden 
         korb.style.display = "inline-block";
         korb.style.position = "absolute";
         korb.style.right = "10px";
@@ -45,13 +45,13 @@ var Aufgabe11;
         korb.style.paddingLeft = "10px";
         document.getElementById("korbid").appendChild(korb); //Das Element "korb" soll an die "korbid" im html drangehängt werden
         //--------------Baum Definieren und Anhängen        
-        baumart.addEventListener("change", AuswahlAuslesen);
-        document.getElementById("baumart").appendChild(baumart); //da wo die ID "baumart" im html ist soll es drangehöngt werden
+        baumart.addEventListener("change", AuswahlAuslesen); //wenn sich was beim baumtyp ändert dann wird funktion auwahl auslesen gestartet
+        document.getElementById("baumart").appendChild(baumart); //selekt element erscheint wird im html angezeigt--da wo die ID "baumart" im html ist soll es drangehöngt werden
         for (let i = 0; i < Aufgabe11.baumdaten.length; i++) {
-            let option = document.createElement("option");
-            option.innerText = Aufgabe11.baumdaten[i].name;
-            baumart.id = Aufgabe11.baumdaten[i].element;
-            baumart.appendChild(option);
+            let option = document.createElement("option"); //wir machen optionelemente - 
+            option.innerText = Aufgabe11.baumdaten[i].name; //namen werden drangehängt
+            baumart.id = Aufgabe11.baumdaten[i].element; //baumart bekommt eine id - in dem fall alle gleich
+            baumart.appendChild(option); //optionen werden im html drangehängt
         }
         //-----------------Halterungen-----------         
         let halterung = document.getElementById("halterung"); //?????????
@@ -73,27 +73,27 @@ var Aufgabe11;
         }
         //------------------Schmuckset       
         for (let i = 0; i < Aufgabe11.schmucksetdaten.length; i++) {
-            let schmucksettyp = document.createElement("input");
+            let schmucksettyp = document.createElement("input"); //
             schmucksettyp.type = "checkbox";
-            schmucksettyp.id = Aufgabe11.schmucksetdaten[i].element;
+            schmucksettyp.id = Aufgabe11.schmucksetdaten[i].element; //Schmuckdaten bekommen verschiedene id
             schmucksettyp.addEventListener("change", function () {
-                schmucksetAuslesen(schmucksettyp, "1");
+                schmucksetAuslesen(schmucksettyp, "0"); //wenn change passiert soll schmucksetauslesen ausgelöst - 
             });
             document.getElementById("schmuckset").appendChild(schmucksettyp);
             //Labels hinzufügen
-            let schmucksetlabel = document.createElement("label");
+            let schmucksetlabel = document.createElement("label"); //geht schmuckdaten durch und gibt ihm einen namen
             schmucksetlabel.innerText = Aufgabe11.schmucksetdaten[i].name;
-            document.getElementById("schmuckset").appendChild(schmucksetlabel);
+            document.getElementById("schmuckset").appendChild(schmucksetlabel); //Schmuckset "Rot mit Muster" wird in der id am html angehängt
             //Anzahl Selektor
-            let schmucksetanz = document.createElement("input");
-            schmucksetanz.type = "number"; //Macht es zum NummerHochZählFeld
+            let schmucksetanz = document.createElement("input"); //Selektor gemacht im input 
+            schmucksetanz.type = "number"; //Macht es zum Stepper
             schmucksetanz.step = "1";
             schmucksetanz.min = "0";
-            schmucksetanz.value = "1";
+            schmucksetanz.value = "0";
             schmucksetanz.style.marginRight = "1.5em";
             schmucksetanz.addEventListener("change", function () {
                 schmucksettyp.checked = true;
-                schmucksetAuslesen(schmucksettyp, schmucksetanz.value);
+                schmucksetAuslesen(schmucksettyp, schmucksetanz.value); //Schmucksetauslesen wird aktiviert - value ändert sich
             });
             document.getElementById("schmuckset").appendChild(schmucksetanz);
         }
@@ -135,7 +135,7 @@ var Aufgabe11;
             lieferopttyp.appendChild(option);
         }
         //-----------------Persönliche Daten Eingeben
-        persName.type = "text"; //Element persName soll vom Typ "text" sein
+        persName.type = "text"; //Element persName soll vom Typ "text" sein 
         persName.name = "Name";
         persName.placeholder = "Name";
         persName.required = true;
@@ -207,7 +207,7 @@ var Aufgabe11;
             }
         }
     }
-    //------------ 
+    //--------------------XXXXXXXXXXXXXXXXXXXXXXXXX
     function AuswahlAuslesen() {
         var baumname = baumart.value;
         if (baumname != "") {
@@ -256,7 +256,7 @@ var Aufgabe11;
             }
         }
         if (selected) {
-            var p = document.createElement("p");
+            var p = document.createElement("p"); // HIER WIRD P ERSTELLT
             p.id = elementId;
             p.innerText = value + "  = " + preisElement + "€";
             korb.appendChild(p);

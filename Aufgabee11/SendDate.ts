@@ -15,6 +15,7 @@ namespace Aufgabe111 {
     let baumart: HTMLSelectElement = document.createElement("select");  //Variable Baumart vom Typ HTMLSelectElement soll ein Element "select" kreieren - zum auswählen
     let halterungtyp: HTMLSelectElement = document.createElement("select");
     let lieferopttyp: HTMLSelectElement = document.createElement("select");
+    
     var korb: HTMLDivElement = document.createElement("div");
 
     //Persöhnliche Daten
@@ -59,13 +60,13 @@ namespace Aufgabe111 {
         
 
         //--------------Baum Definieren und Anhängen xxxxxxxxxxxxxxxxxxxxx       
-        baumart.addEventListener("change", AuswahlAuslesen); //xxxxxxxxxxxbaumart bekommt ein Ohr - Wartet bist es augewählt wird
+        baumart.addEventListener("change", AuswahlAuslesen); //xxxxxxxxxxxbaumart bekommt ein Ohr - Wartet bist es augewählt wird - Change: Typ vom Eventlistener - wenn sich was ändert - Drop down was änder dann wird der event listener ausgelöst
         document.getElementById("baumart").appendChild(baumart); //xxxxxxxxxxxda wo die ID "baumart" im html ist soll es drangehöngt werden
         
         for (let i: number = 0; i < baumdaten.length; i++) { //For Schleife: Zählervariable i vom Typ number soll 0 sein und die baumdaten.length durchgehen i++ wird immer eins hochgezählt bist baumdaten.length durch ist ist dann tzd kleiner als baumdaten.length
             let option: HTMLOptionElement = document.createElement("option"); //Variable option vom Datentyp HTMLOptionElement soll ein Element "Option" kreieren
             option.innerText = baumdaten[i].name; //xxxxxxxxxxxxxdieses Element soll einen Text haben - die schleife geht baumdaten durch und setzt die namen ein
-            baumart.id = baumdaten[i].element; //xxxxxxxxxxxxxxxxSchleife suct nach baumdaten und vergibt ID und zählt immer ins hoch (zB. baumdaten 5) bzw ID Des Elements zuweisen, siehe infoWarenkorb.ts
+            baumart.id = baumdaten[i].element; //überflüssig?? id der baumart wird geleichgesetzt mit baumdaten.element (von daten ts) jeder unterpunkt im dropdown bekommt eine id  xxxxxxxxxxxxxxxxSchleife suct nach baumdaten und vergibt ID und zählt immer ins hoch (zB. baumdaten 5) bzw ID Des Elements zuweisen, siehe infoWarenkorb.ts
             baumart.appendChild(option);  //baumart an html Datei dranhängen
         }
 
@@ -174,10 +175,10 @@ namespace Aufgabe111 {
 
 
         //-----------------Persönliche Daten Eingeben
-        persName.type = "text"; //Element persName soll vom Typ "text" sein
-        persName.name = "Name";
+        persName.type = "text"; //Element persName soll vom Typ "text" sein - Inputelemente
+        persName.name = "Name"; //
         persName.placeholder = "Name";
-        persName.required = true;
+        persName.required = true; //ist true wenn was reingeschrieben wird
         persName.style.marginRight = "1em";
         document.getElementById("persdaten").appendChild(persName); //bei der ID persdaten in der html dranhängen
 
@@ -215,9 +216,9 @@ namespace Aufgabe111 {
 
         //---------------------Button generieren
         let button: HTMLButtonElement = document.createElement("button"); //Variable Button vom Typ HTMLButtonElement soll ein button kreieren
-        button.type = "submit"; 
+        button.type = "submit";  
         button.innerText = "Bestellung Prüfen";
-        button.addEventListener("click", PrufeDaten);
+        button.addEventListener("click", PrufeDaten); //bei click wird prüfeaten ausgelöst
         button.style.marginTop = "10px";
         document.getElementById("prufenbutton").appendChild(button);
     }
@@ -225,9 +226,9 @@ namespace Aufgabe111 {
     
     //--------------------------------FUNKTIONEN--------------------------------------------------------------------------------
 
-    function schmucksetAuslesen(chkElement: HTMLInputElement, anzahl: string): void { //xxxxxxxxxxxxxxxx
-        for (let i: number = 0; i < schmucksetdaten.length; i++) {
-            if (schmucksetdaten[i].element == chkElement.id) {
+    function schmucksetAuslesen(chkElement: HTMLInputElement, anzahl: string): void { //parameter chkElemten vom typ html input element. anzahl vom typ string ---jederm schmuck eine ID gegeben  xxxxxxxxxxxxxxxx
+        for (let i: number = 0; i < schmucksetdaten.length; i++) { //geht schmuckdatenlength durch--  --läuft durch schmuckdaten.length durch oben hab ich jedem schmuck einer id gegeben
+            if (schmucksetdaten[i].element == chkElement.id) { //schaut nur was ich gecheckt hab und vergelichts -- geht die schmucksetdaten durch zB ich check schmucksetdatenG und dann geht es alles durch wenns es cschmucktyp G ist dann kommt es in den Warenkorb--sucht nach dem gleichen namen und wenn die daten vorhanden sind kommt es in den warenkorb
                 Warenkorb(chkElement.id, schmucksetdaten[i].name, schmucksetdaten[i].preis, parseInt(anzahl), chkElement.checked); //Soll chkElement.id an Warenkorb üergeben
 
             }
@@ -276,20 +277,20 @@ namespace Aufgabe111 {
     
     //------------ ZU WARENKORB XXXXXXXXXXXXXXXXXXXXXXXXXX
 
-    function AuswahlAuslesen(): void {
-        var baumname: string = baumart.value; //baumart.value == ausgewälter Wert im DropDown
-        if (baumname != "") {
-            baumart.name = "Baumtyp";
-            ZuWarenkorb(baumdaten, true, baumname); //true --> element ist ausgewÃ¤hlt
+    function AuswahlAuslesen(): void { //
+        var baumname: string = baumart.value; //baumname string soll value om baumname ssein--baumart.value == ausgewälter Wert im DropDown - 
+        if (baumname != "") { //wenn //wenn baumname nicht nichts ist dann wird die funktion zuWarenkorb ausgelöst
+            baumart.name = "Baumtyp"; //dann baumart xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            ZuWarenkorb(baumdaten, true, baumname); //true --> element ist ausgewÃ¤hlt 
         }
         else {
-            ZuWarenkorb(baumdaten, false, baumname); //false --> Element wurde abgewÃ¤hlt
+            ZuWarenkorb(baumdaten, false, baumname); //false --> Element wurde abgewÃ¤hlt -- wenn nichts augewählt wird dann ists false
         }
 
 
         var halterungname: string = halterungtyp.value; //
         if (halterungname != "") {
-            halterungtyp.name = "Halterungtyp";
+            halterungtyp.name = "Halterungtyp"; //XXXXXXXXXXXXXXXXXX
             ZuWarenkorb(halterungdaten, true, halterungname);
         } else {
             ZuWarenkorb(halterungdaten, false, halterungname);
@@ -304,10 +305,10 @@ namespace Aufgabe111 {
 
     
     //---------------Wird von DropDown genutzt
-    function ZuWarenkorb(daten: Daten[], ischeckt: boolean, elementname: string): void { 
+    function ZuWarenkorb(daten: Daten[], ischeckt: boolean, elementname: string): void {  //boolean: treu oder false, 
 
-        for (let i: number = 0; i < daten.length; i++) {
-            if (daten[i].name == elementname) {
+        for (let i: number = 0; i < daten.length; i++) { // 
+            if (daten[i].name == elementname) { //wenn element name erreicht ist durchgehn dann - geht den ganzen Warenkorb durch und schaut obs das gleiche ist wenn ja dann wird warenkorb ausgefüht
                 Warenkorb(daten[i].element, elementname, daten[i].preis, 1, ischeckt); //1 --> da nur ein Element ausgewÃ¤hlt werden kann
             }
         }
@@ -322,33 +323,33 @@ namespace Aufgabe111 {
         preisElement = anzahl * preis; //Preiselement soll sein anzahl * preis
 
         //Wird erst bei zweitem Durchgang ausgeführt, zu Beginn keine Elemente in Korb vorhanden
-        for (let i: number = 0; i < korb.getElementsByTagName("p").length; i++) { //Warenkorb auf vorhandene p prüfen - For Schleife: zählervariable vom typ number soll 0 sein
-            if (korb.getElementsByTagName("p")[i].id == elementId) { //Vergleicht Elemente im Warenkorb mit ausgewÃ¤hltem Element
+        for (let i: number = 0; i < korb.getElementsByTagName("p").length; i++) { //Warenkorb auf vorhandene p prüfen - For Schleife: zählervariable vom typ number soll 0 sein -- wird ertst beim 2 mal ausgeüfhrt
+            if (korb.getElementsByTagName("p")[i].id == elementId) { // Vergleicht Elemente im Warenkorb mit ausgewÃ¤hltem Element schaut ob sich p gechanged wurde - hat die gleiche id
                 //p ist alles im WArenkorb jedes element eigenes p
-                var innerPreis: string = korb.getElementsByTagName("p")[i].innerText.split("=")[1]; //Preis extrahieren - nimmt sich text von ausgewähltem p und spaltet diesen am = in ein string array auf - stelle 1 wird rausgeneommen, da Preis 1 PReis wird in innerpreis gespeichert
-                korb.getElementsByTagName("p")[i].remove(); //p wird gelöscht-
-                gesamtpreis = gesamtpreis - parseInt(innerPreis); //Gesamtpreis bereinigen - gesamtpreis aktualisieren
+                var innerPreis: string = korb.getElementsByTagName("p")[i].innerText.split("=")[1]; //innerpreis keann zB 10 - Preis extrahieren - nimmt sich text von ausgewähltem p und spaltet diesen am = in ein string array auf - stelle 1 wird rausgeneommen, da Preis 1 PReis wird in innerpreis gespeichert
+                korb.getElementsByTagName("p")[i].remove(); //p wird gelöscht- 
+                gesamtpreis = gesamtpreis - parseInt(innerPreis); //Gesamtpreis bereinigen NICHT HINZUGEFÜGT: innerpreis wird vom gesamtpreis abgezogen - gesamtpreis aktualisieren
             }
             
             //Gesamtpreis p entfernen um später aktualisiert zurÃ¼ck einzufÃ¼gen
-            if (korb.getElementsByTagName("p")[i].id == "gesamtpreisid") { //
-                korb.getElementsByTagName("p")[i].remove();
+            if (korb.getElementsByTagName("p")[i].id == "gesamtpreisid") { //geht die ganzen p durch sobald es bei gesamtpreis id ist 
+                korb.getElementsByTagName("p")[i].remove(); //p vom GEsamtpreis wird gelöscht
             }
         }
 
-        if (selected) { //wenn nur anzahl verändert... geht hier rein bzw. wenn was zum ersten mal ausgewählt haben
-            var p: HTMLParagraphElement = document.createElement("p");
-            p.id = elementId;
-            p.innerText = value + "  = " + preisElement + "€";
-            korb.appendChild(p);
+        if (selected) { //wenn was von links ausgezwählt wurde dann gibts ein p nur anzahl verändert... geht hier rein bzw. wenn was zum ersten mal ausgewählt haben
+            var p: HTMLParagraphElement = document.createElement("p");//.-.. es entsteht ein p Element erzeugt
+            p.id = elementId; //die id von der roten kerze wird auch die rotekerze id wir übergeben dem p die id rote kerze
+            p.innerText = value + "  = " + preisElement + "€"; // value :zB Elementname kerze = Preiselemt (Preis*Anzahl) Der ausgerechnete Preis soll erscheinen Gesamtpreis + Preiselement
+            korb.appendChild(p); // GEsamtpreis wird drangehängt
         }
 
         //Gesamtpreis wieder hinzufügen
-        gesamtpreis = gesamtpreis + preisElement;
+        gesamtpreis = gesamtpreis + preisElement; //GEsamtpreis ganz unten
         
-        var pGesamt: HTMLParagraphElement = document.createElement("p");
-        pGesamt.id = "gesamtpreisid";
-        pGesamt.innerText = "Gesamtpreis =  " + gesamtpreis + "€";
+        var pGesamt: HTMLParagraphElement = document.createElement("p"); // 
+        pGesamt.id = "gesamtpreisid"; 
+        pGesamt.innerText = "Gesamtpreis =  " + gesamtpreis + "€"; //gesamtpreis als text
         pGesamt.style.position = "absolute";
         pGesamt.style.bottom = "0";
         pGesamt.style.paddingTop = "10px";
@@ -360,14 +361,14 @@ namespace Aufgabe111 {
     }
     
     
-    //------------------
+    //------------------ BUTTON DRÜCKEN
 
 
-    function PrufeDaten(): void {   
+    function PrufeDaten(): void {  //prufen als div erstellt oben 
         
 
-        prufen.innerText = "";
-        if (persName.checkValidity() == false || persVorname.checkValidity() == false || persMail.checkValidity() == false || persPlz.checkValidity() == false || persAdresse.checkValidity() == false) {
+        prufen.innerText = ""; //steht gar nichts
+        if (persName.checkValidity() == false || persVorname.checkValidity() == false || persMail.checkValidity() == false || persPlz.checkValidity() == false || persAdresse.checkValidity() == false) { // checkt ob es true ist
             prufen.innerText = "FEHLER BEI DER DATENEINGABE";
             prufen.style.color = "red";
             document.body.appendChild(prufen);

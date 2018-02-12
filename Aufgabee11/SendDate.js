@@ -45,12 +45,12 @@ var Aufgabe111;
         korb.style.paddingLeft = "10px";
         document.getElementById("korbid").appendChild(korb); //Das Element "korb" soll an die "korbid" im html drangehängt werden
         //--------------Baum Definieren und Anhängen xxxxxxxxxxxxxxxxxxxxx       
-        baumart.addEventListener("change", AuswahlAuslesen); //xxxxxxxxxxxbaumart bekommt ein Ohr - Wartet bist es augewählt wird
+        baumart.addEventListener("change", AuswahlAuslesen); //xxxxxxxxxxxbaumart bekommt ein Ohr - Wartet bist es augewählt wird - Change: Typ vom Eventlistener - wenn sich was ändert - Drop down was änder dann wird der event listener ausgelöst
         document.getElementById("baumart").appendChild(baumart); //xxxxxxxxxxxda wo die ID "baumart" im html ist soll es drangehöngt werden
         for (let i = 0; i < Aufgabe111.baumdaten.length; i++) {
             let option = document.createElement("option"); //Variable option vom Datentyp HTMLOptionElement soll ein Element "Option" kreieren
             option.innerText = Aufgabe111.baumdaten[i].name; //xxxxxxxxxxxxxdieses Element soll einen Text haben - die schleife geht baumdaten durch und setzt die namen ein
-            baumart.id = Aufgabe111.baumdaten[i].element; //xxxxxxxxxxxxxxxxSchleife suct nach baumdaten und vergibt ID und zählt immer ins hoch (zB. baumdaten 5) bzw ID Des Elements zuweisen, siehe infoWarenkorb.ts
+            baumart.id = Aufgabe111.baumdaten[i].element; //überflüssig?? id der baumart wird geleichgesetzt mit baumdaten.element (von daten ts) jeder unterpunkt im dropdown bekommt eine id  xxxxxxxxxxxxxxxxSchleife suct nach baumdaten und vergibt ID und zählt immer ins hoch (zB. baumdaten 5) bzw ID Des Elements zuweisen, siehe infoWarenkorb.ts
             baumart.appendChild(option); //baumart an html Datei dranhängen
         }
         //-----------------Halterungen-----------         
@@ -135,10 +135,10 @@ var Aufgabe111;
             lieferopttyp.appendChild(option);
         }
         //-----------------Persönliche Daten Eingeben
-        persName.type = "text"; //Element persName soll vom Typ "text" sein
-        persName.name = "Name";
+        persName.type = "text"; //Element persName soll vom Typ "text" sein - Inputelemente
+        persName.name = "Name"; //
         persName.placeholder = "Name";
-        persName.required = true;
+        persName.required = true; //ist true wenn was reingeschrieben wird
         persName.style.marginRight = "1em";
         document.getElementById("persdaten").appendChild(persName); //bei der ID persdaten in der html dranhängen
         persVorname.type = "text";
@@ -168,7 +168,7 @@ var Aufgabe111;
         let button = document.createElement("button"); //Variable Button vom Typ HTMLButtonElement soll ein button kreieren
         button.type = "submit";
         button.innerText = "Bestellung Prüfen";
-        button.addEventListener("click", PrufeDaten);
+        button.addEventListener("click", PrufeDaten); //bei click wird prüfeaten ausgelöst
         button.style.marginTop = "10px";
         document.getElementById("prufenbutton").appendChild(button);
     }
@@ -209,17 +209,17 @@ var Aufgabe111;
     }
     //------------ ZU WARENKORB XXXXXXXXXXXXXXXXXXXXXXXXXX
     function AuswahlAuslesen() {
-        var baumname = baumart.value; //baumart.value == ausgewälter Wert im DropDown
+        var baumname = baumart.value; //baumname string soll value om baumname ssein--baumart.value == ausgewälter Wert im DropDown - 
         if (baumname != "") {
-            baumart.name = "Baumtyp";
-            ZuWarenkorb(Aufgabe111.baumdaten, true, baumname); //true --> element ist ausgewÃ¤hlt
+            baumart.name = "Baumtyp"; //dann baumart xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            ZuWarenkorb(Aufgabe111.baumdaten, true, baumname); //true --> element ist ausgewÃ¤hlt 
         }
         else {
-            ZuWarenkorb(Aufgabe111.baumdaten, false, baumname); //false --> Element wurde abgewÃ¤hlt
+            ZuWarenkorb(Aufgabe111.baumdaten, false, baumname); //false --> Element wurde abgewÃ¤hlt -- wenn nichts augewählt wird dann ists false
         }
         var halterungname = halterungtyp.value; //
         if (halterungname != "") {
-            halterungtyp.name = "Halterungtyp";
+            halterungtyp.name = "Halterungtyp"; //XXXXXXXXXXXXXXXXXX
             ZuWarenkorb(Aufgabe111.halterungdaten, true, halterungname);
         }
         else {
@@ -246,26 +246,26 @@ var Aufgabe111;
         for (let i = 0; i < korb.getElementsByTagName("p").length; i++) {
             if (korb.getElementsByTagName("p")[i].id == elementId) {
                 //p ist alles im WArenkorb jedes element eigenes p
-                var innerPreis = korb.getElementsByTagName("p")[i].innerText.split("=")[1]; //Preis extrahieren - nimmt sich text von ausgewähltem p und spaltet diesen am = in ein string array auf - stelle 1 wird rausgeneommen, da Preis 1 PReis wird in innerpreis gespeichert
-                korb.getElementsByTagName("p")[i].remove(); //p wird gelöscht-
-                gesamtpreis = gesamtpreis - parseInt(innerPreis); //Gesamtpreis bereinigen - gesamtpreis aktualisieren
+                var innerPreis = korb.getElementsByTagName("p")[i].innerText.split("=")[1]; //innerpreis keann zB 10 - Preis extrahieren - nimmt sich text von ausgewähltem p und spaltet diesen am = in ein string array auf - stelle 1 wird rausgeneommen, da Preis 1 PReis wird in innerpreis gespeichert
+                korb.getElementsByTagName("p")[i].remove(); //p wird gelöscht- 
+                gesamtpreis = gesamtpreis - parseInt(innerPreis); //Gesamtpreis bereinigen NICHT HINZUGEFÜGT: innerpreis wird vom gesamtpreis abgezogen - gesamtpreis aktualisieren
             }
             //Gesamtpreis p entfernen um später aktualisiert zurÃ¼ck einzufÃ¼gen
             if (korb.getElementsByTagName("p")[i].id == "gesamtpreisid") {
-                korb.getElementsByTagName("p")[i].remove();
+                korb.getElementsByTagName("p")[i].remove(); //p vom GEsamtpreis wird gelöscht
             }
         }
         if (selected) {
-            var p = document.createElement("p");
-            p.id = elementId;
-            p.innerText = value + "  = " + preisElement + "€";
-            korb.appendChild(p);
+            var p = document.createElement("p"); //.-.. es entsteht ein p Element erzeugt
+            p.id = elementId; //die id von der roten kerze wird auch die rotekerze id wir übergeben dem p die id rote kerze
+            p.innerText = value + "  = " + preisElement + "€"; // value :zB Elementname kerze = Preiselemt (Preis*Anzahl) Der ausgerechnete Preis soll erscheinen Gesamtpreis + Preiselement
+            korb.appendChild(p); // GEsamtpreis wird drangehängt
         }
         //Gesamtpreis wieder hinzufügen
-        gesamtpreis = gesamtpreis + preisElement;
-        var pGesamt = document.createElement("p");
+        gesamtpreis = gesamtpreis + preisElement; //GEsamtpreis ganz unten
+        var pGesamt = document.createElement("p"); // 
         pGesamt.id = "gesamtpreisid";
-        pGesamt.innerText = "Gesamtpreis =  " + gesamtpreis + "€";
+        pGesamt.innerText = "Gesamtpreis =  " + gesamtpreis + "€"; //gesamtpreis als text
         pGesamt.style.position = "absolute";
         pGesamt.style.bottom = "0";
         pGesamt.style.paddingTop = "10px";
@@ -274,9 +274,9 @@ var Aufgabe111;
         gesamtpreisVar.name = "Gesamtpreis " + gesamtpreis;
         korb.appendChild(gesamtpreisVar);
     }
-    //------------------
+    //------------------ BUTTON DRÜCKEN
     function PrufeDaten() {
-        prufen.innerText = "";
+        prufen.innerText = ""; //steht gar nichts
         if (persName.checkValidity() == false || persVorname.checkValidity() == false || persMail.checkValidity() == false || persPlz.checkValidity() == false || persAdresse.checkValidity() == false) {
             prufen.innerText = "FEHLER BEI DER DATENEINGABE";
             prufen.style.color = "red";

@@ -3,8 +3,8 @@
 
 namespace Aufgabe11 {
 
-export interface Daten {
-    element: string;
+export interface Daten { //Interface anlegen in die konfigurater ts exportiert werden
+    element: string; //
     name: string;
     preis: number;
 }
@@ -29,7 +29,7 @@ export let halterungdaten: Daten[] = [
 ];
     
     
-export let schmucksetdaten: Daten[] = [
+export let schmucksetdaten: Daten[] = [ //heissen nicht alle geleich, da radio button
     {element: "schmucksetR", name: "Rot ohne Muster", preis: 10},
     {element: "schmucksetRM", name: "Rot ohne Muster", preis: 10},
     {element: "schmucksetG", name: "Gold ohne Muster", preis: 7},
