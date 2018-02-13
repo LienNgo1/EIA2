@@ -6,13 +6,20 @@ Datum: 08.02.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var Wasserfall;
 (function (Wasserfall) {
+    let Blub1 = 0;
+    let Blub2 = 0;
+    let Blub3 = 0;
+    let Blub4 = 0;
+    let Blub5 = 0;
+    let Blub6 = 0;
+    let Blub7 = 0;
+    let Blub8 = 0;
+    let Blub9 = 0;
     window.addEventListener("load", Wasser);
     let crc2;
     let fahrer = []; //variable, die heisst fahrer, typ: skifahrerinfo interface
     let arrayX = [];
     let arrayY = [];
-    let sunX = [];
-    let sunY = [];
     let image; //IMAGEDATA!! Nicht any
     //-----------------------------------------Funktion Canvas---------------------------------------------------
     function Wasser() {
@@ -20,6 +27,7 @@ var Wasserfall;
         console.log(canvas);
         crc2 = canvas.getContext("2d");
         console.log(crc2);
+        document.getElementById("Blub1").addEventListener("click", Blub1Click);
         //Himmel malen
         crc2.fillStyle = "#CECEF6";
         crc2.fillRect(0, 0, 800, 40);
@@ -31,7 +39,7 @@ var Wasserfall;
         crc2.fillRect(0, 100, 800, 600);
         //Mond malen
         crc2.beginPath();
-        crc2.arc(73, 73, 70, 0, 2 * Math.PI);
+        crc2.arc(73, 73, 60, 0, 2 * Math.PI);
         crc2.fillStyle = "#D8D8D8";
         crc2.fill();
         crc2.stroke();
@@ -130,6 +138,12 @@ var Wasserfall;
     }
     /*------------------------- FUNKTIONEN ---------------------------------*/
     //------------------------------------------------------------------------
+    function Blub1Click() {
+        if (Blub1 == 0) {
+            Blub1++;
+            alert("Yay lass das ZEug platzen");
+        }
+    }
     //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal    
     function drawmovingTree(_x, _y, _color) {
         crc2.beginPath();
@@ -151,7 +165,7 @@ var Wasserfall;
     crc2.fill();
     crc2.stroke();
     //Chemikalien zeichnen
-    function drawsnowflake(_x, _y) {
+    function drawpoisen(_x, _y) {
         crc2.fillStyle = "#2EFE2E";
         crc2.beginPath();
         crc2.arc(_x, _y, 3, 0, 2 * Math.PI);
@@ -190,7 +204,7 @@ var Wasserfall;
                 arrayY[i] = 200;
             }
             arrayY[i] += Math.random(); // andere Bewegungsmuster zu finden
-            drawsnowflake(arrayX[i], arrayY[i]);
+            drawpoisen(arrayX[i], arrayY[i]);
         }
         /*  //Skifahrer
           for (let i: number = 0; i < fahrer.length; i++) {

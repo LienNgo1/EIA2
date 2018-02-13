@@ -57,10 +57,36 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 #Blub6 {
 	position: absolute;
 	top: 37.5vw;
-	left: 30vw;
+	left: 33vw;
 	width: 5vw;
 	height: 5vw;
 }
+
+#Blub7 {
+	position: absolute;
+	top: 37.5vw;
+	left: 45vw;
+	width: 8vw;
+	height: 5vw;
+}
+
+#Blub8 {
+	position: absolute;
+	top: 32vw;
+	left: 53vw;
+	width: 5vw;
+	height: 6.5vw;
+}
+
+#Blub9 {
+	position: absolute;
+	top: 34vw;
+	left: 43vw;
+	width: 2.7vw;
+	height: 2.7vw;
+}
+
+
 
 
 

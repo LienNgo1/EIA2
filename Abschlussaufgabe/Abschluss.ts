@@ -6,6 +6,18 @@ Datum: 08.02.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
 namespace Wasserfall {
+    
+    
+    let Blub1: number = 0;
+    let Blub2: number = 0;
+    let Blub3: number = 0;
+    let Blub4: number = 0;
+    let Blub5: number = 0;
+    let Blub6: number = 0;
+    let Blub7: number = 0;
+    let Blub8: number = 0;
+    let Blub9: number = 0;
+    
 
     //Interface
     interface Wasserfalllandschaft { //
@@ -23,8 +35,6 @@ namespace Wasserfall {
 
     let arrayX: number[] = []; 
     let arrayY: number[] = [];
-    let sunX: number[] = [];
-    let sunY: number[] = [];
    
     let image: ImageData; //IMAGEDATA!! Nicht any
 
@@ -36,6 +46,8 @@ namespace Wasserfall {
 
         crc2 = canvas.getContext("2d");
         console.log(crc2);
+        
+        document.getElementById("Blub1").addEventListener("click", Blub1Click)
         
 
         //Himmel malen
@@ -50,7 +62,7 @@ namespace Wasserfall {
         
         //Mond malen
         crc2.beginPath();
-        crc2.arc(73, 73, 70, 0, 2 * Math.PI);
+        crc2.arc(73, 73, 60, 0, 2 * Math.PI);
         crc2.fillStyle = "#D8D8D8";
         crc2.fill();
         crc2.stroke();
@@ -183,6 +195,12 @@ namespace Wasserfall {
     //------------------------------------------------------------------------
 
   
+    function Blub1Click(): void {
+        if (Blub1 == 0) {
+            Blub1++;
+            alert("Yay lass das ZEug platzen");
+        }
+}
 
 
     //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal    
@@ -212,7 +230,7 @@ namespace Wasserfall {
 
 
     //Chemikalien zeichnen
-    function drawsnowflake(_x: number, _y: number): void {
+    function drawpoisen(_x: number, _y: number): void {
         crc2.fillStyle = "#2EFE2E";
         crc2.beginPath();
         crc2.arc(_x, _y, 3, 0, 2 * Math.PI);
@@ -270,7 +288,7 @@ namespace Wasserfall {
                 arrayY[i] = 200;
             }
             arrayY[i] += Math.random(); // andere Bewegungsmuster zu finden
-            drawsnowflake(arrayX[i], arrayY[i]);
+            drawpoisen(arrayX[i], arrayY[i]);
         }
 
 
