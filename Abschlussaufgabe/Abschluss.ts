@@ -186,8 +186,8 @@ namespace Wasserfall {
         image = crc2.getImageData(0, 0, 800, 600);
 
         animate();
-        // alert("Oh Nein, jemand hat das Wasser mit giftigen Chemikalien verschmutzt.");
-        // alert("Versuche so schnell wie möglich die Fische zu retten.");
+         alert("Oh Nein, jemand hat das Wasser mit giftigen Chemikalien verschmutzt.");
+         alert("Versuche so schnell wie möglich die Fische zu retten.");
 
     }
 
