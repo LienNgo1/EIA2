@@ -28,6 +28,7 @@ var Wasserfall;
         crc2 = canvas.getContext("2d");
         console.log(crc2);
         document.getElementById("Blub1").addEventListener("click", Blub1Click);
+        document.getElementById("Blub3").addEventListener("click", Blub3Click);
         //Himmel malen
         crc2.fillStyle = "#CECEF6";
         crc2.fillRect(0, 0, 800, 40);
@@ -133,7 +134,7 @@ var Wasserfall;
         //
         image = crc2.getImageData(0, 0, 800, 600);
         animate();
-        //  alert("Oh Nein, das Wasser wurde von einem großem Unternehmen verschmutzt.");
+        // alert("Oh Nein, jemand hat das Wasser mit giftigen Chemikalien verschmutzt.");
         // alert("Versuche so schnell wie möglich die Fische zu retten.");
     }
     /*------------------------- FUNKTIONEN ---------------------------------*/
@@ -141,6 +142,14 @@ var Wasserfall;
     function Blub1Click() {
         if (Blub1 == 0) {
             Blub1++;
+            //Blub1.display = "none";
+            alert("Yay lass das ZEug platzen");
+        }
+    }
+    function Blub3Click() {
+        if (Blub1 == 0) {
+            Blub1++;
+            //Blub1.display = "none";
             alert("Yay lass das ZEug platzen");
         }
     }

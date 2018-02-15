@@ -48,6 +48,7 @@ namespace Wasserfall {
         console.log(crc2);
         
         document.getElementById("Blub1").addEventListener("click", Blub1Click)
+        document.getElementById("Blub3").addEventListener("click",Blub3Click)
         
 
         //Himmel malen
@@ -92,7 +93,7 @@ namespace Wasserfall {
             drawmovingTree(x, y, "#0A2A12")
         }
         
-          //Wasserfall zeichnen//
+     //Wasserfall zeichnen//
         crc2.beginPath();
         crc2.moveTo(400, 200);
         crc2.lineTo(500, 200);
@@ -185,8 +186,8 @@ namespace Wasserfall {
         image = crc2.getImageData(0, 0, 800, 600);
 
         animate();
-      //  alert("Oh Nein, das Wasser wurde von einem großem Unternehmen verschmutzt.");
-       // alert("Versuche so schnell wie möglich die Fische zu retten.");
+        // alert("Oh Nein, jemand hat das Wasser mit giftigen Chemikalien verschmutzt.");
+        // alert("Versuche so schnell wie möglich die Fische zu retten.");
 
     }
 
@@ -196,11 +197,20 @@ namespace Wasserfall {
 
   
     function Blub1Click(): void {
-        if (Blub1 == 0) {
+        if (Blub1 == 0 ) {
             Blub1++;
+            //Blub1.display = "none";
             alert("Yay lass das ZEug platzen");
         }
 }
+    
+    function Blub3Click(): void{
+        if (Blub1 == 0 ) {
+            Blub1++;
+            //Blub1.display = "none";
+            alert("Yay lass das ZEug platzen");
+        }
+    }
 
 
     //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal    
