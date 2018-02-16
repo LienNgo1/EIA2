@@ -12,9 +12,6 @@ var Wasserfall;
     let Blub4 = 0;
     let Blub5 = 0;
     let Blub6 = 0;
-    let Blub7 = 0;
-    let Blub8 = 0;
-    let Blub9 = 0;
     let Baum1 = 0;
     let Baum2 = 0;
     let saveBG;
@@ -36,9 +33,6 @@ var Wasserfall;
         document.getElementById("Blub4").addEventListener("click", Blub4Click);
         document.getElementById("Blub5").addEventListener("click", Blub5Click);
         document.getElementById("Blub6").addEventListener("click", Blub6Click);
-        document.getElementById("Blub7").addEventListener("click", Blub7Click);
-        document.getElementById("Blub8").addEventListener("click", Blub8Click);
-        document.getElementById("Blub9").addEventListener("click", Blub9Click);
         document.getElementById("Baum1").addEventListener("click", LosungClick);
         document.getElementById("Baum2").addEventListener("click", LosungClick);
         //Hintergrund malen
@@ -146,24 +140,6 @@ var Wasserfall;
         if (Blub6 == 0) {
             Blub6++;
             alert("Die sind ja zäh");
-        }
-    }
-    function Blub7Click() {
-        if (Blub7 == 0) {
-            Blub7++;
-            alert("Yay lass das ZEug platzen");
-        }
-    }
-    function Blub8Click() {
-        if (Blub8 == 0) {
-            Blub8++;
-            alert("Warum platzen diese Dinger denn nicht");
-        }
-    }
-    function Blub9Click() {
-        if (Blub9 == 0) {
-            Blub9++;
-            alert("Yay lass das ZEug platzen");
         }
     }
     //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal    

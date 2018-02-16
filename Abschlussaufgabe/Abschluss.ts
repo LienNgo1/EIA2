@@ -13,9 +13,7 @@ namespace Wasserfall {
     let Blub4: number = 0;
     let Blub5: number = 0;
     let Blub6: number = 0;
-    let Blub7: number = 0;
-    let Blub8: number = 0;
-    let Blub9: number = 0;
+
     let Baum1: number = 0;
     let Baum2: number = 0;
     let saveBG: ImageData;
@@ -47,9 +45,6 @@ namespace Wasserfall {
         document.getElementById("Blub4").addEventListener("click", Blub4Click)
         document.getElementById("Blub5").addEventListener("click", Blub5Click)
         document.getElementById("Blub6").addEventListener("click", Blub6Click)
-        document.getElementById("Blub7").addEventListener("click", Blub7Click)
-        document.getElementById("Blub8").addEventListener("click", Blub8Click)
-        document.getElementById("Blub9").addEventListener("click", Blub9Click)
         
         document.getElementById("Baum1").addEventListener("click", LosungClick)
         document.getElementById("Baum2").addEventListener("click", LosungClick)
@@ -185,24 +180,7 @@ namespace Wasserfall {
             alert("Die sind ja zäh");
         }
     } 
-     function Blub7Click(): void {
-        if (Blub7 == 0 ) {
-            Blub7++;
-            alert("Yay lass das ZEug platzen");
-        }
-    }  
-    function Blub8Click(): void {
-        if (Blub8 == 0 ) {
-            Blub8++;
-            alert("Warum platzen diese Dinger denn nicht");
-        }
-    }  
-    function Blub9Click(): void {
-        if (Blub9 == 0 ) {
-            Blub9++;
-            alert("Yay lass das ZEug platzen");
-        }
-    }
+
 
 
 

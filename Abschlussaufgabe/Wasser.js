@@ -51,18 +51,6 @@ var Wasserfall;
             Wasserfall.crc2.beginPath();
             Wasserfall.crc2.arc(530, 400, 10, 0, 2 * Math.PI);
             Wasserfall.crc2.fill();
-            Wasserfall.crc2.fillStyle = "#2EFE2E";
-            Wasserfall.crc2.beginPath();
-            Wasserfall.crc2.arc(800, 500, 44, 0, 2 * Math.PI);
-            Wasserfall.crc2.fill();
-            Wasserfall.crc2.fillStyle = "#2EFE2E";
-            Wasserfall.crc2.beginPath();
-            Wasserfall.crc2.arc(500, 570, 40, 0, 2 * Math.PI);
-            Wasserfall.crc2.fill();
-            Wasserfall.crc2.fillStyle = "#2EFE2E";
-            Wasserfall.crc2.beginPath();
-            Wasserfall.crc2.arc(630, 500, 20, 0, 2 * Math.PI);
-            Wasserfall.crc2.fill();
         }
     }
     Wasserfall.Water = Water;

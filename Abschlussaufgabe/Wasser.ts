@@ -48,7 +48,7 @@ namespace Wasserfall {
         crc2.fillStyle = "#2EFE2E";
         crc2.beginPath();
         crc2.arc(300, 540, 35, 0, 2 * Math.PI);
-        crc2.fill();
+        crc2.fill(); 
         
         crc2.fillStyle = "#2EFE2E";
         crc2.beginPath();
@@ -58,27 +58,14 @@ namespace Wasserfall {
         crc2.fillStyle = "#2EFE2E";
         crc2.beginPath();
         crc2.arc(700, 590, 60, 0, 2 * Math.PI);
-        crc2.fill();
+        crc2.fill(); 
         
         crc2.fillStyle = "#2EFE2E";
         crc2.beginPath();
         crc2.arc(530, 400, 10, 0, 2 * Math.PI);
-        crc2.fill();
+        crc2.fill(); 
         
-        crc2.fillStyle = "#2EFE2E";
-        crc2.beginPath();
-        crc2.arc(800, 500, 44, 0, 2 * Math.PI);
-        crc2.fill();
-        
-        crc2.fillStyle = "#2EFE2E";
-        crc2.beginPath();
-        crc2.arc(500, 570, 40, 0, 2 * Math.PI);
-        crc2.fill();
-        
-        crc2.fillStyle = "#2EFE2E";
-        crc2.beginPath();
-        crc2.arc(630, 500, 20, 0, 2 * Math.PI);
-        crc2.fill();
+     
             
             
             
