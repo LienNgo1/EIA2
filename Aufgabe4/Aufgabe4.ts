@@ -6,6 +6,9 @@ Datum: 08.11.2017
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
 namespace skiski {
+    
+    
+    
 
     //Interface
     interface SkifahrerInfo { //
@@ -156,11 +159,7 @@ namespace skiski {
         }
 
 
-        //Mehrere konstante Bäume
-        for (let i: number = 0; i < 4; i++) {
-
-            drawconstantTree(600 + i * 60, 500, "#088A29");
-        }
+   
 
 
         //zufällig bewegende Bäume
@@ -192,28 +191,6 @@ namespace skiski {
 
 
     /*------------------------- FUNKTIONEN ---------------------------------*/
-
-    //Sonne zeichnen
-    function drawsun(_x: number, _y: number): void {
-        crc2.beginPath();
-        crc2.arc(_x, _y, 70, 0, 2 * Math.PI);
-        crc2.fillStyle = "#FFFF00";
-        crc2.fill();
-        crc2.stroke();
-    }
-
-    //Funktion mehrere konstante Bäume platzieren 
-    function drawconstantTree(_x: number, _y: number, _color: string): void {
-        crc2.beginPath();
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 80, _y + 200);
-        crc2.lineTo(_x - 80, _y + 200);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = _color;
-        crc2.fill();
-    }
-
 
     //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal    
     function drawmovingTree(_x: number, _y: number, _color: string): void {
@@ -291,7 +268,7 @@ namespace skiski {
             }
         }
 
-        //Sonne bewegen
+      /*  //Sonne bewegen
         for (let i: number = 0; i < sunX.length; i++) {
             if (sunY[i] > 600) { //
                 sunY[i] = 10;
@@ -302,9 +279,10 @@ namespace skiski {
             sunX[i] += 3; //immer 3 wird zu X dazugezählt
             drawsun(sunX[i], sunY[i]);
 
+        */
 
 
-        }
+     //   }
 
 
 

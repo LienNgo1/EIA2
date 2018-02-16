@@ -13,23 +13,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 } */
 
-#Baum1{
-	position: absolute;
-	top: 10vw;
-	left: 25vw;
-	width: 12vw;
-	height: 5vw;
-}
-
-
-#Baum2{
-	position: absolute;
-	top: 33vw;
-	left: 10vw;
-	width: 12vw;
-	height: 5vw;
-}
-
 
 #Blub1 {
 	position: absolute;

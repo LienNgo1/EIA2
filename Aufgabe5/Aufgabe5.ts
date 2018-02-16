@@ -27,7 +27,6 @@ namespace skiski {
         crc2 = canvas.getContext("2d");
         console.log(crc2);
 
-
         //Hintergrund
         crc2.fillStyle = "#CEF6F5";
         crc2.fillRect(0, 0, 800, 600);
@@ -120,6 +119,8 @@ namespace skiski {
         crc2.fillStyle = "#0101DF";
         crc2.fill();
         crc2.stroke();
+        
+        
 
         // -------------------------------------------SCHLEIFEN --------------------------------------------        
 

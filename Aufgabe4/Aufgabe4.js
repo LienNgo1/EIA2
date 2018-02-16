@@ -119,10 +119,6 @@ var skiski;
             arrayX[i] = 0 + Math.random() * 800; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
             arrayY[i] = 0 + Math.random() * 600;
         }
-        //Mehrere konstante Bäume
-        for (let i = 0; i < 4; i++) {
-            drawconstantTree(600 + i * 60, 500, "#088A29");
-        }
         //zufällig bewegende Bäume
         for (let i = 0; i < 4; i++) {
             let x = 100 + Math.random() * 600;
@@ -144,25 +140,6 @@ var skiski;
         animate();
     }
     /*------------------------- FUNKTIONEN ---------------------------------*/
-    //Sonne zeichnen
-    function drawsun(_x, _y) {
-        crc2.beginPath();
-        crc2.arc(_x, _y, 70, 0, 2 * Math.PI);
-        crc2.fillStyle = "#FFFF00";
-        crc2.fill();
-        crc2.stroke();
-    }
-    //Funktion mehrere konstante Bäume platzieren 
-    function drawconstantTree(_x, _y, _color) {
-        crc2.beginPath();
-        crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 80, _y + 200);
-        crc2.lineTo(_x - 80, _y + 200);
-        crc2.closePath();
-        crc2.stroke();
-        crc2.fillStyle = _color;
-        crc2.fill();
-    }
     //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal    
     function drawmovingTree(_x, _y, _color) {
         crc2.beginPath();
@@ -220,16 +197,19 @@ var skiski;
                 fahrer[i].y = 230;
             }
         }
-        //Sonne bewegen
-        for (let i = 0; i < sunX.length; i++) {
-            if (sunY[i] > 600) {
-                sunY[i] = 10;
-            }
-            //sunY[i] += Math.random();
-            sunY[i] += 1; // immer 1 wird zu Y dazugezählt
-            sunX[i] += 3; //immer 3 wird zu X dazugezählt
-            drawsun(sunX[i], sunY[i]);
-        }
+        /*  //Sonne bewegen
+          for (let i: number = 0; i < sunX.length; i++) {
+              if (sunY[i] > 600) { //
+                  sunY[i] = 10;
+  
+              }
+              //sunY[i] += Math.random();
+              sunY[i] += 1; // immer 1 wird zu Y dazugezählt
+              sunX[i] += 3; //immer 3 wird zu X dazugezählt
+              drawsun(sunX[i], sunY[i]);
+  
+          */
+        //   }
         window.setTimeout(animate, 20);
     }
 })(skiski || (skiski = {}));
