@@ -12,12 +12,12 @@ namespace Wasserfall {
 
         drawwaterandpoisen(x: number, y: number): void {
             
-            //Wasserfall zeichnen//
+        //Wasserfall zeichnen//
         crc2.beginPath();
         crc2.moveTo(400, 200);
         crc2.lineTo(500, 200);
-        crc2.lineTo(600, 600);
-        crc2.lineTo(300, 600)
+        crc2.lineTo(580, 600);
+        crc2.lineTo(340, 600)
         crc2.closePath();
         crc2.fillStyle = "#819FF7";
         crc2.fill();
@@ -34,7 +34,7 @@ namespace Wasserfall {
         crc2.fill();
         crc2.stroke();
         
-     //Chemikalien Zeichnen
+        //Chemikalien Zeichnen
         crc2.fillStyle = "#2EFE2E";
         crc2.beginPath();
         crc2.arc(100, 500, 40, 0, 2 * Math.PI);

@@ -19,6 +19,8 @@ var Wasserfall;
     window.addEventListener("load", Wasser);
     let arrayX = [];
     let arrayY = [];
+    let poisenX = [];
+    let poisenY = [];
     let image; //IMAGEDATA!! Nicht any
     //-----------------------------------------Funktion Canvas---------------------------------------------------
     function Wasser() {
@@ -42,6 +44,10 @@ var Wasserfall;
         for (let i = 0; i < 300; i++) {
             arrayX[i] = 400 + Math.random() * 100; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
             arrayY[i] = 200 + Math.random() * 400;
+        }
+        for (let i = 0; i < 300; i++) {
+            poisenX[i] = Math.random() * 800; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
+            poisenY[i] = 530 + Math.random() * 70;
         }
         //zufällig bewegende Bäume rechts
         for (let i = 0; i < 70; i++) {
@@ -85,6 +91,7 @@ var Wasserfall;
             alert("yaaaay du hast die Fische gerettet");
             alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
             arrayX = [];
+            poisenX = [];
         }
     }
     function drawwoodonwater() {
@@ -146,8 +153,8 @@ var Wasserfall;
     function drawmovingTree(_x, _y, _color) {
         Wasserfall.crc2.beginPath();
         Wasserfall.crc2.moveTo(_x, _y);
-        Wasserfall.crc2.lineTo(_x + 80, _y + 200);
-        Wasserfall.crc2.lineTo(_x - 80, _y + 200);
+        Wasserfall.crc2.lineTo(_x + 80, _y + 300);
+        Wasserfall.crc2.lineTo(_x - 80, _y + 300);
         Wasserfall.crc2.closePath();
         Wasserfall.crc2.fillStyle = _color;
         Wasserfall.crc2.fill();
@@ -158,12 +165,6 @@ var Wasserfall;
         Wasserfall.crc2.beginPath();
         Wasserfall.crc2.arc(_x, _y, 3, 0, 2 * Math.PI);
         Wasserfall.crc2.fill();
-    }
-    function waterstopp() {
-        for (let i = 0; i < 0; i++) {
-            arrayX[i] = 0; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
-            arrayY[i] = 0;
-        }
     }
     //---------------------------------- FUNKTION ANIMATE-----------------------------------------------    
     function animate() {
@@ -177,6 +178,13 @@ var Wasserfall;
             }
             arrayY[i] += Math.random(); // andere Bewegungsmuster zu finden
             drawpoisen(arrayX[i], arrayY[i]);
+        }
+        for (let i = 0; i < poisenX.length; i++) {
+            if (poisenY[i] > 600) {
+                poisenY[i] = 530;
+            }
+            poisenY[i] += Math.random(); // andere Bewegungsmuster zu finden
+            drawpoisen(poisenX[i], poisenY[i]);
         }
         window.setTimeout(animate, 20);
     }

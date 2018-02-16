@@ -18,16 +18,34 @@ var Wasserfall;
             //Mond malen
             Wasserfall.crc2.beginPath();
             Wasserfall.crc2.arc(73, 73, 60, 0, 2 * Math.PI);
-            Wasserfall.crc2.fillStyle = "#D8D8D8";
+            Wasserfall.crc2.fillStyle = "#A4A4A4";
             Wasserfall.crc2.fill();
             Wasserfall.crc2.stroke();
             Wasserfall.crc2.beginPath();
-            Wasserfall.crc2.arc(63, 33, 14, 0, 3 * Math.PI);
+            Wasserfall.crc2.arc(63, 33, 12, 0, 3 * Math.PI);
             Wasserfall.crc2.fillStyle = "#848484";
             Wasserfall.crc2.fill();
             Wasserfall.crc2.stroke();
-            Wasserfall.crc2.arc(93, 103, 10, 0, 2 * Math.PI);
+            Wasserfall.crc2.beginPath();
+            Wasserfall.crc2.arc(90, 103, 10, 0, 2 * Math.PI);
             Wasserfall.crc2.fillStyle = "#848484";
+            Wasserfall.crc2.fill();
+            Wasserfall.crc2.stroke();
+            Wasserfall.crc2.beginPath();
+            Wasserfall.crc2.arc(73, 103, 15, 0, 2 * Math.PI);
+            Wasserfall.crc2.fillStyle = "#848484";
+            Wasserfall.crc2.fill();
+            Wasserfall.crc2.stroke();
+            Wasserfall.crc2.beginPath();
+            Wasserfall.crc2.arc(43, 64, 22, 0, 2 * Math.PI);
+            Wasserfall.crc2.fillStyle = "#848484";
+            Wasserfall.crc2.fill();
+            Wasserfall.crc2.stroke();
+            //Berg zeichnen
+            Wasserfall.crc2.beginPath();
+            Wasserfall.crc2.moveTo(0, 300);
+            Wasserfall.crc2.lineTo(250, 150);
+            Wasserfall.crc2.fillStyle = "#A4A4A4";
             Wasserfall.crc2.fill();
             Wasserfall.crc2.stroke();
         }

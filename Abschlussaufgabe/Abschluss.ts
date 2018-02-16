@@ -25,6 +25,9 @@ namespace Wasserfall {
 
     let arrayX: number[] = []; 
     let arrayY: number[] = [];
+    
+    let poisenX: number[] = []; 
+    let poisenY: number[] = []; 
    
     let image: ImageData; //IMAGEDATA!! Nicht any
 
@@ -55,9 +58,14 @@ namespace Wasserfall {
 
        
         //Chemikalien fallen lassen
-        for (let i: number = 0; i < 300; i++) { //500 Chemikalien
+        for (let i: number = 0; i < 300; i++) { //300 Chemikalien
             arrayX[i] = 400 + Math.random() * 100; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
             arrayY[i] = 200 + Math.random() * 400;
+        }
+        
+        for (let i: number = 0; i < 300; i++) { //300 Chemikalien
+            poisenX[i] =  Math.random() * 800; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
+            poisenY[i] = 530 + Math.random() * 70;
         }
 
         //zufällig bewegende Bäume rechts
@@ -112,7 +120,8 @@ namespace Wasserfall {
             drawwoodonwater();
             alert("yaaaay du hast die Fische gerettet"); 
             alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
-            arrayX =[];          
+            arrayX =[];     
+            poisenX=[];     
     }
         }
     
@@ -131,8 +140,7 @@ namespace Wasserfall {
         crc2.fillStyle = "#61380B";
         crc2.fill();
         crc2.stroke();
-            
-           }
+      }
     
 
   
@@ -145,9 +153,7 @@ namespace Wasserfall {
             Blub1++;
             if (Blub1 == 5) {
                 alert("5 Mal haste gekickt");
-                }    
-                
-               
+                }       
         }
      }
     
@@ -188,8 +194,8 @@ namespace Wasserfall {
     function drawmovingTree(_x: number, _y: number, _color: string): void {
         crc2.beginPath();
         crc2.moveTo(_x, _y);
-        crc2.lineTo(_x + 80, _y + 200);
-        crc2.lineTo(_x - 80, _y + 200);
+        crc2.lineTo(_x + 80, _y + 300);
+        crc2.lineTo(_x - 80, _y + 300);
         crc2.closePath();
         crc2.fillStyle = _color;
         crc2.fill();
@@ -204,13 +210,7 @@ namespace Wasserfall {
         crc2.fill();
     }   
 
-     function waterstopp():void{
-        for (let i: number = 0; i < 0; i++) { //500 Chemikalien
-            arrayX[i] = 0; //0 Anfangspunkt - geht bis in den Bereich 800 (0+800)
-            arrayY[i] = 0;
-            
-            }
-        }
+     
 
 
     //---------------------------------- FUNKTION ANIMATE-----------------------------------------------    
@@ -228,6 +228,14 @@ namespace Wasserfall {
             }
             arrayY[i] += Math.random(); // andere Bewegungsmuster zu finden
             drawpoisen(arrayX[i], arrayY[i]);
+        }
+        
+        for (let i: number = 0; i < poisenX.length; i++) {
+            if (poisenY[i] > 600) {
+                poisenY[i] = 530;
+            }
+            poisenY[i] += Math.random(); // andere Bewegungsmuster zu finden
+            drawpoisen(poisenX[i], poisenY[i]);
         }
         
         
