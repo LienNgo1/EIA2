@@ -6,7 +6,7 @@ Datum: 08.02.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var Wasserfall;
 (function (Wasserfall) {
-    let Blub1;
+    let Blub1 = 0;
     let Blub2 = 0;
     let Blub3 = 0;
     let Blub4 = 0;
@@ -89,6 +89,8 @@ var Wasserfall;
             //crc2.putImageData(saveBG, 0, 0);
             drawwoodonwater();
             alert("yaaaay du hast die Fische gerettet");
+            alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
+            arrayX = [];
         }
     }
     function drawwoodonwater() {

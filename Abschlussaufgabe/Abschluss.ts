@@ -7,7 +7,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 namespace Wasserfall {
     
-    let Blub1: number;
+    let Blub1: number = 0;
     let Blub2: number = 0;
     let Blub3: number = 0;
     let Blub4: number = 0;
@@ -115,8 +115,10 @@ namespace Wasserfall {
             Baum1++;
             //crc2.putImageData(saveBG, 0, 0);
             drawwoodonwater();
-            alert("yaaaay du hast die Fische gerettet");           
-}
+            alert("yaaaay du hast die Fische gerettet"); 
+            alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
+            arrayX =[];          
+    }
         }
     
   
