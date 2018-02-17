@@ -112,7 +112,7 @@ namespace Wasserfall {
 
     /*------------------------- FUNKTIONEN ---------------------------------*/
     //------------------------------------------------------------------------
-    function LosungClick  (): void {
+   /* function LosungClick  (): void {
         if ( Baum2 == 0 && Baum1 == 0) { 
             Baum2++;
             Baum1++;
@@ -121,13 +121,34 @@ namespace Wasserfall {
             alert("yaaaay du hast die Fische gerettet"); 
             alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
             arrayX =[];     
-            poisenX=[];     
+            poisenX=[];       
     }
-        }
+        } */
     
-  
+    
+    function LosungClick (): void {
+        if (Baum1 == 0){
+            Baum1++;
+            alert("Jetzt hast du nun einen Baumstamm, klicke 5Mal auf den oberen Teil des Wasserfalls um einen Damm zu bauen");
+            }    
+        else{
+            Baum2++;
+            if (Baum2 == 5) {
+                alert("yay, geschafft");
+                drawwoodonwater();
+            alert("yaaaay du hast die Fische gerettet"); 
+            alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
+            arrayX =[];     
+            poisenX=[];
+                }
+            }
+    }
+    
     
 
+    
+   
+ 
      function drawwoodonwater(): void{  
         crc2.save();   
         crc2.beginPath();
@@ -143,6 +164,8 @@ namespace Wasserfall {
       }
     
 
+    
+
   
     function Blub1Click(): void {
         if (Blub1 == 0 ) {
@@ -156,6 +179,9 @@ namespace Wasserfall {
                 }       
         }
      }
+    
+    
+    
     
       function Blub2Click(): void {
         if (Blub2 == 0 ) {
@@ -186,6 +212,38 @@ namespace Wasserfall {
             alert("Die sind ja zäh");
         }
     } 
+    
+    
+    
+  /*  function LosungClick (): void {
+        if (Baum1 == 1 && Baum2 == 1) {
+            Baum1++;
+            Baum2++;
+            crc2.putImageData(saveBG, 0, 0);
+            drawwoodonwater();
+            alert("yaaaay du hast die Fische gerettet"); 
+            alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
+            arrayX =[];     
+            poisenX=[];    
+            animate(); 
+            
+           // saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
+           // generateConfetti();
+            animate();
+           // ToothOut++;
+            alert(" Beides wurde angeklickt");
+       
+
+        }
+        if (Baum1 == 1) {
+            Baum1++;
+            alert("Oj wooooo könnte das wohl hin");
+        }
+        if (Baum2 == 1) {
+            alert("Nur baum2")
+            Baum2++;
+        } 
+    } */
 
 
 
@@ -218,8 +276,7 @@ namespace Wasserfall {
         console.log("Timeout");
         crc2.clearRect(0, 0, 800, 600); // hier Hintergrund restaurieren
         crc2.putImageData(image, 0, 0);
-
-
+        
 
         //Chemikalien fallen lassen     
         for (let i: number = 0; i < arrayX.length; i++) {

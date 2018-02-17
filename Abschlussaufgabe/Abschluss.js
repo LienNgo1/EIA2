@@ -82,16 +82,33 @@ var Wasserfall;
     }
     /*------------------------- FUNKTIONEN ---------------------------------*/
     //------------------------------------------------------------------------
+    /* function LosungClick  (): void {
+         if ( Baum2 == 0 && Baum1 == 0) {
+             Baum2++;
+             Baum1++;
+             //crc2.putImageData(saveBG, 0, 0);
+             drawwoodonwater();
+             alert("yaaaay du hast die Fische gerettet");
+             alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
+             arrayX =[];
+             poisenX=[];
+     }
+         } */
     function LosungClick() {
-        if (Baum2 == 0 && Baum1 == 0) {
-            Baum2++;
+        if (Baum1 == 0) {
             Baum1++;
-            //crc2.putImageData(saveBG, 0, 0);
-            drawwoodonwater();
-            alert("yaaaay du hast die Fische gerettet");
-            alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
-            arrayX = [];
-            poisenX = [];
+            alert("Jetzt hast du nun einen Baumstamm, klicke 5Mal auf den oberen Teil des Wasserfalls um einen Damm zu bauen");
+        }
+        else {
+            Baum2++;
+            if (Baum2 == 5) {
+                alert("yay, geschafft");
+                drawwoodonwater();
+                alert("yaaaay du hast die Fische gerettet");
+                alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
+                arrayX = [];
+                poisenX = [];
+            }
         }
     }
     function drawwoodonwater() {
@@ -149,6 +166,35 @@ var Wasserfall;
             alert("Die sind ja zäh");
         }
     }
+    /*  function LosungClick (): void {
+          if (Baum1 == 1 && Baum2 == 1) {
+              Baum1++;
+              Baum2++;
+              crc2.putImageData(saveBG, 0, 0);
+              drawwoodonwater();
+              alert("yaaaay du hast die Fische gerettet");
+              alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
+              arrayX =[];
+              poisenX=[];
+              animate();
+              
+             // saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
+             // generateConfetti();
+              animate();
+             // ToothOut++;
+              alert(" Beides wurde angeklickt");
+         
+  
+          }
+          if (Baum1 == 1) {
+              Baum1++;
+              alert("Oj wooooo könnte das wohl hin");
+          }
+          if (Baum2 == 1) {
+              alert("Nur baum2")
+              Baum2++;
+          }
+      } */
     //Funktion Bäume zufällig platzieren (zwischen 100 u 500 horizontal und 400 u 600 vertikal    
     function drawmovingTree(_x, _y, _color) {
         Wasserfall.crc2.beginPath();
