@@ -7,14 +7,14 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 
 namespace Wasserfall {
-    export class Water {
+    export class Water extends MovingObjects{
         x: number;
         y: number;
 
-       constructor(_x: number, _y: number) {
+    /*   constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
-        } 
+        } */
 
         drawwaterandpoisen(x: number, y: number): void {
             

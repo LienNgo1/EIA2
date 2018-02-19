@@ -6,11 +6,11 @@ Datum: 08.02.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var Wasserfall;
 (function (Wasserfall) {
-    class Water {
-        constructor(_x, _y) {
-            this.x = _x;
-            this.y = _y;
-        }
+    class Water extends Wasserfall.MovingObjects {
+        /*   constructor(_x: number, _y: number) {
+                this.x = _x;
+                this.y = _y;
+            } */
         drawwaterandpoisen(x, y) {
             //Wasserfall zeichnen//
             Wasserfall.crc2.beginPath();
