@@ -1,3 +1,9 @@
+/*Aufgabe: Abschlussaufgabe
+Name: Ngo, Thi Lien
+Matrikel: 256778
+Datum: 08.02.2018
+
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var Wasserfall;
 (function (Wasserfall) {
     class Background {
@@ -43,8 +49,20 @@ var Wasserfall;
             Wasserfall.crc2.stroke();
             //Berg zeichnen
             Wasserfall.crc2.beginPath();
-            Wasserfall.crc2.moveTo(0, 300);
-            Wasserfall.crc2.lineTo(250, 150);
+            Wasserfall.crc2.moveTo(0, 500);
+            Wasserfall.crc2.lineTo(250, 100);
+            Wasserfall.crc2.lineTo(550, 300);
+            // crc2.fillRect(0,200,800,600);
+            Wasserfall.crc2.fillStyle = "#A4A4A4";
+            Wasserfall.crc2.fill();
+            Wasserfall.crc2.stroke();
+            Wasserfall.crc2.beginPath();
+            Wasserfall.crc2.moveTo(500, 200);
+            Wasserfall.crc2.lineTo(650, 100);
+            Wasserfall.crc2.lineTo(800, 300);
+            Wasserfall.crc2.lineTo(800, 600);
+            Wasserfall.crc2.lineTo(200, 600);
+            Wasserfall.crc2.closePath();
             Wasserfall.crc2.fillStyle = "#A4A4A4";
             Wasserfall.crc2.fill();
             Wasserfall.crc2.stroke();

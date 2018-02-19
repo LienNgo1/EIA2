@@ -1,14 +1,20 @@
+/*Aufgabe: Abschlussaufgabe
+Name: Ngo, Thi Lien
+Matrikel: 256778
+Datum: 08.02.2018
+
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
+
+
 namespace Wasserfall {
     export class Water {
         x: number;
         y: number;
 
-        constructor(_x: number, _y: number) {
+       constructor(_x: number, _y: number) {
             this.x = _x;
             this.y = _y;
-        }
-
-
+        } 
 
         drawwaterandpoisen(x: number, y: number): void {
             
@@ -64,12 +70,9 @@ namespace Wasserfall {
         crc2.beginPath();
         crc2.arc(530, 400, 10, 0, 2 * Math.PI);
         crc2.fill(); 
-        
-     
             
-            
-            
-            
+  
+    
             }
         }
     }

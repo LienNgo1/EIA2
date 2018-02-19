@@ -23,10 +23,10 @@ namespace Wasserfall {
     window.addEventListener("load", Wasser);
     export let crc2: CanvasRenderingContext2D;
 
-    let arrayX: number[] = []; 
+    let arrayX: number[] = []; //Array Gift Wasserfall
     let arrayY: number[] = [];
     
-    let poisenX: number[] = []; 
+    let poisenX: number[] = []; //Array Gift See
     let poisenY: number[] = []; 
    
     let image: ImageData; //IMAGEDATA!! Nicht any
@@ -49,8 +49,9 @@ namespace Wasserfall {
         document.getElementById("Blub5").addEventListener("click", Blub5Click)
         document.getElementById("Blub6").addEventListener("click", Blub6Click)
         
-        document.getElementById("Baum1").addEventListener("click", LosungClick)
+        document.getElementById("Baum1").addEventListener("click", WoodClick)
         document.getElementById("Baum2").addEventListener("click", LosungClick)
+        
         
         //Hintergrund malen
         let b: Background = new Background(0, 0);
@@ -85,7 +86,7 @@ namespace Wasserfall {
             drawmovingTree(x, y, "#0A2A12")
         }
         
-        //Holzstämme malen
+       //Holzstämme malen
         crc2.beginPath();
         crc2.moveTo(150, 470);
         //crc2.bezierCurveTo(38,45,89,4,65,56);
@@ -96,7 +97,19 @@ namespace Wasserfall {
         crc2.fillStyle = "#61380B";
         crc2.fill();
         crc2.stroke();
-
+        
+        crc2.beginPath();
+        crc2.moveTo(160,490)
+        crc2.lineTo(200,490);
+        crc2.stroke();
+        
+        crc2.beginPath();
+        crc2.arc(220, 490, 10, 0, 2 * Math.PI);
+        crc2.fillStyle = "#3B170B";
+        crc2.fill();
+        crc2.stroke(); 
+       
+        
         //Wasser und Gift malen
         let w: Water = new Water (0, 0);
         w.drawwaterandpoisen(100, 100);
@@ -104,51 +117,44 @@ namespace Wasserfall {
         image = crc2.getImageData(0, 0, 800, 600);
 
         animate();
-       //  alert("Oh Nein, jemand hat das Wasser mit giftigen Chemikalien verschmutzt.");
-       //  alert("Versuche so schnell wie möglich die Fische zu retten.");
+        alert("Oh Nein, jemand hat das Wasser mit giftigen Chemikalien verschmutzt.");
+        alert("Versuche die Fische zu retten bevor sie zu lange darin schwimmen und vergiftet werden!");
 
     }
 
 
     /*------------------------- FUNKTIONEN ---------------------------------*/
     //------------------------------------------------------------------------
-   /* function LosungClick  (): void {
-        if ( Baum2 == 0 && Baum1 == 0) { 
-            Baum2++;
-            Baum1++;
-            //crc2.putImageData(saveBG, 0, 0);
-            drawwoodonwater();
-            alert("yaaaay du hast die Fische gerettet"); 
-            alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
-            arrayX =[];     
-            poisenX=[];       
-    }
-        } */
-    
-    
+   
     function LosungClick (): void {
-        if (Baum1 == 0){
-            Baum1++;
-            alert("Jetzt hast du nun einen Baumstamm, klicke 5Mal auf den oberen Teil des Wasserfalls um einen Damm zu bauen");
+        var x: HTMLMediaElement = <HTMLMediaElement>document.getElementById("Applaus");
+        if (Baum2 == 0){
+            Baum2++;
+            //alert("Yay, Jetzt hast du nun einen Baumstamm, klicke nun ganz oft am oberen Teil des Wasserfalls um einen Damm zu bauen! ");
             }    
         else{
             Baum2++;
             if (Baum2 == 5) {
-                alert("yay, geschafft");
+                alert("Wohoooooooooo es hat funktioniert");
                 drawwoodonwater();
-            alert("yaaaay du hast die Fische gerettet"); 
+            alert("Die Fische sind gerettet!!"); 
             alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
             arrayX =[];     
             poisenX=[];
+                x.play();
                 }
             }
     }
     
+   function WoodClick():void{
+       if (Baum1 == 0){
+           Baum1++;
+           alert("Yay, Jetzt hast du nun einen Baumstamm, klicke nun ganz oft am oberen Teil des Wasserfalls um einen Damm zu bauen! ");
+           }
+       }
     
-
     
-   
- 
+    //Funktion Holzteil malen, wenn angeklickt
      function drawwoodonwater(): void{  
         crc2.save();   
         crc2.beginPath();
@@ -161,90 +167,62 @@ namespace Wasserfall {
         crc2.fillStyle = "#61380B";
         crc2.fill();
         crc2.stroke();
+         
       }
     
 
-    
+     
 
+    //Funktionen für Blasen
   
     function Blub1Click(): void {
+        var y: HTMLMediaElement = <HTMLMediaElement>document.getElementById("Boing");
         if (Blub1 == 0 ) {
             Blub1++;
-            alert("Yay lass das ZEug platzen");
-         }   
-         else {
-            Blub1++;
-            if (Blub1 == 5) {
-                alert("5 Mal haste gekickt");
-                }       
+            y.play();
+            alert("Yay lass das Zeug platzen");   
         }
      }
     
-    
-    
-    
       function Blub2Click(): void {
+          var y: HTMLMediaElement = <HTMLMediaElement>document.getElementById("Boing");
         if (Blub2 == 0 ) {
+            y.play();
             Blub2++;
             alert("Los los los");
         }
     }
       function Blub3Click(): void {
+        var y: HTMLMediaElement = <HTMLMediaElement>document.getElementById("Boing");
         if (Blub3 == 0 ) {
+            y.play();
             Blub3++;
             alert("Warum gehen die Dinger denn nicht??");
         }
     }
       function Blub4Click(): void {
+          var y: HTMLMediaElement = <HTMLMediaElement>document.getElementById("Boing");
         if (Blub4 == 0 ) {
+            y.play();
             Blub4++;
-            alert("Irgendetwas ist faul");
+            alert("Hmmm...Irgendetwas ist faul!!");
         }
     }
       function Blub5Click(): void {
+          var y: HTMLMediaElement = <HTMLMediaElement>document.getElementById("Boing");
         if (Blub5 == 0 ) {
+            y.play();
             Blub5++;
-            alert("Es muss wohl noch einen anderen Weg geben");
+            alert("Es muss wohl noch einen anderen Weg geben!");
         }
     }  function Blub6Click(): void {
+        var y: HTMLMediaElement = <HTMLMediaElement>document.getElementById("Boing");
         if (Blub6 == 0 ) {
+            y.play();
             Blub6++;
             alert("Die sind ja zäh");
         }
     } 
-    
-    
-    
-  /*  function LosungClick (): void {
-        if (Baum1 == 1 && Baum2 == 1) {
-            Baum1++;
-            Baum2++;
-            crc2.putImageData(saveBG, 0, 0);
-            drawwoodonwater();
-            alert("yaaaay du hast die Fische gerettet"); 
-            alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
-            arrayX =[];     
-            poisenX=[];    
-            animate(); 
-            
-           // saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
-           // generateConfetti();
-            animate();
-           // ToothOut++;
-            alert(" Beides wurde angeklickt");
-       
-
-        }
-        if (Baum1 == 1) {
-            Baum1++;
-            alert("Oj wooooo könnte das wohl hin");
-        }
-        if (Baum2 == 1) {
-            alert("Nur baum2")
-            Baum2++;
-        } 
-    } */
-
 
 
 
@@ -260,7 +238,7 @@ namespace Wasserfall {
     } 
     
 
-    //Chemikalien zeichnen
+    //bewegende Chemikalien zeichnen
     function drawpoisen(_x: number, _y: number): void {
         crc2.fillStyle = "#2EFE2E";
         crc2.beginPath();
@@ -278,20 +256,20 @@ namespace Wasserfall {
         crc2.putImageData(image, 0, 0);
         
 
-        //Chemikalien fallen lassen     
+        //Chemikalien bewegen lassen    
         for (let i: number = 0; i < arrayX.length; i++) {
             if (arrayY[i] > 600) {
                 arrayY[i] = 200;
             }
-            arrayY[i] += Math.random(); // andere Bewegungsmuster zu finden
+            arrayY[i] += Math.random(); 
             drawpoisen(arrayX[i], arrayY[i]);
         }
         
         for (let i: number = 0; i < poisenX.length; i++) {
-            if (poisenY[i] > 600) {
+            if (poisenY[i] > 600) { //bei 600 soll es wieder bei 530 anfangen
                 poisenY[i] = 530;
             }
-            poisenY[i] += Math.random(); // andere Bewegungsmuster zu finden
+            poisenY[i] += Math.random(); 
             drawpoisen(poisenX[i], poisenY[i]);
         }
         

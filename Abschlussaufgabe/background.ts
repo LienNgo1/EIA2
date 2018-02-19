@@ -1,3 +1,10 @@
+/*Aufgabe: Abschlussaufgabe
+Name: Ngo, Thi Lien
+Matrikel: 256778
+Datum: 08.02.2018
+
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
+
 namespace Wasserfall {
     export class Background {
         x: number;
@@ -57,13 +64,30 @@ namespace Wasserfall {
             //Berg zeichnen
                 
                 crc2.beginPath();
-                crc2.moveTo(0,300);
-                crc2.lineTo(250,150);
-            
+                crc2.moveTo(0,500);
+                crc2.lineTo(250,100);
+                crc2.lineTo(550,300);
+               // crc2.fillRect(0,200,800,600);
                 crc2.fillStyle="#A4A4A4";
                 crc2.fill();
                 crc2.stroke();
             
+                crc2.beginPath();
+                crc2.moveTo(500,200);
+                crc2.lineTo(650,100);
+                crc2.lineTo(800,300);
+                crc2.lineTo(800,600);
+                crc2.lineTo(200,600);
+                crc2.closePath();
+             
+                crc2.fillStyle="#A4A4A4";
+                crc2.fill();
+                crc2.stroke();
+            
+            
+            
+            
+                
 
         }
 
