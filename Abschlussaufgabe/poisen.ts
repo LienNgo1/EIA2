@@ -6,7 +6,7 @@ Datum: 08.02.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
 namespace Wasserfall {
-    export class poisen extends MovingObjects{ //Subklasse (snow) ist automatisch auch eine Instanz der Superklasse (Moving objects)
+    export class poisen extends MovingObjects{ //Subklasse ist automatisch auch eine Instanz der Superklasse (Moving objects)
                                              //extends = Vererbung
     
         constructor (_x: number, _y: number) {  //constructor greift auf Superklasse,da "super"
@@ -15,7 +15,7 @@ namespace Wasserfall {
         
         move(): void { //
 
-            if (this.y > 600) { //wenn Schneeflocken aus dem Bild fallen fangen diese wieder oben an
+            if (this.y > 600) {
                 this.y = 0;
             }
 
