@@ -7,6 +7,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 namespace Wasserfall {
     
+    
     let Blub1: number = 0;
     let Blub2: number = 0;
     let Blub3: number = 0;
@@ -117,7 +118,7 @@ namespace Wasserfall {
         image = crc2.getImageData(0, 0, 800, 600);
 
         animate();
-        alert("Oh Nein, jemand hat das Wasser mit giftigen Chemikalien verschmutzt.");
+        alert("Oh Nein, jemand hat das Wasser mit radioaktiven Teilen verschmutzt.");
         alert("Versuche diese zu stoppen bevor noch mehr verschmutzt wird!");
 
     }
@@ -137,7 +138,7 @@ namespace Wasserfall {
             if (Baum2 == 5) {
                 alert("Wohoooooooooo es hat funktioniert");
                 drawwoodonwater();
-            alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
+            alert("jetzt fließen keine giftgrünen Teile mehr rum, super!");
             arrayX =[];     
             poisenX=[];
                 x.play();
