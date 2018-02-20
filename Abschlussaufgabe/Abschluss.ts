@@ -242,7 +242,7 @@ namespace Wasserfall {
     function drawpoisen(_x: number, _y: number): void {
         crc2.fillStyle = "#2EFE2E";
         crc2.beginPath();
-        crc2.arc(_x, _y, 3, 0, 2 * Math.PI);
+        crc2.arc(_x, _y, 4, 0, 2 * Math.PI);
         crc2.fill();
     }   
 

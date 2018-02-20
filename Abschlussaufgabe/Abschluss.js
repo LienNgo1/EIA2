@@ -191,7 +191,7 @@ var Wasserfall;
     function drawpoisen(_x, _y) {
         Wasserfall.crc2.fillStyle = "#2EFE2E";
         Wasserfall.crc2.beginPath();
-        Wasserfall.crc2.arc(_x, _y, 3, 0, 2 * Math.PI);
+        Wasserfall.crc2.arc(_x, _y, 4, 0, 2 * Math.PI);
         Wasserfall.crc2.fill();
     }
     //---------------------------------- FUNKTION ANIMATE-----------------------------------------------    
