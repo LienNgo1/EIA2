@@ -12,7 +12,7 @@ namespace Wasserfall {
                 this.y = 0;
             }
 
-            this.y += Math.random(); //y wird erweitert um random
+          this.y += Math.random(); //y wird erweitert um random
 
             this.draw(); //greift auf das Object wo ich grade bin 
         }

@@ -87,7 +87,7 @@ var Wasserfall;
         image = Wasserfall.crc2.getImageData(0, 0, 800, 600);
         animate();
         alert("Oh Nein, jemand hat das Wasser mit giftigen Chemikalien verschmutzt.");
-        alert("Versuche die Fische zu retten bevor sie zu lange darin schwimmen und vergiftet werden!");
+        alert("Versuche diese zu stoppen bevor noch mehr verschmutzt wird!");
     }
     /*------------------------- FUNKTIONEN ---------------------------------*/
     //------------------------------------------------------------------------
@@ -101,7 +101,6 @@ var Wasserfall;
             if (Baum2 == 5) {
                 alert("Wohoooooooooo es hat funktioniert");
                 drawwoodonwater();
-                alert("Die Fische sind gerettet!!");
                 alert("jetzt fließen keine giftgrünen Chemikalien mehr rum, super!");
                 arrayX = [];
                 poisenX = [];
