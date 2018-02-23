@@ -73,7 +73,9 @@ namespace Wasserfall {
         //zufällig bewegende Bäume rechts
         for (let i: number = 0; i < 70; i++) {
             let x: number = 500 + Math.random() * 300; // platziert 500 +300 = 800 zwischen 500 und 800
-            let y: number = 150 + Math.random() * 400; //  
+            let y: number = 150 + Math.random() * 400; //
+           
+           
 
             drawmovingTree(x, y, "#0A2A12")
         }
